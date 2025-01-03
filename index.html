@@ -5,6 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anthony Huang's Resume</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        header, section, footer {
+            width: 80%;
+            max-width: 1000px;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            margin-top: 10px;
+        }
+
+        .project-gif {
+            max-width: 150px;
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -54,12 +110,44 @@
     <section id="projects">
         <h2 class="animate__animated animate__fadeIn">🛠️ Projects</h2>
         <ul>
-            <li class="animate__animated animate__fadeIn animate__delay-1s"><a href="https://github.com/anthonyhuang19/TriAttNet">TriAttNet: Triple Attention Mechanism for Image Super-Resolution</a></li>
-            <li class="animate__animated animate__fadeIn animate__delay-1s"><a href="https://github.com/anthonyhuang19/ImageMosaic">ImageMosaic: Image Mosaicking and Homography Estimation</a></li>
-            <li class="animate__animated animate__fadeIn animate__delay-2s"><a href="https://github.com/anthonyhuang19/EdgeSeg-Edge-Detection-and-Image-Segmentation">EdgeSeg: Edge Detection & Image Segmentation</a></li>
-            <li class="animate__animated animate__fadeIn animate__delay-2s"><a href="https://github.com/anthonyhuang19/HybridFilter">HybridFilter: Hybrid Image Generation and Advanced Image Filtering Techniques</a></li>
-            <li class="animate__animated animate__fadeIn animate__delay-3s"><a href="https://github.com/anthonyhuang19/RetailDB">RetailDB: SQL Database for Scalable E-Commerce Applications</a></li>
-            <li class="animate__animated animate__fadeIn animate__delay-3s"><a href="https://github.com/anthonyhuang19/TDGame-War-of-the-Towers">TDGame-War-of-the-Towers: Tower Defense Game Development</a></li>
-            <li class="animate__animated animate__fadeIn animate__delay-4s"><a href="https://github.com/anthonyhuang19/GeoVis-Advanced-Geometric-Visualization-and-Drawing-Tool">GeoVis: Advanced Tool for Geometric Visualization and Interactive Exploration</a></li>
-            <li class="animate__animated animate__fadeIn animate__delay-4s"><a href="https://github.com/anthonyhuang19/DTW-SVM-X">DTW-SVM-X: SVM + Dynamic Time Warping for Time-Series Classification</a></li>
-            <li class="animate__animated 
+            <li class="animate__animated animate__fadeIn animate__delay-1s">
+                <a href="https://github.com/anthonyhuang19/TriAttNet">TriAttNet: Triple Attention Mechanism for Image Super-Resolution</a>
+                <img src="https://example.com/triattnet.gif" alt="TriAttNet GIF" class="project-gif"/>
+            </li>
+            <li class="animate__animated animate__fadeIn animate__delay-1s">
+                <a href="https://github.com/anthonyhuang19/ImageMosaic">ImageMosaic: Image Mosaicking and Homography Estimation</a>
+                <img src="https://example.com/imagemosaic.gif" alt="ImageMosaic GIF" class="project-gif"/>
+            </li>
+            <li class="animate__animated animate__fadeIn animate__delay-2s">
+                <a href="https://github.com/anthonyhuang19/EdgeSeg-Edge-Detection-and-Image-Segmentation">EdgeSeg: Edge Detection & Image Segmentation</a>
+                <img src="https://example.com/edgeseg.gif" alt="EdgeSeg GIF" class="project-gif"/>
+            </li>
+            <li class="animate__animated animate__fadeIn animate__delay-2s">
+                <a href="https://github.com/anthonyhuang19/HybridFilter">HybridFilter: Hybrid Image Generation and Advanced Image Filtering Techniques</a>
+                <img src="https://example.com/hybridfilter.gif" alt="HybridFilter GIF" class="project-gif"/>
+            </li>
+            <li class="animate__animated animate__fadeIn animate__delay-3s">
+                <a href="https://github.com/anthonyhuang19/RetailDB">RetailDB: SQL Database for Scalable E-Commerce Applications</a>
+                <img src="https://example.com/retaildb.gif" alt="RetailDB GIF" class="project-gif"/>
+            </li>
+            <li class="animate__animated animate__fadeIn animate__delay-3s">
+                <a href="https://github.com/anthonyhuang19/TDGame-War-of-the-Towers">TDGame-War-of-the-Towers: Tower Defense Game Development</a>
+                <img src="https://example.com/tdgame.gif" alt="TDGame GIF" class="project-gif"/>
+            </li>
+            <li class="animate__animated animate__fadeIn animate__delay-4s">
+                <a href="https://github.com/anthonyhuang19/GeoVis-Advanced-Geometric-Visualization-and-Drawing-Tool">GeoVis: Advanced Tool for Geometric Visualization and Interactive Exploration</a>
+                <img src="https://example.com/geovis.gif" alt="GeoVis GIF" class="project-gif"/>
+            </li>
+            <li class="animate__animated animate__fadeIn animate__delay-4s">
+                <a href="https://github.com/anthonyhuang19/DTW-SVM-X">DTW-SVM-X: SVM + Dynamic Time Warping for Time-Series Classification</a>
+                <img src="https://example.com/dtwsvmx.gif" alt="DTW-SVM-X GIF" class="project-gif"/>
+            </li>
+        </ul>
+    </section>
+
+    <footer>
+        <h2 class="animate__animated animate__fadeIn">📬 Contact</h2>
+        <p>If you'd like to get in touch, feel free to email me at <a href="mailto:huangjunxiang19@gmail.com">huangjunxiang19@gmail.com</a> or connect with me via <a href="https://linkedin.com/in/anthonyhuang1909/">LinkedIn</a>.</p>
+    </footer>
+</body>
+</html>
