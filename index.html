@@ -16,12 +16,13 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            text-align: center;
+            text-align: left;
             padding: 20px;
         }
 
         header {
             margin-bottom: 20px;
+            text-align: center;
         }
 
         h1 {
@@ -31,17 +32,22 @@
 
         h2, h3 {
             font-size: 1.5em;
+            margin: 10px 0;
         }
 
         section {
             width: 100%;
             max-width: 1200px;
             margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align content to the left */
         }
 
         section ul {
             list-style-type: none;
-            padding-left: 0;
+            padding-left: 20px;
+            margin-left: 0;
         }
 
         section ul li {
@@ -52,7 +58,8 @@
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            margin: 10px 0;
+            margin: 20px 0;
+            text-align: left;
         }
 
         .project img {
@@ -193,8 +200,8 @@
     <p>pandas, NumPy, Matplotlib, Jupyter, SQLAlchemy, Postman, AWS, Google Cloud</p>
 </section>
 
-<footer>
-    <h2 class="animate__animated animate__fadeIn">Contact Me 📧</h2>
+<footer class="animate__animated animate__fadeIn animate__delay-5s">
+    <h2>Contact Me 📧</h2>
     <p>Email: <a href="mailto:huangjunxiang19@gmail.com">huangjunxiang19@gmail.com</a></p>
 </footer>
 
