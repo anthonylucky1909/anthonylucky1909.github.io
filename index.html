@@ -8,24 +8,22 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            text-align: left;
-            overflow: auto;
-            padding: 20px;
+            padding: 40px;
         }
 
         header {
-            margin-bottom: 20px;
-            text-align: center;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            text-align: left;
+            margin-bottom: 30px;
         }
 
         header img {
@@ -35,41 +33,53 @@
             margin-right: 20px;
         }
 
-        h1 {
-            font-size: 3em;
+        header h1 {
+            font-size: 2.5em;
+            color: #333;
             margin: 0;
         }
 
-        h2, h3 {
-            font-size: 1.5em;
-            margin: 10px 0;
+        header p {
+            font-size: 1.1em;
+            color: #555;
         }
 
         section {
             width: 100%;
             max-width: 1200px;
-            margin: 20px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            color: #0078D4;
+        }
+
+        section h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
         }
 
         section ul {
             list-style-type: none;
-            padding-left: 20px;
+            padding-left: 0;
             margin-left: 0;
         }
 
         section ul li {
             margin: 10px 0;
+            padding-left: 20px;
             position: relative;
         }
 
         section ul li::before {
-            content: "•"; /* Custom bullet point */
+            content: "•";
             position: absolute;
-            left: -20px;
-            color: #0078D4; /* Custom bullet color */
+            left: 0;
+            color: #0078D4;
         }
 
         .project {
@@ -77,69 +87,42 @@
             align-items: flex-start;
             justify-content: flex-start;
             margin: 20px 0;
-            text-align: left;
-            background-color: #fff;
-            border-radius: 10px;
+            padding: 10px;
+            background-color: #ffffff;
+            border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 15px;
-            transition: transform 0.3s ease;
         }
 
         .project img {
-            width: 120px; /* Adjust size for better fit */
-            height: auto;
+            width: 120px;
+            height: 80px;
             margin-right: 20px;
-            border-radius: 8px; /* Rounded corners */
+            border-radius: 8px;
         }
 
-        .project:hover {
-            transform: scale(1.05);
+        .project h4 {
+            font-size: 1.2em;
+            color: #0078D4;
+            margin: 0;
         }
 
-        .animate__animated {
-            animation-duration: 1s;
+        .project ul {
+            margin-top: 10px;
         }
 
-        .animate__delay-1s {
-            animation-delay: 1s;
-        }
-
-        .animate__delay-2s {
-            animation-delay: 2s;
-        }
-
-        .animate__delay-3s {
-            animation-delay: 3s;
-        }
-
-        footer {
+        .footer {
             width: 100%;
-            text-align: left;
-            padding: 10px 20px;
-            background-color: #f4f4f4;
-            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #888;
+            margin-top: 40px;
+            padding: 20px 0;
         }
 
-        /* New CSS for logos */
         .university-logo {
-            width: 40px; /* Adjust size */
+            width: 40px;
             margin-right: 10px;
             vertical-align: middle;
-        }
-
-        .section-title {
-            font-size: 2em;
-            margin-bottom: 15px;
-            color: #333;
-            text-transform: uppercase;
-            border-bottom: 3px solid #0078D4;
-            padding-bottom: 10px;
-            width: 100%;
-        }
-
-        .section-content {
-            margin-left: 20px;
-            margin-right: 20px;
         }
 
     </style>
@@ -147,105 +130,106 @@
 <body>
 
 <header>
-    <!-- Profile Image -->
     <img src="https://media.licdn.com/dms/image/v2/D5603AQEdb-aHNm41fA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1723824062184?e=1741219200&v=beta&t=0wVuZeEUVigOmkVf3_W0jk03C7q3fg7piQBOxl7kQ6A" alt="Anthony Huang's Profile Photo">
-    
-    <!-- Name and Contact Info -->
     <div>
-        <h1 class="animate__animated animate__fadeIn">Anthony Huang 👨‍💻</h1>
-        <p><a href="mailto:huangjunxiang19@gmail.com">huangjunxiang19@gmail.com</a> | 
-        <a href="https://linkedin.com/in/anthonyhuang1909/">linkedin.com/in/anthonyhuang1909/</a> | 
-        <a href="https://github.com/anthonyhuang19">github.com/anthonyhuang19</a></p>
+        <h1>Anthony Huang 👨‍💻</h1>
+        <p>
+            <a href="mailto:huangjunxiang19@gmail.com">huangjunxiang19@gmail.com</a> | 
+            <a href="https://linkedin.com/in/anthonyhuang1909/">linkedin.com/in/anthonyhuang1909/</a> | 
+            <a href="https://github.com/anthonyhuang19">github.com/anthonyhuang19</a>
+        </p>
     </div>
 </header>
 
+<!-- Education Section -->
 <section id="education">
-    <div class="section-title animate__animated animate__fadeIn">🎓 Education</div>
-    <div class="section-content">
-        <h3 class="animate__animated animate__fadeIn">
-            <img src="https://upload.wikimedia.org/wikipedia/en/1/16/Zhejiang_University_Logo.svg" alt="Zhejiang University Logo" class="university-logo">
-            Zhejiang University 🏫
-        </h3>
-        <p><strong>Master's Degree in Computer Science and Technology</strong><br>Sep. 2024 – Jul. 2027</p>
-        <ul>
-            <li>Full-Time Chinese Government Scholarship </li>
-            <li>Research Focus: Investigating Generative Adversarial Networks (GANs) for large-scale language model backbones in image or video generation under Professor Zou 🎥</li>
-        </ul>
-        
-        <h3 class="animate__animated animate__fadeIn">
-            <img src="https://upload.wikimedia.org/wikipedia/en/6/6a/Nanjing_University_Logo.svg" alt="Nanjing University Logo" class="university-logo">
-            Nanjing University 🎓
-        </h3>
-        <p><strong>Bachelor's Degree in Computer Science and Technology</strong><br>Sep. 2020 – Jul. 2024</p>
-        <ul>
-            <li>Nanjing Municipal Government Scholarship 2020 🏅</li>
-            <li>Research Focus: Knowledge Graphs for representation learning for solving programing languange issues, supervised by Professor Wei Hu 🔍</li>
-            <li>Relevant Coursework: Machine Learning, Data Mining, Computer Vision, Big Data Systems, Web Development 💻</li>
-        </ul>
-    </div>
+    <h2>🎓 Education</h2>
+    
+    <h3>
+        <img src="https://upload.wikimedia.org/wikipedia/en/1/16/Zhejiang_University_Logo.svg" alt="Zhejiang University Logo" class="university-logo">
+        Zhejiang University 🏫
+    </h3>
+    <p><strong>Master's Degree in Computer Science and Technology</strong><br>Sep. 2024 – Jul. 2027</p>
+    <ul>
+        <li>Full-Time Chinese Government Scholarship</li>
+        <li>Research Focus: Investigating GANs for large-scale language models in image/video generation</li>
+    </ul>
+    
+    <h3>
+        <img src="https://upload.wikimedia.org/wikipedia/en/6/6a/Nanjing_University_Logo.svg" alt="Nanjing University Logo" class="university-logo">
+        Nanjing University 🎓
+    </h3>
+    <p><strong>Bachelor's Degree in Computer Science and Technology</strong><br>Sep. 2020 – Jul. 2024</p>
+    <ul>
+        <li>Nanjing Municipal Government Scholarship 2020</li>
+        <li>Research Focus: Knowledge Graphs for representation learning and NLP</li>
+    </ul>
 </section>
 
+<!-- Work Experience Section -->
 <section id="experience">
-    <div class="section-title animate__animated animate__fadeIn">💼 Professional Experience</div>
-    <div class="section-content">
-        <h3 class="animate__animated animate__fadeIn">Software Engineering Intern, Alibaba Group 💼</h3>
-        <p><strong>Hangzhou, China | Jul. 2023 – Sep. 2023</strong></p>
-        <ul>
-            <li>Optimized backend systems for “Tian Mao Jing Ling”, reducing data processing time by 50% ⏱️ and boosting operational efficiency by 30% ⚡.</li>
-            <li>Implemented a Large Language Model (LLM) for improved query understanding across question answering, dialogue, and summarization tasks 💬.</li>
-            <li>Developed an NLP pipeline using SVM, TF-IDF, and BERT, enhancing information extraction and text classification performance 🔠.</li>
-        </ul>
+    <h2>💼 Professional Experience</h2>
+    
+    <h3>Software Engineering Intern, Alibaba Group 💼</h3>
+    <p><strong>Hangzhou, China | Jul. 2023 – Sep. 2023</strong></p>
+    <ul>
+        <li>Optimized backend systems for “Tian Mao Jing Ling”, reducing data processing time by 50% ⏱️</li>
+        <li>Developed an NLP pipeline using SVM, TF-IDF, and BERT, improving query understanding 💬</li>
+        <li>Implemented Large Language Models (LLM) for question answering and dialogue tasks 🧠</li>
+    </ul>
 
-        <h3 class="animate__animated animate__fadeIn">Software Engineering Intern, J.P. Morgan & Co. 💼</h3>
-        <p><strong>Remote | Aug. 2020 – Oct. 2020</strong></p>
-        <ul>
-            <li>Optimized SQL DBMS for enhanced data storage, retrieval, and system performance, resulting in a 20% improvement in query speed ⚡.</li>
-            <li>Ensured database reliability, security, and scalability, improving data management processes for critical financial applications 💰.</li>
-        </ul>
-    </div>
+    <h3>Software Engineering Intern, J.P. Morgan & Co. 💼</h3>
+    <p><strong>Remote | Aug. 2020 – Oct. 2020</strong></p>
+    <ul>
+        <li>Optimized SQL DBMS to improve query speed by 20% ⚡</li>
+        <li>Ensured database security and scalability, improving financial data management 💰</li>
+    </ul>
 </section>
 
+<!-- Projects Section -->
 <section id="projects">
-    <div class="section-title animate__animated animate__fadeIn">🛠️ Projects</div>
-    <div class="section-content">
-        <div class="project animate__animated animate__fadeIn animate__delay-1s">
-            <img src="https://miro.medium.com/v2/resize:fit:2000/1*mhtYq4xoTPTXLPSthdqyjQ.gif" alt="TriAttNet Project GIF">
-            <div>
-                <h4><a href="https://github.com/anthonyhuang19/TriAttNet">TriAttNet: Triple Attention Mechanism for Image Super-Resolution</a></h4>
-                <ul>
-                    <li>Implemented a triple attention mechanism for enhancing image super-resolution, improving the quality and details of upscaled images. 🔍</li>
-                    <li>Research paper under submission with potential applications in computer vision for improved medical imaging. 💉</li>
-                </ul>
-            </div>
+    <h2>🛠️ Projects</h2>
+    
+    <!-- Project 1 -->
+    <div class="project">
+        <img src="https://miro.medium.com/v2/resize:fit:2000/1*mhtYq4xoTPTXLPSthdqyjQ.gif" alt="TriAttNet Project">
+        <div>
+            <h4><a href="https://github.com/anthonyhuang19/TriAttNet">TriAttNet: Triple Attention Mechanism for Image Super-Resolution</a></h4>
+            <ul>
+                <li>Improved image quality with a triple attention mechanism for super-resolution</li>
+                <li>Applied deep learning techniques for high-quality image upscaling</li>
+            </ul>
         </div>
+    </div>
 
-        <div class="project animate__animated animate__fadeIn animate__delay-2s">
-            <img src="https://user-images.githubusercontent.com/5605281/52970227-e5ea5f80-33a5-11e9-9be3-d2d44ab764c1.png" alt="GANs for Image Generation Project GIF">
-            <div>
-                <h4><a href="https://github.com/anthonyhuang19/GANs-for-Image-Generation">Generative Adversarial Networks for Image Generation</a></h4>
-                <ul>
-                    <li>Developed GAN models for generating realistic images from noise inputs, achieving high visual fidelity in various domains, including faces, landscapes, and interiors. 🏞️</li>
-                    <li>Used advanced deep learning techniques for adversarial training, model optimization, and evaluation. 📊</li>
-                </ul>
-            </div>
+    <!-- Project 2 -->
+    <div class="project">
+        <img src="https://miro.medium.com/v2/resize:fit:1200/1*-LLv5-7csvei0PoRmLtecA.gif" alt="GeoVis Project">
+        <div>
+            <h4><a href="https://github.com/anthonyhuang19/GeoVis">GeoVis: Advanced Geometric Visualization and Drawing Tool</a></h4>
+            <ul>
+                <li>Developed an advanced tool for geometric visualizations</li>
+                <li>Implemented algorithms for 3D projections and transformations</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project">
+        <img src="https://i.picasion.com/pic81/97a0ff4b81db67b3aa45d0e62975b9c9.gif" alt="CVProject1 Project">
+        <div>
+            <h4><a href="https://github.com/anthonyhuang19/CVProject1">Image Filtering and Hybrid Images</a></h4>
+            <ul>
+                <li>Created hybrid images with different frequency components</li>
+                <li>Applied various image filters for enhanced output</li>
+            </ul>
         </div>
     </div>
 </section>
 
-<section id="skills">
-    <div class="section-title animate__animated animate__fadeIn">🧠 Skills</div>
-    <div class="section-content">
-        <ul>
-            <li><strong>Programming Languages:</strong> Python, C/C++, Java, SQL</li>
-            <li><strong>Libraries/Frameworks:</strong> PyTorch, TensorFlow, Hugging Face Transformers, Keras, Scikit-learn, OpenCV</li>
-            <li><strong>Tools/Platforms:</strong> Git, Docker, Alibaba Cloud Platform, AWS, Google Cloud</li>
-            <li><strong>Development Tools:</strong> VS Code, IntelliJ, PyCharm, Eclipse</li>
-        </ul>
-    </div>
-</section>
-
-<footer>
-    <p>Last updated: January 2025</p>
+<!-- Footer -->
+<footer class="footer">
+    <p>Thank you for reviewing my resume! For more details, please refer to my <a href="https://github.com/anthonyhuang19">GitHub</a> and <a href="https://linkedin.com/in/anthonyhuang1909/">LinkedIn</a>.</p>
 </footer>
 
 </body>
