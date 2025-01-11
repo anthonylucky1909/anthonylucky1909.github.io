@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fa;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
             align-items: center;
             padding: 40px;
+            color: #333;
         }
 
         header {
@@ -24,107 +24,162 @@
             justify-content: center;
             text-align: left;
             margin-bottom: 30px;
+            width: 100%;
         }
 
         header img {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             margin-right: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
             font-size: 2.5em;
             color: #333;
             margin: 0;
+            letter-spacing: 1px;
         }
 
         header p {
             font-size: 1.1em;
             color: #555;
+            margin-top: 5px;
+        }
+
+        header a {
+            color: #0078D4;
+            text-decoration: none;
         }
 
         section {
             width: 100%;
-            max-width: 1200px;
-            margin-top: 20px;
+            max-width: 1100px;
+            margin-top: 40px;
             margin-bottom: 40px;
         }
 
         section h2 {
-            font-size: 2em;
-            margin-bottom: 15px;
+            font-size: 2.2em;
             color: #0078D4;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #0078D4;
+            padding-bottom: 5px;
+            letter-spacing: 1px;
         }
 
         section h3 {
-            font-size: 1.5em;
+            font-size: 1.6em;
             margin-bottom: 10px;
             color: #333;
         }
 
-        section ul {
-            list-style-type: none;
-            padding-left: 0;
-            margin-left: 0;
+        section p {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.6;
         }
 
-        section ul li {
-            margin: 10px 0;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        section ul li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #0078D4;
-        }
-
-        .project {
+        .card {
             display: flex;
-            align-items: flex-start;
-            justify-content: flex-start;
+            flex-wrap: wrap;
+            justify-content: space-between;
             margin: 20px 0;
-            padding: 10px;
             background-color: #ffffff;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            transition: all 0.3s ease;
+            width: 100%;
         }
 
-        .project img {
+        .card:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .card img {
             width: 120px;
             height: 80px;
             margin-right: 20px;
             border-radius: 8px;
         }
 
-        .project h4 {
-            font-size: 1.2em;
+        .card-content {
+            flex-grow: 1;
+        }
+
+        .card-content h4 {
+            font-size: 1.3em;
             color: #0078D4;
-            margin: 0;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
         }
 
-        .project ul {
+        .card-content h4:hover {
+            color: #0056a3;
+        }
+
+        .card-content ul {
             margin-top: 10px;
+            padding-left: 20px;
         }
 
-        .footer {
-            width: 100%;
+        .card-content ul li {
+            margin: 8px 0;
+            position: relative;
+        }
+
+        .card-content ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #0078D4;
+        }
+
+        footer {
             text-align: center;
             font-size: 0.9em;
-            color: #888;
-            margin-top: 40px;
-            padding: 20px 0;
+            color: #777;
+            margin-top: 60px;
+            padding: 20px;
+            width: 100%;
         }
 
-        .university-logo {
-            width: 40px;
-            margin-right: 10px;
-            vertical-align: middle;
+        .footer-links a {
+            color: #0078D4;
+            text-decoration: none;
+            margin: 0 8px;
         }
 
+        .footer-links a:hover {
+            color: #0056a3;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            header img {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .card img {
+                width: 100%;
+                height: auto;
+            }
+        }
     </style>
 </head>
 <body>
@@ -135,8 +190,8 @@
         <h1>Anthony Huang 👨‍💻</h1>
         <p>
             <a href="mailto:huangjunxiang19@gmail.com">huangjunxiang19@gmail.com</a> | 
-            <a href="https://linkedin.com/in/anthonyhuang1909/">linkedin.com/in/anthonyhuang1909/</a> | 
-            <a href="https://github.com/anthonyhuang19">github.com/anthonyhuang19</a>
+            <a href="https://linkedin.com/in/anthonyhuang1909/">LinkedIn</a> | 
+            <a href="https://github.com/anthonyhuang19">GitHub</a>
         </p>
     </div>
 </header>
@@ -144,92 +199,97 @@
 <!-- Education Section -->
 <section id="education">
     <h2>🎓 Education</h2>
-    
-    <h3>
-        <img src="https://upload.wikimedia.org/wikipedia/en/1/16/Zhejiang_University_Logo.svg" alt="Zhejiang University Logo" class="university-logo">
-        Zhejiang University 🏫
-    </h3>
-    <p><strong>Master's Degree in Computer Science and Technology</strong><br>Sep. 2024 – Jul. 2027</p>
-    <ul>
-        <li>Full-Time Chinese Government Scholarship</li>
-        <li>Research Focus: Investigating GANs for large-scale language models in image/video generation</li>
-    </ul>
-    
-    <h3>
-        <img src="https://upload.wikimedia.org/wikipedia/en/6/6a/Nanjing_University_Logo.svg" alt="Nanjing University Logo" class="university-logo">
-        Nanjing University 🎓
-    </h3>
-    <p><strong>Bachelor's Degree in Computer Science and Technology</strong><br>Sep. 2020 – Jul. 2024</p>
-    <ul>
-        <li>Nanjing Municipal Government Scholarship 2020</li>
-        <li>Research Focus: Knowledge Graphs for representation learning and NLP</li>
-    </ul>
+
+    <div class="card">
+        <div>
+            <img src="https://upload.wikimedia.org/wikipedia/en/1/16/Zhejiang_University_Logo.svg" alt="Zhejiang University Logo">
+        </div>
+        <div class="card-content">
+            <h3>Zhejiang University 🏫</h3>
+            <p><strong>Master's Degree in Computer Science and Technology</strong><br>Sep. 2024 – Jul. 2027</p>
+            <ul>
+                <li>Full-Time Chinese Government Scholarship</li>
+                <li>Research Focus: Investigating GANs for large-scale language models in image/video generation</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card">
+        <div>
+            <img src="https://upload.wikimedia.org/wikipedia/en/6/6a/Nanjing_University_Logo.svg" alt="Nanjing University Logo">
+        </div>
+        <div class="card-content">
+            <h3>Nanjing University 🎓</h3>
+            <p><strong>Bachelor's Degree in Computer Science and Technology</strong><br>Sep. 2020 – Jul. 2024</p>
+            <ul>
+                <li>Nanjing Municipal Government Scholarship 2020</li>
+                <li>Research Focus: Knowledge Graphs for representation learning and NLP</li>
+            </ul>
+        </div>
+    </div>
 </section>
 
 <!-- Work Experience Section -->
 <section id="experience">
     <h2>💼 Professional Experience</h2>
-    
-    <h3>Software Engineering Intern, Alibaba Group 💼</h3>
-    <p><strong>Hangzhou, China | Jul. 2023 – Sep. 2023</strong></p>
-    <ul>
-        <li>Optimized backend systems for “Tian Mao Jing Ling”, reducing data processing time by 50% ⏱️</li>
-        <li>Developed an NLP pipeline using SVM, TF-IDF, and BERT, improving query understanding 💬</li>
-        <li>Implemented Large Language Models (LLM) for question answering and dialogue tasks 🧠</li>
-    </ul>
 
-    <h3>Software Engineering Intern, J.P. Morgan & Co. 💼</h3>
-    <p><strong>Remote | Aug. 2020 – Oct. 2020</strong></p>
-    <ul>
-        <li>Optimized SQL DBMS to improve query speed by 20% ⚡</li>
-        <li>Ensured database security and scalability, improving financial data management 💰</li>
-    </ul>
+    <div class="card">
+        <div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Alibaba_logo.svg" alt="Alibaba Logo">
+        </div>
+        <div class="card-content">
+            <h4>Software Engineering Intern - Alibaba Group</h4>
+            <p><strong>Hangzhou, China | Jul. 2023 – Sep. 2023</strong></p>
+            <ul>
+                <li>Optimized backend systems for “Tian Mao Jing Ling”, reducing data processing time by 50%</li>
+                <li>Developed an NLP pipeline using SVM, TF-IDF, and BERT, improving query understanding</li>
+                <li>Implemented Large Language Models (LLM) for question answering and dialogue tasks</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card">
+        <div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/J.P._Morgan_logo.svg" alt="J.P. Morgan Logo">
+        </div>
+        <div class="card-content">
+            <h4>Software Engineering Intern - J.P. Morgan & Co.</h4>
+            <p><strong>Remote | Aug. 2020 – Oct. 2020</strong></p>
+            <ul>
+                <li>Optimized SQL DBMS to improve query speed by 20%</li>
+                <li>Ensured database security and scalability, improving financial data management</li>
+            </ul>
+        </div>
+    </div>
 </section>
 
 <!-- Projects Section -->
 <section id="projects">
-    <h2>🛠️ Projects</h2>
-    
-    <!-- Project 1 -->
-    <div class="project">
-        <img src="https://miro.medium.com/v2/resize:fit:2000/1*mhtYq4xoTPTXLPSthdqyjQ.gif" alt="TriAttNet Project">
-        <div>
-            <h4><a href="https://github.com/anthonyhuang19/TriAttNet">TriAttNet: Triple Attention Mechanism for Image Super-Resolution</a></h4>
-            <ul>
-                <li>Improved image quality with a triple attention mechanism for super-resolution</li>
-                <li>Applied deep learning techniques for high-quality image upscaling</li>
-            </ul>
+    <h2>🚀 Projects</h2>
+
+    <div class="card">
+        <div class="card-content">
+            <h4><a href="https://github.com/antshuang19/CGAN-Selfie-to-Anime" target="_blank">Selfie to Anime (CGAN)</a></h4>
+            <p>Generative model to transform selfies into anime-style images using Conditional GANs (CGAN).</p>
         </div>
     </div>
 
-    <!-- Project 2 -->
-    <div class="project">
-        <img src="https://miro.medium.com/v2/resize:fit:1200/1*-LLv5-7csvei0PoRmLtecA.gif" alt="GeoVis Project">
-        <div>
-            <h4><a href="https://github.com/anthonyhuang19/GeoVis">GeoVis: Advanced Geometric Visualization and Drawing Tool</a></h4>
-            <ul>
-                <li>Developed an advanced tool for geometric visualizations</li>
-                <li>Implemented algorithms for 3D projections and transformations</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Project 3 -->
-    <div class="project">
-        <img src="https://i.picasion.com/pic81/97a0ff4b81db67b3aa45d0e62975b9c9.gif" alt="CVProject1 Project">
-        <div>
-            <h4><a href="https://github.com/anthonyhuang19/CVProject1">Image Filtering and Hybrid Images</a></h4>
-            <ul>
-                <li>Created hybrid images with different frequency components</li>
-                <li>Applied various image filters for enhanced output</li>
-            </ul>
+    <div class="card">
+        <div class="card-content">
+            <h4><a href="https://github.com/antshuang19/SuperResolution" target="_blank">Super-Resolution Model Optimization</a></h4>
+            <p>Optimizing the VSDR model using triple attention mechanism for better image resolution.</p>
         </div>
     </div>
 </section>
 
-<!-- Footer -->
-<footer class="footer">
+<!-- Footer Section -->
+<footer>
     <p>Thank you for reviewing my resume! For more details, please refer to my <a href="https://github.com/anthonyhuang19">GitHub</a> and <a href="https://linkedin.com/in/anthonyhuang1909/">LinkedIn</a>.</p>
+    <div class="footer-links">
+        <a href="mailto:huangjunxiang19@gmail.com">Email</a> | 
+        <a href="https://github.com/anthonyhuang19">GitHub</a> | 
+        <a href="https://linkedin.com/in/anthonyhuang1909/">LinkedIn</a>
+    </div>
 </footer>
 
 </body>
