@@ -23,6 +23,16 @@
         header {
             margin-bottom: 20px;
             text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
         }
 
         h1 {
@@ -68,6 +78,11 @@
             justify-content: flex-start;
             margin: 20px 0;
             text-align: left;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            transition: transform 0.3s ease;
         }
 
         .project img {
@@ -75,6 +90,10 @@
             height: auto;
             margin-right: 20px;
             border-radius: 8px; /* Rounded corners */
+        }
+
+        .project:hover {
+            transform: scale(1.05);
         }
 
         .animate__animated {
@@ -108,13 +127,28 @@
             vertical-align: middle;
         }
 
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 15px;
+            color: #333;
+            text-transform: uppercase;
+            border-bottom: 3px solid #0078D4;
+            padding-bottom: 10px;
+            width: 100%;
+        }
+
+        .section-content {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
     </style>
 </head>
 <body>
 
-<header style="display: flex; align-items: center; justify-content: center; text-align: left;">
+<header>
     <!-- Profile Image -->
-    <img src="https://media.licdn.com/dms/image/v2/D5603AQEdb-aHNm41fA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1723824062184?e=1741219200&v=beta&t=0wVuZeEUVigOmkVf3_W0jk03C7q3fg7piQBOxl7kQ6A" alt="Anthony Huang's Profile Photo" style="width: 100px; height: 100px; border-radius: 50%; margin-right: 20px;">
+    <img src="https://media.licdn.com/dms/image/v2/D5603AQEdb-aHNm41fA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1723824062184?e=1741219200&v=beta&t=0wVuZeEUVigOmkVf3_W0jk03C7q3fg7piQBOxl7kQ6A" alt="Anthony Huang's Profile Photo">
     
     <!-- Name and Contact Info -->
     <div>
@@ -125,163 +159,94 @@
     </div>
 </header>
 
-
 <section id="education">
-    <h2 class="animate__animated animate__fadeIn">🎓 Education</h2>
-    <h3 class="animate__animated animate__fadeIn">
-        <img src="https://upload.wikimedia.org/wikipedia/en/1/16/Zhejiang_University_Logo.svg" alt="Zhejiang University Logo" class="university-logo">
-        Zhejiang University 🏫
-    </h3>
-    <p><strong>Master's Degree in Computer Science and Technology</strong><br>Sep. 2024 – Jul. 2027</p>
-    <ul>
-        <li>Full-Time Chinese Government Scholarship </li>
-        <li>Research Focus: Investigating Generative Adversarial Networks (GANs) for large-scale language model backbones in image or video generation under Professor Zou 🎥</li>
-    </ul>
-    <h3 class="animate__animated animate__fadeIn">
-        <img src="https://upload.wikimedia.org/wikipedia/en/6/6a/Nanjing_University_Logo.svg" alt="Nanjing University Logo" class="university-logo">
-        Nanjing University 🎓
-    </h3>
-    <p><strong>Bachelor's Degree in Computer Science and Technology</strong><br>Sep. 2020 – Jul. 2024</p>
-    <ul>
-        <li>Nanjing Municipal Government Scholarship 2020 🏅</li>
-        <li>Research Focus: Knowledge Graphs for representation learning for solving programing languange issues, supervised by Professor Wei Hu 🔍</li>
-        <li>Relevant Coursework: Machine Learning, Data Mining, Computer Vision, Big Data Systems, Web Development 💻</li>
-    </ul>
+    <div class="section-title animate__animated animate__fadeIn">🎓 Education</div>
+    <div class="section-content">
+        <h3 class="animate__animated animate__fadeIn">
+            <img src="https://upload.wikimedia.org/wikipedia/en/1/16/Zhejiang_University_Logo.svg" alt="Zhejiang University Logo" class="university-logo">
+            Zhejiang University 🏫
+        </h3>
+        <p><strong>Master's Degree in Computer Science and Technology</strong><br>Sep. 2024 – Jul. 2027</p>
+        <ul>
+            <li>Full-Time Chinese Government Scholarship </li>
+            <li>Research Focus: Investigating Generative Adversarial Networks (GANs) for large-scale language model backbones in image or video generation under Professor Zou 🎥</li>
+        </ul>
+        
+        <h3 class="animate__animated animate__fadeIn">
+            <img src="https://upload.wikimedia.org/wikipedia/en/6/6a/Nanjing_University_Logo.svg" alt="Nanjing University Logo" class="university-logo">
+            Nanjing University 🎓
+        </h3>
+        <p><strong>Bachelor's Degree in Computer Science and Technology</strong><br>Sep. 2020 – Jul. 2024</p>
+        <ul>
+            <li>Nanjing Municipal Government Scholarship 2020 🏅</li>
+            <li>Research Focus: Knowledge Graphs for representation learning for solving programing languange issues, supervised by Professor Wei Hu 🔍</li>
+            <li>Relevant Coursework: Machine Learning, Data Mining, Computer Vision, Big Data Systems, Web Development 💻</li>
+        </ul>
+    </div>
 </section>
 
 <section id="experience">
-    <h2 class="animate__animated animate__fadeIn">💼 Professional Experience</h2>
+    <div class="section-title animate__animated animate__fadeIn">💼 Professional Experience</div>
+    <div class="section-content">
+        <h3 class="animate__animated animate__fadeIn">Software Engineering Intern, Alibaba Group 💼</h3>
+        <p><strong>Hangzhou, China | Jul. 2023 – Sep. 2023</strong></p>
+        <ul>
+            <li>Optimized backend systems for “Tian Mao Jing Ling”, reducing data processing time by 50% ⏱️ and boosting operational efficiency by 30% ⚡.</li>
+            <li>Implemented a Large Language Model (LLM) for improved query understanding across question answering, dialogue, and summarization tasks 💬.</li>
+            <li>Developed an NLP pipeline using SVM, TF-IDF, and BERT, enhancing information extraction and text classification performance 🔠.</li>
+        </ul>
 
-    <h3 class="animate__animated animate__fadeIn">Software Engineering Intern, Alibaba Group 💼</h3>
-    <p><strong>Hangzhou, China | Jul. 2023 – Sep. 2023</strong></p>
-    <ul>
-        <li>Optimized backend systems for “Tian Mao Jing Ling”, reducing data processing time by 50% ⏱️ and boosting operational efficiency by 30% ⚡.</li>
-        <li>Implemented a Large Language Model (LLM) for improved query understanding across question answering, dialogue, and summarization tasks 💬.</li>
-        <li>Developed an NLP pipeline using SVM, TF-IDF, and BERT, enhancing information extraction and text classification performance 🔠.</li>
-    </ul>
-
-    <h3 class="animate__animated animate__fadeIn">Software Engineering Intern, J.P. Morgan & Co. 💼</h3>
-    <p><strong>Remote | Aug. 2020 – Oct. 2020</strong></p>
-    <ul>
-        <li>Optimized SQL DBMS for enhanced data storage, retrieval, and system performance, resulting in a 20% improvement in query speed ⚡.</li>
-        <li>Ensured database reliability, security, and scalability, improving data management processes for critical financial applications 💰.</li>
-    </ul>
+        <h3 class="animate__animated animate__fadeIn">Software Engineering Intern, J.P. Morgan & Co. 💼</h3>
+        <p><strong>Remote | Aug. 2020 – Oct. 2020</strong></p>
+        <ul>
+            <li>Optimized SQL DBMS for enhanced data storage, retrieval, and system performance, resulting in a 20% improvement in query speed ⚡.</li>
+            <li>Ensured database reliability, security, and scalability, improving data management processes for critical financial applications 💰.</li>
+        </ul>
+    </div>
 </section>
 
 <section id="projects">
-    <h2 class="animate__animated animate__fadeIn">🛠️ Projects</h2>
-    
-    <div class="project animate__animated animate__fadeIn animate__delay-1s">
-        <img src="https://miro.medium.com/v2/resize:fit:2000/1*mhtYq4xoTPTXLPSthdqyjQ.gif" alt="TriAttNet Project GIF">
-        <div>
-            <h4><a href="https://github.com/anthonyhuang19/TriAttNet">TriAttNet: Triple Attention Mechanism for Image Super-Resolution</a></h4>
-            <ul>
-                <li>Implemented a triple attention mechanism for enhancing image super-resolution, improving the quality and details of upscaled images. 🔍</li>
-                <li>Utilized state-of-the-art deep learning techniques for accurate image upscaling. 💡</li>
-            </ul>
+    <div class="section-title animate__animated animate__fadeIn">🛠️ Projects</div>
+    <div class="section-content">
+        <div class="project animate__animated animate__fadeIn animate__delay-1s">
+            <img src="https://miro.medium.com/v2/resize:fit:2000/1*mhtYq4xoTPTXLPSthdqyjQ.gif" alt="TriAttNet Project GIF">
+            <div>
+                <h4><a href="https://github.com/anthonyhuang19/TriAttNet">TriAttNet: Triple Attention Mechanism for Image Super-Resolution</a></h4>
+                <ul>
+                    <li>Implemented a triple attention mechanism for enhancing image super-resolution, improving the quality and details of upscaled images. 🔍</li>
+                    <li>Research paper under submission with potential applications in computer vision for improved medical imaging. 💉</li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="project animate__animated animate__fadeIn animate__delay-3s">
-        <img src="https://miro.medium.com/v2/resize:fit:1200/1*-LLv5-7csvei0PoRmLtecA.gif" alt="GeoVis Project GIF">
-        <div>
-            <h4><a href="https://github.com/anthonyhuang19/GeoVis">GeoVis: Advanced Geometric Visualization and Drawing Tool</a></h4>
-            <ul>
-                <li>Developed an advanced geometric visualization tool for drawing complex geometric shapes. 🎨</li>
-                <li>Implemented algorithms for various geometric visualizations, including 3D projections and transformations. 🌐</li>
-            </ul>
-        </div>
-    </div>
 
-    <div class="project animate__animated animate__fadeIn animate__delay-4s">
-        <img src="https://i.picasion.com/pic81/97a0ff4b81db67b3aa45d0e62975b9c9.gif" alt="CVProject1 Project GIF">
-        <div>
-            <h4><a href="https://github.com/anthonyhuang19/CVProject1">Image Filtering and Hybrid Images</a></h4>
-            <ul>
-                <li>Created a hybrid image combining two images with different frequency components. 🖼️</li>
-                <li>Implemented various image filtering techniques to enhance visual output and processing efficiency. 🔧</li>
-            </ul>
+        <div class="project animate__animated animate__fadeIn animate__delay-2s">
+            <img src="https://user-images.githubusercontent.com/5605281/52970227-e5ea5f80-33a5-11e9-9be3-d2d44ab764c1.png" alt="GANs for Image Generation Project GIF">
+            <div>
+                <h4><a href="https://github.com/anthonyhuang19/GANs-for-Image-Generation">Generative Adversarial Networks for Image Generation</a></h4>
+                <ul>
+                    <li>Developed GAN models for generating realistic images from noise inputs, achieving high visual fidelity in various domains, including faces, landscapes, and interiors. 🏞️</li>
+                    <li>Used advanced deep learning techniques for adversarial training, model optimization, and evaluation. 📊</li>
+                </ul>
+            </div>
         </div>
     </div>
-
-    <div class="project animate__animated animate__fadeIn animate__delay-5s">
-        <img src="https://learnopencv.com/wp-content/uploads/2021/10/pg3-edge-detection.gif" alt="EdgeSegCV Project GIF">
-        <div>
-            <h4><a href="https://github.com/anthonyhuang19/EdgeSegCV">EdgeSegCV: Edge Detection and Image Segmentation in Computer Vision</a></h4>
-            <ul>
-                <li>Applied edge detection and image segmentation algorithms to enhance object recognition in images. 🖥️</li>
-                <li>Used K-means clustering for segmenting objects and detecting boundaries in images. 📊</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="project animate__animated animate__fadeIn animate__delay-6s">
-        <img src="https://camo.githubusercontent.com/866444599def60c84809b6b7d10c49ae21f9f7a1b18ce9d9de75f82e0fe7f21b/687474703a2f2f33382e6d656469612e74756d626c722e636f6d2f38386534653130646364313636303837623830623039316632383064333931652f74756d626c725f6e7764616b6b5150794f3171696f3436396f315f3430302e676966" alt="ImageMosaic Project GIF">
-        <div>
-            <h4><a href="https://github.com/anthonyhuang19/ImageMosaic">ImageMosaic: Image Mosaicking and Homography Estimation</a></h4>
-            <ul>
-                <li>Developed a system for stitching multiple images into a panoramic mosaic. 🖼️</li>
-                <li>Utilized homography estimation for accurate image alignment and blending. 🔗</li>
-            </ul>
-        </div>
-    </div>
-    <div class="project animate__animated animate__fadeIn animate__delay-2s">
-        <img src="https://i.makeagif.com/media/12-26-2017/kL5RYf.gif" alt="DTW-SVM-X Project GIF">
-        <div>
-            <h4><a href="https://github.com/anthonyhuang19/DTW-SVM-X">DTW-SVM-X: SVM Kernel Functions Combined with DTW for Time Series Classification</a></h4>
-            <ul>
-                <li>Evaluated the performance of various SVM kernel functions combined with Dynamic Time Warping (DTW) for time series classification across multiple datasets. 📊</li>
-                <li>Highlighted the effectiveness of DTW-SVM combinations in improving classification accuracy for time series data. ⏱️</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="project animate__animated animate__fadeIn animate__delay-6s">
-        <img src="https://camo.githubusercontent.com/71415615b3384501cfed91e5223964d207a71b19b3439ebdeebb2de8bd971d5f/68747470733a2f2f696d6167652e6d75782e636f6d2f343849344c6b64643764354b4b716e7630307971326d746d6b6a384d69656c383463344e42566b556a524c552f616e696d617465642e6769663f73746172743d313726656e643d3234" alt="TDGame Project GIF">
-        <div>
-            <h4><a href="https://github.com/anthonyhuang19/TDGame-War-of-the-Towers">TDGame-War-of-the-Towers: Tower Defense Game</a></h4>
-            <ul>
-                <li>An engaging tower defense game where players strategically place and upgrade towers to stop waves of enemies. 🏰</li>
-                <li>Game features levels, challenges, and upgrading systems for an immersive gameplay experience. 🎮</li>
-            </ul>
-        </div>
-    </div> 
-    <div class="project animate__animated animate__fadeIn animate__delay-4s">
-        <img src="https://personalpages.hs-kempten.de/~vollratj/Labor_Digitaltechnik/Images/Digi_V03.gif" alt="FPGA-Embedded-Systems Project GIF">
-        <div>
-            <h4><a href="https://github.com/anthonyhuang19/FPGA-Embedded-Systems">FPGA-Embedded-Systems: Digital Circuits and Microprocessor Design</a></h4>
-            <ul>
-                <li>Designed digital circuits and microprocessors using FPGA, covering Boolean logic, combinational circuits, state machines, CPU design, and memory structures. 💡</li>
-                <li>Focused on embedded systems design and FPGA applications. 🔧</li>
-            </ul>
-        </div>
-    </div>
-
-    
 </section>
-
 
 <section id="skills">
-    <h2 class="animate__animated animate__fadeIn">🔧 Technical Skills</h2>
-    <h3>Languages:</h3>
-    <ul>
-        <li>C/C++, Python, Java, SQL (Postgres), HTML/CSS, R</li>
-    </ul>
-
-    <h3>Frameworks:</h3>
-    <ul>
-        <li>PyTorch, TensorFlow, Hugging Face Transformers, Keras, Scikit-learn, OpenCV</li>
-    </ul>
-
-    <h3>Developer Tools:</h3>
-    <ul>
-        <li>Git, Docker, Alibaba Cloud Platform, VS Code, PyCharm, IntelliJ, Eclipse</li>
-    </ul>
-
-    <h3>Libraries:</h3>
-    <ul>
-        <li>pandas, NumPy, Matplotlib, Jupyter, SQLAlchemy, Postman, AWS, Google Cloud</li>
-    </ul>
+    <div class="section-title animate__animated animate__fadeIn">🧠 Skills</div>
+    <div class="section-content">
+        <ul>
+            <li><strong>Programming Languages:</strong> Python, C/C++, Java, SQL</li>
+            <li><strong>Libraries/Frameworks:</strong> PyTorch, TensorFlow, Hugging Face Transformers, Keras, Scikit-learn, OpenCV</li>
+            <li><strong>Tools/Platforms:</strong> Git, Docker, Alibaba Cloud Platform, AWS, Google Cloud</li>
+            <li><strong>Development Tools:</strong> VS Code, IntelliJ, PyCharm, Eclipse</li>
+        </ul>
+    </div>
 </section>
+
+<footer>
+    <p>Last updated: January 2025</p>
+</footer>
 
 </body>
 </html>
