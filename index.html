@@ -3,383 +3,398 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anthony Huang's Resume</title>
+    <title>Anthony Huang - ML Engineer & Software Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #60a5fa;
+            --text-primary: #1f2937;
+            --text-secondary: #4b5563;
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f7fa;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px;
-            color: #333;
-        }
-
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: left;
-            margin-bottom: 30px;
-            width: 100%;
-        }
-
-        header img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin-right: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        header h1 {
-            font-size: 2.5em;
-            color: #333;
-            margin: 0;
-            letter-spacing: 1px;
-        }
-
-        header p {
-            font-size: 1.1em;
-            color: #555;
-            margin-top: 5px;
-        }
-
-        header a {
-            color: #0078D4;
-            text-decoration: none;
-        }
-
-        section {
-            width: 100%;
-            max-width: 1100px;
-            margin-top: 40px;
-            margin-bottom: 40px;
-        }
-
-        section h2 {
-            font-size: 2.2em;
-            color: #0078D4;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #0078D4;
-            padding-bottom: 5px;
-            letter-spacing: 1px;
-        }
-
-        section h3 {
-            font-size: 1.6em;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        section p {
-            font-size: 1.1em;
-            color: #555;
+            color: var(--text-primary);
             line-height: 1.6;
         }
 
-        .card {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin: 20px 0;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            padding: 20px;
-            transition: all 0.3s ease;
-            width: 100%;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
         }
 
-        .card:hover {
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .hero-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin: 0;
+            font-weight: 800;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            margin: 1rem 0;
+            opacity: 0.9;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .skill-card {
+            background: var(--bg-secondary);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Project Cards */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .project-card {
+            background: var(--bg-secondary);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
             transform: translateY(-5px);
         }
 
-        .card img {
-            width: 120px;
-            height: 80px;
-            margin-right: 20px;
-            border-radius: 8px;
-        }
-
-        .card-content {
-            flex-grow: 1;
-        }
-
-        .card-content h4 {
-            font-size: 1.3em;
-            color: #0078D4;
-            margin-bottom: 10px;
-            transition: color 0.3s ease;
-        }
-
-        .card-content h4:hover {
-            color: #0056a3;
-        }
-
-        .card-content ul {
-            margin-top: 10px;
-            padding-left: 20px;
-        }
-
-        .card-content ul li {
-            margin: 8px 0;
-            position: relative;
-        }
-
-        .card-content ul li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #0078D4;
-        }
-
-        footer {
-            text-align: center;
-            font-size: 0.9em;
-            color: #777;
-            margin-top: 60px;
-            padding: 20px;
+        .project-image {
             width: 100%;
+            height: 200px;
+            object-fit: cover;
         }
 
-        .footer-links a {
-            color: #0078D4;
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0 0 1rem 0;
+            color: var(--primary-color);
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: #e5e7eb;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Experience Section */
+        .experience-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .experience-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .company-logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .experience-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0;
+            color: var(--primary-color);
+        }
+
+        .experience-company {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .experience-date {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Contact Section */
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
             text-decoration: none;
-            margin: 0 8px;
+            font-weight: 500;
+            transition: color 0.2s;
         }
 
-        .footer-links a:hover {
-            color: #0056a3;
+        .contact-link:hover {
+            color: var(--secondary-color);
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
-            header {
+            .hero-content {
                 flex-direction: column;
-                align-items: center;
                 text-align: center;
             }
 
-            header img {
-                margin-right: 0;
-                margin-bottom: 20px;
+            .hero-text h1 {
+                font-size: 2.5rem;
             }
 
-            .card {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-header {
                 flex-direction: column;
-                align-items: center;
                 text-align: center;
-            }
-
-            .card img {
-                width: 100%;
-                height: auto;
             }
         }
     </style>
 </head>
 <body>
-
-<header>
-    <img src="https://media.licdn.com/dms/image/v2/D5603AQEdb-aHNm41fA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1723824062184?e=1741219200&v=beta&t=0wVuZeEUVigOmkVf3_W0jk03C7q3fg7piQBOxl7kQ6A" alt="Anthony Huang's Profile Photo">
-    <div>
-        <h1>Anthony Huang 👨‍💻</h1>
-        <p>
-            <a href="mailto:huangjunxiang19@gmail.com">huangjunxiang19@gmail.com</a> | 
-            <a href="https://linkedin.com/in/anthonyhuang1909/">LinkedIn</a> | 
-            <a href="https://github.com/anthonyhuang19">GitHub</a>
-        </p>
-    </div>
-</header>
-
-<!-- Education Section -->
-<section id="education">
-    <h2>🎓 Education</h2>
-
-    <div class="card">
-        <div>
-            <img src="https://upload.wikimedia.org/wikipedia/en/6/6a/Nanjing_University_Logo.svg" alt="Nanjing University Logo">
-        </div>
-        <div class="card-content">
-            <h3>Nanjing University 🎓</h3>
-            <p><strong>Bachelor's Degree in Computer Science and Technology</strong><br>Sep. 2020 – Jul. 2024</p>
-            <ul>
-                <li>Nanjing Municipal Government Scholarship 2020</li>
-                <li>Research Focus: Knowledge Graphs for representation learning and NLP</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<!-- Work Experience Section -->
-<section id="experience">
-    <h2>💼 Professional Experience</h2>
-    <div class="card">
-        <div>
-             <img src="https://upload.wikimedia.org/wikipedia/en/1/16/Zhejiang_University_Logo.svg" alt="Alibaba Logo">
-        </div>
-        <div class="card-content">
-            <h4>Assistant Researcher</h4>
-            <p><strong>Hangzhou, China | Sep. 2024 – Now</strong></p>
-            <ul>
-                <li>Optimized a Transformer-based super-resolution network, by refining its attention mechanism to enhance detail reconstruction and color preservation.</li>
-                <li>Integrated triple attention layers in Backbone, enabling efficient capture of both local and global image features, improving output quality and computational efficiency.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="card">
-        <div>
-            <img src="data:image/png;base64,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" alt="Alibaba Logo">
-        </div>
-        <div class="card-content">
-            <h4>Software Engineering Intern - Alibaba Group</h4>
-            <p><strong>Hangzhou, China | Jul. 2023 – Sep. 2023</strong></p>
-            <ul>
-                <li>Optimized backend systems for “Tian Mao Jing Ling”, reducing data processing time by 50%</li>
-                <li>Developed an NLP pipeline using SVM, TF-IDF, and BERT, improving query understanding</li>
-                <li>Implemented Large Language Models (LLM) for question answering and dialogue tasks</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="card">
-        <div>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCUJoEgeWZqm-5ANn6_KfnC6-eNO5p2p3sPg&s" alt="J.P. Morgan Logo">
-        </div>
-        <div class="card-content">
-            <h4>Software Engineering Intern - J.P. Morgan & Co.</h4>
-            <p><strong>Remote | Aug. 2020 – Oct. 2020</strong></p>
-            <ul>
-                <li>Optimized SQL DBMS to improve query speed by 20%</li>
-                <li>Ensured database security and scalability, improving financial data management</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<!-- Projects Section -->
-<section id="projects">
-    <h2>🚀 Projects</h2>
-
-    <div class="card">
-        <div class="card-content" style="display: flex; align-items: center; gap: 20px;">
-            <!-- GIF on the left -->
-            <img src="https://miro.medium.com/v2/resize:fit:2000/1*mhtYq4xoTPTXLPSthdqyjQ.gif" alt="Selfie to Anime Demo" style="width: 200px; border-radius: 8px;">
-
-            <!-- Title and description on the right -->
-            <div>
-                <h4><a href="https://github.com/antshuang19/TriAttNet" target="_blank">TriAttNet: Triple Attention Mechanism for Image Super-Resolution</a></h4>
-                <p>Implemented a triple attention mechanism for enhancing image super-resolution, improving the quality and details of upscaled images. 🔍</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="https://media.licdn.com/dms/image/v2/D5603AQEdb-aHNm41fA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1723824062184?e=1741219200&v=beta&t=0wVuZeEUVigOmkVf3_W0jk03C7q3fg7piQBOxl7kQ6A" alt="Anthony Huang" class="hero-image">
+            <div class="hero-text">
+                <h1>Anthony Huang</h1>
+                <p>ML Engineer & Software Developer</p>
+                <p>Specializing in Computer Vision, Deep Learning, and Software Engineering</p>
+                <div class="contact-links">
+                    <a href="mailto:huangjunxiang19@gmail.com" class="contact-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        Email
+                    </a>
+                    <a href="https://github.com/anthonyhuang19" class="contact-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        GitHub
+                    </a>
+                    <a href="https://linkedin.com/in/anthonyhuang1909" class="contact-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        LinkedIn
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="card">
-        <div class="card-content" style="display: flex; align-items: center; gap: 20px;">
-            <!-- GIF on the left -->
-            <img src="https://miro.medium.com/v2/resize:fit:1200/1*-LLv5-7csvei0PoRmLtecA.gif" alt="GeoVis" style="width: 200px; border-radius: 8px;">
-
-            <!-- Title and description on the right -->
-            <div>
-                <h4><a href="https://github.com/anthonyhuang19/GeoVis-Advanced-Geometric-Visualization-and-Drawing-Tool" target="_blank">GeoVis: Advanced Geometric Visualization and Drawing Tool</a></h4>
-                <p>Developed an advanced geometric visualization tool for drawing complex geometric shapes. 🎨</p>
+    <div class="container">
+        <!-- Skills Section -->
+        <section>
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Deep Learning</h3>
+                    <p>PyTorch, TensorFlow</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Computer Vision</h3>
+                    <p>OpenCV, Image Processing</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Machine Learning</h3>
+                    <p>Scikit-learn, SVM, DTW</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Languages</h3>
+                    <p>Python, C++, TypeScript</p>
+                </div>
             </div>
-        </div>
-    </div>
-    
-    <div class="card">
-        <div class="card-content" style="display: flex; align-items: center; gap: 20px;">
-            <!-- GIF on the left -->
-            <img src="https://i.picasion.com/pic81/97a0ff4b81db67b3aa45d0e62975b9c9.gif" alt="Image Filtering and Hybrid Images" style="width: 200px; border-radius: 8px;">
+        </section>
 
-            <!-- Title and description on the right -->
-            <div>
-                <h4><a href="https://github.com/antshuang19/HybridFilter" target="_blank">Image Filtering and Hybrid Images</a></h4>
-                <p>Created a hybrid image combining two images with different frequency components. 🖼️</p>
+        <!-- Featured Projects -->
+        <section>
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- TriAttNet -->
+                <div class="project-card">
+                    <img src="https://miro.medium.com/v2/resize:fit:2000/1*mhtYq4xoTPTXLPSthdqyjQ.gif" alt="TriAttNet Demo" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">TriAttNet: Triple Attention for Super-Resolution</h3>
+                        <p class="project-description">Advanced image super-resolution model using triple attention mechanism for enhanced detail reconstruction.</p>
+                        <div class="project-tags">
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">Computer Vision</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scene Recognition -->
+                <div class="project-card">
+                    <img src="https://learnopencv.com/wp-content/uploads/2021/10/pg3-edge-detection.gif" alt="Scene Recognition Demo" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Scene Recognition with Bag of Words</h3>
+                        <p class="project-description">Implemented scene recognition using BoW model with SIFT features and SVM classification.</p>
+                        <div class="project-tags">
+                            <span class="tag">Computer Vision</span>
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DTW-SVM-X -->
+                <div class="project-card">
+                    <img src="https://i.makeagif.com/media/12-26-2017/kL5RYf.gif" alt="DTW-SVM Demo" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">DTW-SVM-X: Time Series Classification</h3>
+                        <p class="project-description">Novel approach combining DTW with SVM kernels for improved time series classification.</p>
+                        <div class="project-tags">
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Time Series</span>
+                            <span class="tag">Python</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-content" style="display: flex; align-items: center; gap: 20px;">
-            <!-- GIF on the left -->
-            <img src="https://learnopencv.com/wp-content/uploads/2021/10/pg3-edge-detection.gif" alt="EdgeSegCV" style="width: 200px; border-radius: 8px;">
+        </section>
 
-            <!-- Title and description on the right -->
-            <div>
-                <h4><a href="https://github.com/anthonyhuang19/EdgeSeg-Edge-Detection-and-Image-Segmentation" target="_blank">EdgeSegCV: Edge Detection and Image Segmentation in Computer Vision</a></h4>
-                <p>Applied edge detection and image segmentation algorithms to enhance object recognition in images. 🖥️</p>
+        <!-- Experience Section -->
+        <section>
+            <h2>Professional Experience</h2>
+            
+            <!-- Assistant Researcher -->
+            <div class="experience-card">
+                <div class="experience-header">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/1/16/Zhejiang_University_Logo.svg" alt="ZJU Logo" class="company-logo">
+                    <div>
+                        <h3 class="experience-title">Assistant Researcher</h3>
+                        <p class="experience-company">Zhejiang University</p>
+                        <p class="experience-date">Sep. 2024 – Present</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>Developed and optimized Transformer-based super-resolution networks</li>
+                    <li>Implemented novel triple attention mechanism for enhanced image quality</li>
+                    <li>Achieved state-of-the-art results in detail preservation and color accuracy</li>
+                </ul>
             </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-content" style="display: flex; align-items: center; gap: 20px;">
-            <!-- GIF on the left -->
-            <img src="https://camo.githubusercontent.com/866444599def60c84809b6b7d10c49ae21f9f7a1b18ce9d9de75f82e0fe7f21b/687474703a2f2f33382e6d656469612e74756d626c722e636f6d2f38386534653130646364313636303837623830623039316632383064333931652f74756d626c725f6e7764616b6b5150794f3171696f3436396f315f3430302e676966" alt="EdgeSegCV" style="width: 200px; border-radius: 8px;">
 
-            <!-- Title and description on the right -->
-            <div>
-                <h4><a href="https://github.com/anthonyhuang19/ImageMosaic" target="_blank">ImageMosaic: Image Mosaicking and Homography Estimation</a></h4>
-                <p>Developed a system for stitching multiple images into a panoramic mosaic. 🖼️</p>
+            <!-- Alibaba Intern -->
+            <div class="experience-card">
+                <div class="experience-header">
+                    <img src="data:image/png;base64,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" alt="Alibaba Logo" class="company-logo">
+                    <div>
+                        <h3 class="experience-title">Software Engineering Intern</h3>
+                        <p class="experience-company">Alibaba Group</p>
+                        <p class="experience-date">Jul. 2023 – Sep. 2023</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>Optimized backend systems for "Tian Mao Jing Ling", achieving 50% faster data processing</li>
+                    <li>Built NLP pipeline using BERT and SVM for improved query understanding</li>
+                    <li>Implemented LLMs for advanced question answering systems</li>
+                </ul>
             </div>
-        </div>
-    </div>
-    
-    <div class="card">
-        <div class="card-content" style="display: flex; align-items: center; gap: 20px;">
-            <!-- GIF on the left -->
-            <img src="https://i.makeagif.com/media/12-26-2017/kL5RYf.gif" alt="EdgeSegCV" style="width: 200px; border-radius: 8px;">
+        </section>
 
-            <!-- Title and description on the right -->
-            <div>
-                <h4><a href="https://github.com/anthonyhuang19/DTW-SVM-X" target="_blank">DTW-SVM-X: SVM Kernel Functions Combined with DTW for Time Series Classification</a></h4>
-                <p>Evaluated the performance of various SVM kernel functions combined with Dynamic Time Warping (DTW) for time series classification across multiple datasets. 📊</p>
+        <!-- Education Section -->
+        <section>
+            <h2>Education</h2>
+            <div class="experience-card">
+                <div class="experience-header">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/6/6a/Nanjing_University_Logo.svg" alt="Nanjing University Logo" class="company-logo">
+                    <div>
+                        <h3 class="experience-title">Bachelor's in Computer Science and Technology</h3>
+                        <p class="experience-company">Nanjing University</p>
+                        <p class="experience-date">Sep. 2020 – Jul. 2024</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>Research Focus: Knowledge Graphs for representation learning and NLP</li>
+                    <li>Nanjing Municipal Government Scholarship 2020</li>
+                    <li>Key Coursework: Machine Learning, Computer Vision, Deep Learning, Algorithm Design</li>
+                </ul>
             </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background: var(--bg-secondary); padding: 2rem 0; margin-top: 4rem; text-align: center;">
+        <p>© 2024 Anthony Huang. All rights reserved.</p>
+        <div class="contact-links">
+            <a href="mailto:huangjunxiang19@gmail.com" class="contact-link">Email</a>
+            <a href="https://github.com/anthonyhuang19" class="contact-link">GitHub</a>
+            <a href="https://linkedin.com/in/anthonyhuang1909" class="contact-link">LinkedIn</a>
         </div>
-    </div>
-
-    <div class="card">
-        <div class="card-content" style="display: flex; align-items: center; gap: 20px;">
-            <!-- GIF on the left -->
-            <img src="https://camo.githubusercontent.com/71415615b3384501cfed91e5223964d207a71b19b3439ebdeebb2de8bd971d5f/68747470733a2f2f696d6167652e6d75782e636f6d2f343849344c6b64643764354b4b716e7630307971326d746d6b6a384d69656c383463344e42566b556a524c552f616e696d617465642e6769663f73746172743d313726656e643d3234" alt="EdgeSegCV" style="width: 200px; border-radius: 8px;">
-
-            <!-- Title and description on the right -->
-            <div>
-                <h4><a href="https://github.com/anthonyhuang19/TDGame-War-of-the-Towers" target="_blank">TDGame-War-of-the-Towers: Tower Defense Game</a></h4>
-                <p>An engaging tower defense game where players strategically place and upgrade towers to stop waves of enemies. 🏰</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-content" style="display: flex; align-items: center; gap: 20px;">
-            <!-- GIF on the left -->
-            <img src="https://personalpages.hs-kempten.de/~vollratj/Labor_Digitaltechnik/Images/Digi_V03.gif" alt="EdgeSegCV" style="width: 200px; border-radius: 8px;">
-
-            <!-- Title and description on the right -->
-            <div>
-                <h4><a href="https://github.com/anthonyhuang19/FPGA-Embedded-Systems" target="_blank">FPGA-Embedded-Systems: Digital Circuits and Microprocessor Design</a></h4>
-                <p>Designed digital circuits and microprocessors using FPGA, covering Boolean logic, combinational circuits, state machines, CPU design, and memory structures. 💡</p>
-            </div>
-        </div>
-    </div>
-    
-</section>
-
-
-<!-- Footer Section -->
-<footer>
-    <p>Thank you for reviewing my resume! For more details, please refer to my <a href="https://github.com/anthonyhuang19">GitHub</a> and <a href="https://linkedin.com/in/anthonyhuang1909/">LinkedIn</a>.</p>
-    <div class="footer-links">
-        <a href="mailto:huangjunxiang19@gmail.com">Email</a> | 
-        <a href="https://github.com/anthonyhuang19">GitHub</a> | 
-        <a href="https://linkedin.com/in/anthonyhuang1909/">LinkedIn</a>
-    </div>
-</footer>
-
+    </footer>
 </body>
 </html>
