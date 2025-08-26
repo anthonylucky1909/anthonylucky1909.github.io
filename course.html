@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning & Deep Learning Curriculum</title>
+    <style>
+        /* CSS Variables for easy theme customization */
+        :root {
+            --primary-blue: #004080; /* Navy Blue */
+            --accent-blue: #007bff; /* Bright Blue */
+            --hover-blue: #E6F0FF; /* Lighter AliceBlue */
+            --background-light: #F4F7F6; /* Slightly darker off-white */
+            --background-white: #FFFFFF;
+            --text-dark: #333333; /* Dark gray for text */
+            --text-medium: #444444; /* Slightly lighter text for sub-items */
+            --border-light: #E0E0E0;
+            --border-lighter: #E9EDF0;
+            --sidebar-width-default: 320px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif; /* More modern font */
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            display: flex;
+            height: 100vh;
+            overflow: hidden; /* Prevent body scroll, content will scroll */
+        }
+
+        #sidebar {
+            width: var(--sidebar-width-default); /* Lebar awal sidebar */
+            background-color: var(--background-white);
+            padding: 20px 0; /* Adjusted padding */
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08); /* More subtle shadow */
+            overflow-y: auto;
+            flex-shrink: 0;
+            user-select: none;
+            /* Removed 'transform' transition as it's no longer hidden */
+            transition: width 0.3s ease-in-out; /* Smooth transition for width only */
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Removed #sidebar.hidden styles */
+
+        #sidebar h2 {
+            color: var(--primary-blue);
+            margin: 0 20px 20px 20px; /* Consistent margin */
+            border-bottom: 2px solid var(--border-light);
+            padding-bottom: 15px;
+            font-size: 1.6em;
+            font-weight: 600;
+        }
+
+        .module {
+            margin-bottom: 8px; /* Less space between modules */
+        }
+
+        .module-header {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px; /* Adjusted padding */
+            background-color: #F8FCFF; /* Lighter background for headers */
+            border-left: 4px solid transparent; /* Subtle border for active state */
+            cursor: pointer;
+            transition: background-color 0.2s, border-left-color 0.2s;
+        }
+
+        .module-header:hover {
+            background-color: var(--hover-blue);
+        }
+        
+        /* Style for active module header (e.g., when one of its sub-items is active) */
+        .module-header.expanded, .module-header.active-module {
+            background-color: var(--hover-blue);
+            border-left-color: var(--accent-blue); /* Highlight active module header */
+        }
+
+        .module-header h3 {
+            flex-grow: 1;
+            margin: 0;
+            color: var(--text-dark);
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .toggle-icon {
+            font-size: 1.2em; /* Smaller toggle icon */
+            font-weight: bold;
+            color: var(--accent-blue);
+            transition: transform 0.3s;
+        }
+
+        .module-header.expanded .toggle-icon {
+            transform: rotate(90deg);
+        }
+
+        .module-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+            max-height: 0; /* Hides the list by default */
+            transition: max-height 0.4s ease-out; /* Smoother transition */
+            border: 1px solid var(--border-lighter);
+            border-top: none;
+            border-radius: 0 0 6px 6px;
+            background-color: #FDFDFD;
+        }
+        
+        .module-list.expanded {
+            max-height: 500px; /* Shows the list */
+            transition: max-height 0.6s ease-in; /* Smoother transition */
+            border-top: 1px solid var(--border-lighter);
+        }
+
+        .module-list li a {
+            display: block;
+            padding: 10px 25px; /* Adjusted padding */
+            text-decoration: none;
+            color: var(--text-medium);
+            background-color: var(--background-white);
+            transition: background-color 0.2s, color 0.2s;
+            font-size: 0.95em;
+        }
+
+        .module-list li a:hover,
+        .module-list li a.active {
+            background-color: #F0F8FF; /* Lighter hover background */
+            color: var(--primary-blue); /* Darker blue for active/hover */
+            font-weight: 600; /* Bolder for active */
+            border-left: 3px solid var(--accent-blue); /* Highlight active item */
+            padding-left: 22px; /* Adjust padding for border */
+        }
+
+        /* Styles for the resizer handle */
+        #resizer {
+            width: 8px; /* Lebar handle */
+            cursor: ew-resize; /* Kursor untuk menunjukkan perubahan ukuran horizontal */
+            background-color: var(--border-light); /* Warna handle */
+            flex-shrink: 0;
+            z-index: 15; /* Pastikan di atas sidebar */
+            transition: background-color 0.2s;
+        }
+
+        #resizer:hover {
+            background-color: var(--accent-blue); /* Warna saat di-hover */
+        }
+
+        #content-wrapper {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; /* For its child #content */
+            position: relative; /* Remove for toggle button */
+        }
+
+        #content {
+            flex-grow: 1;
+            padding: 30px 40px; /* Consistent padding */
+            overflow-y: auto; /* Allow content to scroll */
+            background-color: var(--background-white);
+            border-left: 1px solid var(--border-light); /* Separator from sidebar */
+        }
+
+        #content h1 {
+            color: var(--primary-blue);
+            border-bottom: 2px solid var(--border-light);
+            padding-bottom: 15px;
+            margin-top: 0;
+            font-size: 2em;
+            font-weight: 700;
+        }
+
+        #content h2 {
+            color: var(--primary-blue); /* Used primary for h2 for more formality */
+            margin-top: 35px;
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        #content p {
+            line-height: 1.7;
+            margin-bottom: 18px;
+            font-size: 1em;
+        }
+        
+        #content ul {
+            padding-left: 25px;
+            margin-bottom: 18px;
+        }
+
+        #content li {
+            margin-bottom: 8px;
+        }
+
+        .home-page {
+            padding: 50px;
+        }
+
+        .resource-list {
+            background-color: #F8FCFF; /* Lighter background */
+            border: 1px solid var(--border-lighter);
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .resource-list h3 {
+            color: var(--primary-blue);
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+
+        .resource-list ul {
+            padding-left: 20px;
+        }
+
+        .resource-list li {
+            margin-bottom: 8px;
+        }
+
+        /* Removed Sidebar Toggle Button Styles */
+        /* Removed responsive adjustments for sidebar-toggle */
+        @media (max-width: 768px) {
+            #sidebar {
+                position: relative; /* Changed to relative so it doesn't overlay */
+                height: auto; /* Allow content to determine height */
+                width: 100%; /* Take full width on small screens */
+                transform: translateX(0); /* Always visible */
+                box-shadow: none; /* No shadow needed if not fixed/overlay */
+            }
+            #content {
+                margin-left: 0; 
+                border-left: none; 
+            }
+            #content-wrapper {
+                padding-left: 0; 
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <aside id="sidebar">
+        <h2>Curriculum</h2>
+
+        <div class="module">
+            <div class="module-header" id="header-home">
+                <h3><a href="index.html" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">Home</a></h3>
+            </div>
+        </div>
+
+        <div class="module">
+            <div class="module-header">
+                <h3>1. Core ML Algorithms</h3>
+                <span class="toggle-icon">&gt;</span>
+            </div>
+            <ul class="module-list">
+                <li><a href="#" onclick="loadContent('ml-linear-regression')">Linear Regression</a></li>
+                <li><a href="#" onclick="loadContent('ml-logistic-regression')">Logistic Regression</a></li>
+                <li><a href="#" onclick="loadContent('ml-knn')">k-Nearest Neighbors (k-NN)</a></li>
+                <li><a href="#" onclick="loadContent('ml-decision-trees-random-forests')">Decision Trees & Random Forests</a></li>
+                <li><a href="#" onclick="loadContent('ml-svm')">Support Vector Machines (SVM)</a></li>
+                <li><a href="#" onclick="loadContent('ml-naive-bayes')">Naive Bayes</a></li>
+                <li><a href="#" onclick="loadContent('ml-k-means')">K-Means Clustering</a></li>
+                <li><a href="#" onclick="loadContent('ml-pca')">PCA (Principal Component Analysis)</a></li>
+                <li><a href="#" onclick="loadContent('ml-gradient-boosting')">Gradient Boosting</a></li>
+                <li><a href="#" onclick="loadContent('ml-ensemble-methods')">Ensemble Methods</a></li>
+            </ul>
+        </div>
+
+        <div class="module">
+            <div class="module-header">
+                <h3>2. Model Evaluation & Validation</h3>
+                <span class="toggle-icon">&gt;</span>
+            </div>
+            <ul class="module-list">
+                <li><a href="#" onclick="loadContent('mev-train-test-split')">Train / Test Split</a></li>
+                <li><a href="#" onclick="loadContent('mev-k-fold-cv')">k-Fold Cross-Validation</a></li>
+                <li><a href="#" onclick="loadContent('mev-stratified-k-fold-cv')">Stratified k-Fold CV</a></li>
+                <li><a href="#" onclick="loadContent('mev-loocv')">Leave-One-Out CV (LOOCV)</a></li>
+                <li><a href="#" onclick="loadContent('mev-shuffle-split')">Shuffle Split / Randomized CV</a></li>
+                <li><a href="#" onclick="loadContent('mev-time-series-validation')">Time Series / Rolling Validation</a></li>
+                <li><a href="#" onclick="loadContent('mev-nested-cv')">Nested Cross-Validation</a></li>
+                <li><a href="#" onclick="loadContent('mev-evaluation-metrics-regression')">Evaluation Metrics: Regression</a></li>
+                <li><a href="#" onclick="loadContent('mev-evaluation-metrics-classification')">Evaluation Metrics: Classification</a></li>
+            </ul>
+        </div>
+
+        <div class="module">
+            <div class="module-header">
+                <h3>3. Feature Engineering & Preprocessing</h3>
+                <span class="toggle-icon">&gt;</span>
+            </div>
+            <ul class="module-list">
+                <li><a href="#" onclick="loadContent('fep-missing-values')">Handling Missing Values</a></li>
+                <li><a href="#" onclick="loadContent('fep-outlier-detection')">Outlier Detection & Removal</a></li>
+                <li><a href="#" onclick="loadContent('fep-scaling-normalization')">Scaling & Normalization</a></li>
+                <li><a href="#" onclick="loadContent('fep-encoding-categorical')">Encoding Categorical Features</a></li>
+                <li><a href="#" onclick="loadContent('fep-feature-selection')">Feature Selection & Dimensionality Reduction</a></li>
+                <li><a href="#" onclick="loadContent('fep-text-preprocessing')">Text Preprocessing</a></li>
+                <li><a href="#" onclick="loadContent('fep-image-preprocessing')">Image Preprocessing</a></li>
+            </ul>
+        </div>
+
+        <div class="module">
+            <div class="module-header">
+                <h3>4. Neural Networks / Deep Learning</h3>
+                <span class="toggle-icon">&gt;</span>
+            </div>
+            <ul class="module-list">
+                <li><a href="#" onclick="loadContent('nn-feedforward')">Feedforward Neural Networks (MLP)</a></li>
+                <li><a href="#" onclick="loadContent('nn-cnn')">Convolutional Neural Networks (CNN)</a></li>
+                <li><a href="#" onclick="loadContent('nn-cnn-variants')">CNN Variants: ResNet, VGG, EfficientNet</a></li>
+                <li><a href="#" onclick="loadContent('nn-rnn')">Recurrent Neural Networks (RNN)</a></li>
+                <li><a href="#" onclick="loadContent('nn-lstm-gru')">LSTM / GRU</a></li>
+                <li><a href="#" onclick="loadContent('nn-autoencoders')">Autoencoders</a></li>
+                <li><a href="#" onclick="loadContent('nn-gans')">GANs (Generative Adversarial Networks)</a></li>
+                <li><a href="#" onclick="loadContent('nn-transformers')">Transformers (BERT, GPT, ViT)</a></li>
+                <li><a href="#" onclick="loadContent('nn-attention')">Attention Mechanism</a></li>
+                <li><a href="#" onclick="loadContent('nn-embeddings')">Embeddings (Word & Positional)</a></li>
+            </ul>
+        </div>
+
+        <div class="module">
+            <div class="module-header">
+                <h3>5. Natural Language Processing (NLP)</h3>
+                <span class="toggle-icon">&gt;</span>
+            </div>
+            <ul class="module-list">
+                <li><a href="#" onclick="loadContent('nlp-bow-tfidf')">Bag-of-Words / TF-IDF</a></li>
+                <li><a href="#" onclick="loadContent('nlp-word-embeddings')">Word Embeddings: Word2Vec, GloVe</a></li>
+                <li><a href="#" onclick="loadContent('nlp-sequence-modeling')">Sequence Modeling with RNN/LSTM</a></li>
+                <li><a href="#" onclick="loadContent('nlp-transformer-models')">Transformer-based Models: BERT, GPT</a></li>
+                <li><a href="#" onclick="loadContent('nlp-ner')">Named Entity Recognition (NER)</a></li>
+                <li><a href="#" onclick="loadContent('nlp-text-classification')">Text Classification / Sentiment Analysis</a></li>
+                <li><a href="#" onclick="loadContent('nlp-qa-summarization')">Question Answering / Summarization</a></li>
+                <li><a href="#" onclick="loadContent('nlp-tokenization')">Tokenization & Subword Techniques</a></li>
+            </ul>
+        </div>
+
+        <div class="module">
+            <div class="module-header">
+                <h3>6. Computer Vision (CV)</h3>
+                <span class="toggle-icon">&gt;</span>
+            </div>
+            <ul class="module-list">
+                <li><a href="#" onclick="loadContent('cv-image-classification')">Image Classification (CNN)</a></li>
+                <li><a href="#" onclick="loadContent('cv-object-detection')">Object Detection (YOLO, Faster R-CNN)</a></li>
+                <li><a href="#" onclick="loadContent('cv-semantic-segmentation')">Semantic Segmentation (U-Net, DeepLab)</a></li>
+                <li><a href="#" onclick="loadContent('cv-image-generation')">Image Generation / Super-Resolution</a></li>
+                <li><a href="#" onclick="loadContent('cv-image-embeddings')">Image Embeddings for Retrieval (CLIP)</a></li>
+            </ul>
+        </div>
+
+        <div class="module">
+            <div class="module-header">
+                <h3>7. Time Series / Forecasting</h3>
+                <span class="toggle-icon">&gt;</span>
+            </div>
+            <ul class="module-list">
+                <li><a href="#" onclick="loadContent('ts-moving-average')">Moving Average, Exponential Smoothing</a></li>
+                <li><a href="#" onclick="loadContent('ts-arima-sarima')">ARIMA / SARIMA</a></li>
+                <li><a href="#" onclick="loadContent('ts-lstm-gru')">LSTM / GRU for Time Series</a></li>
+                <li><a href="#" onclick="loadContent('ts-prophet')">Prophet (Facebook)</a></li>
+                <li><a href="#" onclick="loadContent('ts-anomaly-detection')">Anomaly Detection in Time Series</a></li>
+            </ul>
+        </div>
+
+        <div class="module">
+            <div class="module-header">
+                <h3>8. Reinforcement Learning (RL)</h3>
+                <span class="toggle-icon">&gt;</span>
+            </div>
+            <ul class="module-list">
+                <li><a href="#" onclick="loadContent('rl-mdp')">Markov Decision Process (MDP) Basics</a></li>
+                <li><a href="#" onclick="loadContent('rl-q-learning')">Q-Learning / Deep Q-Network (DQN)</a></li>
+                <li><a href="#" onclick="loadContent('rl-policy-gradient')">Policy Gradient, REINFORCE, PPO, A2C</a></li>
+            </ul>
+        </div>
+
+        <div class="module">
+            <div class="module-header">
+                <h3>9. Recommendation Systems</h3>
+                <span class="toggle-icon">&gt;</span>
+            </div>
+            <ul class="module-list">
+                <li><a href="#" onclick="loadContent('rs-collaborative-filtering')">Collaborative Filtering (User-Item)</a></li>
+                <li><a href="#" onclick="loadContent('rs-content-based-filtering')">Content-Based Filtering</a></li>
+                <li><a href="#" onclick="loadContent('rs-hybrid-recommendation')">Hybrid Recommendation</a></li>
+                <li><a href="#" onclick="loadContent('rs-embedding-based')">Embedding-based Recommendation</a></li>
+            </ul>
+        </div>
+
+    </aside>
+
+    <div id="resizer"></div> <!-- Handle untuk resize -->
+
+    <div id="content-wrapper">
+        <!-- Removed <button id="sidebar-toggle">Hide Sidebar</button> -->
+        <main id="content">
+            <!-- Content will be loaded here dynamically -->
+        </main>
+    </div>
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const contentDiv = document.getElementById('content');
+        // Removed sidebarToggle
+        const sidebarLinks = document.querySelectorAll('.module-list li a');
+        const moduleHeaders = document.querySelectorAll('.module-header');
+        const resizer = document.getElementById('resizer'); // Dapatkan elemen resizer
+        const body = document.body;
+
+        let isResizing = false;
+        // Removed isSidebarHidden as sidebar is always visible
+
+        // Menambahkan event listener untuk resizer
+        resizer.addEventListener('mousedown', function(e) {
+            // No check for isSidebarHidden needed
+            isResizing = true;
+            body.style.cursor = 'ew-resize'; // Ubah kursor
+            document.addEventListener('mousemove', resizeSidebar);
+            document.addEventListener('mouseup', stopResizing);
+        });
+
+        function resizeSidebar(e) {
+            if (!isResizing) return;
+            const newWidth = e.clientX;
+            // Batasi lebar sidebar minimum (150px) dan maksimum (lebar jendela dikurangi 200px)
+            const minWidth = 150;
+            const maxWidth = window.innerWidth - 200; 
+            if (newWidth > minWidth && newWidth < maxWidth) {
+                sidebar.style.width = newWidth + 'px';
+            }
+        }
+
+        function stopResizing() {
+            isResizing = false;
+            body.style.cursor = 'default'; // Kembalikan kursor
+            document.removeEventListener('mousemove', resizeSidebar);
+            document.removeEventListener('mouseup', stopResizing);
+        }
+
+        const content = {
+            'home': `
+                <div class="home-page">
+                    <h1>Comprehensive Machine Learning & Deep Learning Curriculum</h1>
+                    <p>Welcome to our structured learning platform, designed to provide a rigorous and methodical study path in Machine Learning (ML) and Deep Learning (DL). This resource offers a carefully organized roadmap, progressing from foundational principles to advanced methodologies, ensuring a thorough and practical educational experience.</p>
+                    <p>Our curriculum begins with <strong>Machine Learning fundamentals</strong>, covering essential algorithms across supervised, unsupervised, and reinforcement learning paradigms. These initial modules establish the essential theoretical framework and practical techniques required for data analysis and predictive modeling. As you advance, the curriculum transitions into <strong>Deep Learning</strong>, a specialized subset of ML that employs neural networks with multiple layers to model complex abstractions in data. This progression highlights how Deep Learning extends traditional ML capabilities, particularly for tasks involving image recognition, natural language processing, and advanced pattern detection.</p>
+                    <p>Utilize the <strong>syllabus on the left</strong> to seamlessly navigate through each module. From the introductory concepts of neural networks and backpropagation to specialized architectures like Convolutional Neural Networks (CNNs) for vision, Recurrent Neural Networks (RNNs) for sequences, and the transformative power of Transformers for natural language processing, each section provides in-depth explanations and detailed educational resources. This site serves as an invaluable asset for cultivating both foundational understanding and advanced expertise in these dynamic and rapidly evolving fields.</p>
+                </div>
+            `,
+            'ml-linear-regression': `
+                <h1>Linear Regression</h1>
+                <p>Linear Regression is a foundational supervised learning algorithm used to predict a continuous output variable based on one or more input features. It assumes a linear relationship between the independent variables (features) and the dependent variable (target).</p>
+                
+                <p>The mathematical model can be expressed as:</p>
+                $$y = w_1 x_1 + w_2 x_2 + \\dots + w_n x_n + b$$
+                <p>where $x_i$ are input features, $w_i$ are weights, $b$ is the bias term, and $y$ is the predicted output.</p>
+
+                <p>The goal of Linear Regression is to find the optimal weights and bias that minimize the difference between the predicted values and the true target values, typically using Mean Squared Error (MSE) as the loss function:</p>
+                $$MSE = \\frac{1}{n} \\sum_{i=1}^{n} (y_i - \\hat{y}_i)^2$$
+
+                <p>Linear Regression can be implemented easily in Python using libraries like PyTorch or Scikit-learn.</p>
+
+                <p>Example implementation in PyTorch:</p>
+                <pre><code>
+import torch
+import torch.nn as nn
+import torch.optim as optim
+
+# Sample dataset
+X = torch.tensor([[1.0], [2.0], [3.0], [4.0]])
+y = torch.tensor([[2.0], [4.0], [6.0], [8.0]])
+
+# Define linear regression model
+model = nn.Linear(in_features=1, out_features=1)
+
+# Define loss and optimizer
+criterion = nn.MSELoss()
+optimizer = optim.SGD(model.parameters(), lr=0.01)
+
+# Training loop
+for epoch in range(1000):
+    optimizer.zero_grad()
+    outputs = model(X)
+    loss = criterion(outputs, y)
+    loss.backward()
+    optimizer.step()
+
+print(f'Predicted outputs: {model(X).detach()}')
+                </code></pre>
+
+                <p>For more details, refer to: <a href="https://medium.com/@anthonyhuang1909/understanding-linear-regression-in-machine-learning-e90d157ec1dd" target="_blank" rel="noopener noreferrer">Understanding Linear Regression in Machine Learning</a></p>
+
+                <p>
+                    <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*OKjRI4lvO1SDUmRoV4wkBQ.gif" alt="Linear Regression Visualization" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px; margin-bottom:20px;">
+                </p>
+            `,
+
+            'ml-logistic-regression': `
+                <h1>Logistic Regression</h1>
+                <p>Logistic Regression is a fundamental statistical model used for binary and multiclass classification problems. Unlike Linear Regression, which predicts continuous outcomes, Logistic Regression estimates the probability of a categorical outcome using the logistic (sigmoid) function.</p>
+                
+                <p>The logistic (sigmoid) function maps any real-valued number into the interval $[0,1]$:</p>
+                $$ \\sigma(z) = \\frac{1}{1 + e^{-z}} $$
+                <p>where $z = w \\cdot x + b$. Here, $w$ is the weight vector, $x$ is the input feature vector, and $b$ is the bias term. For binary classification, the decision rule is:</p>
+                <p>$y = 1$ if $\\sigma(w \\cdot x + b) \\ge 0.5$, else $0$</p>
+                
+                <p>The model can also be interpreted in terms of odds and log-odds (logit function):</p>
+                $$\\text{logit}(p) = \\log\\left(\\frac{p}{1 - p}\\right) = w \\cdot x + b$$
+                <p>Thus, Logistic Regression is a linear model on the log-odds.</p>
+                
+                <h2>Evaluation Metrics</h2>
+                <p>To evaluate a Logistic Regression model, common metrics derived from the confusion matrix include:</p>
+                <ul>
+                    <li><strong>Accuracy:</strong> Proportion of correctly classified instances.</li>
+                    <li><strong>Precision:</strong> Reliability of positive predictions ($\text{TP} / (\text{TP} + \text{FP})$).</li>
+                    <li><strong>Recall (Sensitivity):</strong> Proportion of actual positives correctly identified ($\text{TP} / (\text{TP} + \text{FN})$).</li>
+                    <li><strong>F1 Score:</strong> Harmonic mean of precision and recall, balancing both metrics.</li>
+                </ul>
+                
+                <h2>Implementation Example (PyTorch)</h2>
+                <pre><code>
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from sklearn.datasets import make_classification
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+
+class LogisticRegressionModel(nn.Module):
+    def __init__(self, input_dim, output_dim=1):
+        super(LogisticRegressionModel, self).__init__()
+        self.linear = nn.Linear(input_dim, output_dim)
+        self.sigmoid = nn.Sigmoid()
+    def forward(self, x):
+        return self.sigmoid(self.linear(x))
+
+# Generate dataset
+X, y = make_classification(n_samples=1000, n_features=2, n_classes=2, random_state=42)
+X = torch.tensor(X, dtype=torch.float32)
+y = torch.tensor(y, dtype=torch.float32).view(-1, 1)
+
+# Train/test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=40)
+
+# Initialize model, loss, optimizer
+model = LogisticRegressionModel(input_dim=X.shape[1])
+criterion = nn.BCELoss()
+optimizer = optim.SGD(model.parameters(), lr=0.01)
+
+# Training loop
+for epoch in range(100):
+    outputs = model(X_train)
+    loss = criterion(outputs, y_train)
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+    if (epoch + 1) % 10 == 0:
+        print(f"Epoch [{epoch+1}/100], Loss: {loss.item():.4f}")
+
+# Evaluation
+with torch.no_grad():
+    y_pred = model(X_test)
+    y_pred_class = (y_pred >= 0.5).float()
+    acc = accuracy_score(y_test.numpy(), y_pred_class.numpy())
+    precision = precision_score(y_test.numpy(), y_pred_class.numpy())
+    recall = recall_score(y_test.numpy(), y_pred_class.numpy())
+    f1 = f1_score(y_test.numpy(), y_pred_class.numpy())
+    print(f"Accuracy: {acc:.4f}, Precision: {precision:.4f}, Recall: {recall:.4f}, F1 Score: {f1:.4f}")
+    </code></pre>
+
+                <p>For a detailed explanation, see: <a href="https://medium.com/@anthonyhuang1909/understanding-logistic-regression-c256935e32c5" target="_blank" rel="noopener noreferrer">Understanding Logistic Regression</a></p>
+            `,
+
+            'ml-knn': `
+                <div class="ml-knn-page">
+                    <h1>k-Nearest Neighbors (k-NN) Algorithm</h1>
+                    
+                    <p>The <strong>k-Nearest Neighbors (k-NN)</strong> algorithm is a supervised learning technique widely used for <strong>classification</strong> and also applicable for <strong>regression</strong>. It predicts outcomes for new data points based on the labels or values of their nearest neighbors in the feature space.</p>
+
+                    <h2>Main Idea</h2>
+                    <ul>
+                        <li><strong>Classification:</strong> The predicted label is determined by the majority class among the nearest neighbors.</li>
+                        <li><strong>Regression:</strong> The predicted value is the average of the nearest neighbors’ values.</li>
+                        <li><strong>Lazy Learning:</strong> KNN stores training data and performs computation only at prediction time, rather than building an explicit model.</li>
+                    </ul>
+
+                    <h2>Algorithm Steps</h2>
+                    <ol>
+                        <li>Choose the number of neighbors $k$.</li>
+                        <li>Compute the distance between the test point and all training points.</li>
+                        <li>Identify the $k$ nearest neighbors with the smallest distances.</li>
+                        <li>Predict the output:
+                            <ul>
+                                <li>Classification $\\to$ majority vote among neighbors.</li>
+                                <li>Regression $\\to$ average of neighbors’ values.</li>
+                            </ul>
+                        </li>
+                    </ol>
+
+                    <h2>Distance Metrics</h2>
+                    <p>Distance measures are critical for KNN performance. The most common metric is <strong>Euclidean distance</strong>:</p>
+                    $$d(x, y) = \\sqrt{\\sum_{i=1}^{d} (x_i - y_i)^2}$$
+                    <p>Other distance metrics include:</p>
+                    <ul>
+                        <li><strong>Manhattan distance:</strong> $d(x, y) = \\sum_{i=1}^{d} |x_i - y_i|$</li>
+                        <li><strong>Minkowski distance:</strong> $d(x, y) = (\\sum_{i=1}^{d} |x_i - y_i|^p)^{1/p}$</li>
+                    </ul>
+
+                    <h2>Choosing the Optimal k</h2>
+                    <ul>
+                        <li><strong>Cross-validation:</strong> Evaluate multiple $k$ values and select the one with the highest average performance.</li>
+                        <li><strong>Elbow method:</strong> Plot error metrics versus $k$ and select the point where improvement levels off.</li>
+                        <li>For classification, odd values of $k$ help avoid ties; for regression, averaging resolves tie concerns.</li>
+                    </ul>
+
+                    <h2>Visualization</h2>
+                    <p>This animation demonstrates KNN classification in 2D space:</p>
+                    <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*oOWUXrzZjhg-QXFHUf4uzg.gif" 
+                        alt="KNN Visualization" 
+                        style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px; margin-bottom:20px;">
+
+                    <h2>PyTorch Implementation Example</h2>
+                    <pre><code>
+                import torch
+                import torch.nn as nn 
+                from collections import Counter
+                from sklearn.model_selection import KFold
+
+                class KNN(nn.Module):
+                    def __init__(self, k:int):
+                        super(KNN, self).__init__()
+                        self.k = k
+                        self.X_train = None
+                        self.Y_train = None
+
+                    def fit(self, x, y):
+                        self.X_train = x
+                        self.Y_train = y
+
+                    def forward(self, x_test):
+                        distance = torch.sqrt(torch.sum((self.X_train - x_test)**2, dim=1))
+                        k_eff = min(self.k, len(self.X_train))
+                        knn_index = torch.topk(distance, k_eff, largest=False).indices
+                        knn_labels = self.Y_train[knn_index]
+                        most_common = Counter(knn_labels.tolist()).most_common(1)
+                        return most_common[0][0]
+
+                    def predict_batch(self, X_test):
+                        return torch.tensor([self.forward(x) for x in X_test])
+
+                def cross_validation(X, y, k_values, num_folds=5):
+                    results = {}
+                    kf = KFold(n_splits=num_folds, shuffle=True, random_state=42)
+                    for k in k_values:
+                        acc_scores = []
+                        model = KNN(k=k)
+                        for train_idx, val_idx in kf.split(X):
+                            X_train, X_val = X[train_idx], X[val_idx]
+                            y_train, y_val = y[train_idx], y[val_idx]
+                            model.fit(X_train, y_train)
+                            y_pred = model.predict_batch(X_val)
+                            acc_scores.append((y_pred == y_val).float().mean().item())
+                        results[k] = sum(acc_scores)/len(acc_scores)
+                    return results
+
+                # Example usage
+                X_toy = torch.tensor([[1.,2.],[2.,3.],[3.,4.],[6.,7.],[7.,8.],[8.,8.],[9.,9.]])
+                y_toy = torch.tensor([0,0,0,1,1,1,1])
+                k_values = list(range(1,8))
+                results_toy = cross_validation(X_toy, y_toy, k_values, num_folds=3)
+                    </code></pre>
+
+                    <p>For further reading, see: 
+                        <a href="https://medium.com/@anthonyhuang1909/understanding-of-knn-059d9383c273" target="_blank" rel="noopener noreferrer">
+                            Understanding of KNN
+                        </a>
+                    </p>
+                </div>
+                `,
+
+
+            'ml-decision-trees-random-forests': `
+<div class="ml-decision-trees-page">
+    <h1>Decision Trees & Random Forests</h1>
+
+    <p>
+        <strong>Decision Trees</strong> are intuitive, non-parametric supervised learning algorithms used for both <strong>classification</strong> and <strong>regression</strong> tasks. 
+        They work by recursively splitting the dataset into subsets based on feature values, forming a tree-like structure that models decisions and their possible outcomes.
+    </p>
+
+    <h2>Structure of a Decision Tree</h2>
+    <ul>
+        <li><strong>Root Node:</strong> Represents the entire dataset and is the starting point of the tree.</li>
+        <li><strong>Internal Nodes:</strong> Represent decision rules or tests based on feature values.</li>
+        <li><strong>Branches:</strong> Represent the outcomes of a decision rule leading to the next node.</li>
+        <li><strong>Leaf Nodes:</strong> Represent the final predictions or outcomes.</li>
+    </ul>
+
+    <h2>How Decision Trees Work</h2>
+    <p>
+        Decision trees aim to create subsets that are as homogeneous as possible with respect to the target variable. 
+        The algorithm chooses the best feature for splitting at each node using measures like <strong>information gain</strong> or <strong>Gini impurity</strong>, which quantify how well a feature separates the data.
+    </p>
+
+    <h2>Random Forests</h2>
+    <p>
+        <strong>Random Forests</strong> are an ensemble learning method that builds multiple decision trees and aggregates their predictions to improve accuracy and robustness. 
+        Each tree is trained on a random subset of the data (bootstrapping) and considers a random subset of features at each split. 
+        For classification, the final output is determined by majority vote among trees; for regression, it is the average of the tree predictions.
+    </p>
+
+    <h2>Advantages & Disadvantages</h2>
+    <ul>
+        <li><strong>Advantages:</strong> Easy to interpret, handles numerical and categorical data, flexible for classification and regression, and less prone to overfitting than single trees.</li>
+        <li><strong>Disadvantages:</strong> Decision trees can overfit on complex datasets, sensitive to small changes in data, and computationally intensive for large datasets, especially with Random Forests.</li>
+    </ul>
+
+    <h2>Visualizations</h2>
+    <p>
+        Decision trees provide a clear visual representation of decision logic. Random Forests, while more complex, benefit from aggregated tree structures.
+    </p>
+    <p>
+        <img src="https://cdn-images-1.medium.com/v2/resize:fit:1600/1*sYHMS3jOsxlmMvmxl7FAbw.gif" alt="Decision Tree Visualization" style="max-width:100%; height:auto; margin-bottom:15px; border:1px solid #ccc; border-radius:8px;">
+        <img src="https://cdn-images-1.medium.com/v2/resize:fit:1600/0*6sS7t3OgEZCr_GaA.gif" alt="Random Forest Visualization" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
+    </p>
+
+    <h2>Learn More</h2>
+    <p>
+        For an in-depth tutorial on decision trees and random forests, visit: 
+        <a href="https://towardsdatascience.com/sklean-tutorial-module-5-b30e08a4c746" target="_blank" rel="noopener noreferrer">Decision Trees & Random Forests Tutorial</a>
+    </p>
+</div>
+`,
+
+            'ml-svm': `
+                <h1>Support Vector Machines (SVM)</h1>
+                <p>Support Vector Machines (SVMs) are powerful supervised learning models used for classification and regression tasks. They work by finding an optimal hyperplane that best separates data points of different classes in a high-dimensional space.</p>
+            `,
+            'ml-naive-bayes': `
+                <h1>Naive Bayes</h1>
+                <p>Naive Bayes classifiers are a family of simple probabilistic classifiers based on applying Bayes' theorem with strong (naive) independence assumptions between the features. They are widely used in text classification and spam filtering.</p>
+            `,
+            'ml-k-means': `
+                <h1>K-Means Clustering</h1>
+                <p>K-Means is a popular unsupervised learning algorithm used for clustering. It aims to partition '$n$' observations into '$k$' clusters, where each observation belongs to the cluster with the nearest mean (centroid).</p>
+            `,
+            'ml-pca': `
+                <h1>PCA (Principal Component Analysis)</h1>
+                <p>Principal Component Analysis (PCA) is a dimensionality reduction technique used to reduce the number of features in a dataset by transforming the data into a new set of orthogonal variables called principal components, while retaining as much information as possible.</p>
+            `,
+            'ml-gradient-boosting': `
+                <h1>Gradient Boosting (GBM, XGBoost, LightGBM, CatBoost)</h1>
+                <p>Gradient Boosting is a powerful ensemble machine learning technique that builds a strong predictive model from a sequence of weaker models, typically decision trees. It iteratively corrects the errors of previous models, with popular implementations including XGBoost, LightGBM, and CatBoost.</p>
+            `,
+            'ml-ensemble-methods': `
+                <h1>Ensemble Methods (Bagging, Boosting, Voting, Stacking)</h1>
+                <p>Ensemble methods combine multiple machine learning models to achieve better predictive performance than could be obtained from any single model. Common techniques include Bagging (e.g., Random Forest), Boosting (e.g., Gradient Boosting), Voting, and Stacking.</p>
+            `,
+            'mev-train-test-split': `
+                <h1>Train / Test Split</h1>
+                <p>The Train / Test Split is a fundamental method used to evaluate the performance of a machine learning model. The dataset is divided into a training set, used to teach the model, and a testing set, used to assess its generalization capabilities on unseen data.</p>
+                <!-- NOTE: The link below was for Linear Regression. Consider replacing it with a specific resource for Train/Test Split. -->
+                <p>For more details, refer to: <a href="https://medium.com/@anthonyhuang1909/understanding-linear-regression-in-machine-learning-e90d157ec1dd" target="_blank" rel="noopener noreferrer">Understanding Linear Regression in Machine Learning</a></p>
+            `,
+            'mev-k-fold-cv': `
+                <h1>k-Fold Cross-Validation</h1>
+                <p>k-Fold Cross-Validation is a robust technique for evaluating machine learning models. The dataset is divided into '$k$' equal folds. The model is trained '$k$' times, each time using $k-1$ folds for training and one fold for validation, and the results are averaged.</p>
+            `,
+            'mev-stratified-k-fold-cv': `
+                <h1>Stratified k-Fold Cross-Validation</h1>
+                <p>Stratified k-Fold Cross-Validation is a variation of k-Fold CV where each fold maintains the same proportion of observations for each class as in the original dataset, which is particularly useful for imbalanced classification problems.</p>
+            `,
+            'mev-loocv': `
+                <h1>Leave-One-Out Cross-Validation (LOOCV)</h1>
+                <p>Leave-One-Out Cross-Validation (LOOCV) is an extreme form of k-Fold CV where '$k$' is set to the number of data points. Each data point is used once as a validation set, while the remaining $n-1$ data points form the training set.</p>
+            `,
+            'mev-shuffle-split': `
+                <h1>Shuffle Split / Randomized Cross-Validation</h1>
+                <p>Shuffle Split cross-validation repeatedly shuffles and splits the data into a training and testing set. This method provides more flexibility in choosing the number of iterations and the size of the train/test sets, which can be beneficial for large datasets.</p>
+            `,
+            'mev-time-series-validation': `
+                <h1>Time Series / Rolling Validation</h1>
+                <p>Time Series Validation, often called rolling validation, is crucial for time-dependent data. Models are trained on past data and evaluated on future data, preserving the temporal order, which is essential for accurate forecasting.</p>
+            `,
+            'mev-nested-cv': `
+                <h1>Nested Cross-Validation</h1>
+                <p>Nested Cross-Validation is a robust method used for hyperparameter tuning and model selection. It involves an inner loop for hyperparameter optimization and an outer loop for estimating the model's generalization performance, preventing overfitting to the validation set.</p>
+            `,
+            'mev-evaluation-metrics-regression': `
+                <h1>Evaluation Metrics: Regression</h1>
+                <p>Key metrics for evaluating regression models include Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), and R-squared (R²). These metrics quantify the difference between predicted and actual continuous values.</p>
+            `,
+            'mev-evaluation-metrics-classification': `
+                <h1>Evaluation Metrics: Classification</h1>
+                <p>Common metrics for classification models include Accuracy, Precision, Recall, F1-score, and ROC-AUC. These metrics assess how well a model categorizes data, particularly useful for understanding performance on different classes.</p>
+            `,
+            'fep-missing-values': `
+                <h1>Handling Missing Values</h1>
+                <p>Handling missing values is a crucial preprocessing step. Techniques include imputation (e.g., mean, median, mode), deletion of rows or columns, or using advanced methods that can inherently handle missing data.</p>
+            `,
+            'fep-outlier-detection': `
+                <h1>Outlier Detection & Removal</h1>
+                <p>Outlier detection involves identifying data points that significantly deviate from other observations. Methods include statistical tests (e.g., Z-score), clustering-based techniques, or distance-based approaches. Removal or transformation of outliers can improve model performance.</p>
+            `,
+            'fep-scaling-normalization': `
+                <h1>Scaling & Normalization (MinMax, StandardScaler)</h1>
+                <p>Scaling and Normalization are techniques used to transform numerical features to a similar scale. Common methods include Min-Max Scaling (normalizing data to a fixed range) and StandardScaler (standardizing data to a mean of 0 and standard deviation of 1).</p>
+            `,
+            'fep-encoding-categorical': `
+                <h1>Encoding Categorical Features (One-hot, Label Encoding)</h1>
+                <p>Encoding categorical features converts non-numerical data into a numerical format suitable for machine learning models. Popular methods include One-Hot Encoding (creating new binary columns for each category) and Label Encoding (assigning a unique integer to each category).</p>
+            `,
+            'fep-feature-selection': `
+                <h1>Feature Selection & Dimensionality Reduction</h1>
+                <p>Feature selection aims to choose the most relevant features to improve model performance and reduce overfitting. Dimensionality reduction techniques (like PCA) transform data into a lower-dimensional space while retaining crucial information.</p>
+            `,
+            'fep-text-preprocessing': `
+                <h1>Text Preprocessing (Tokenization, Stemming/Lemmatization)</h1>
+                <p>Text preprocessing prepares raw text data for NLP tasks. It includes tokenization (breaking text into words/subwords), stemming (reducing words to their root form), lemmatization (reducing words to their dictionary form), and removing stop words.</p>
+            `,
+            'fep-image-preprocessing': `
+                <h1>Image Preprocessing (Resizing, Normalization, Augmentation)</h1>
+                <p>Image preprocessing involves preparing image data for computer vision models. Key steps include resizing images to a consistent dimension, normalizing pixel values, and image augmentation (creating variations of existing images) to enhance model robustness.</p>
+            `,
+            'nn-feedforward': `
+                <h1>Feedforward Neural Networks (MLP)</h1>
+                <p>Feedforward Neural Networks, also known as Multilayer Perceptrons (MLPs), are the most basic type of neural network. Information flows in one direction, from the input layer through hidden layers to the output layer, without cycles or loops.</p>
+            `,
+            'nn-cnn': `
+                <h1>Convolutional Neural Networks (CNN)</h1>
+                <p>Convolutional Neural Networks (CNNs) are a class of deep neural networks highly effective for analyzing visual imagery. They utilize convolutional layers to automatically and adaptively learn spatial hierarchies of features from input data.</p>
+            `,
+            'nn-cnn-variants': `
+                <h1>CNN Variants: ResNet, VGG, EfficientNet</h1>
+                <p>Various sophisticated CNN architectures have been developed to improve performance and efficiency. This section explores prominent variants like ResNet (Residual Networks), VGG (Visual Geometry Group), and EfficientNet, highlighting their unique contributions and design principles.</p>
+            `,
+            'nn-rnn': `
+                <h1>Recurrent Neural Networks (RNN)</h1>
+                <p>Recurrent Neural Networks (RNNs) are designed to process sequential data. They contain internal memory that allows them to retain information from previous steps in a sequence, making them suitable for tasks like speech recognition and natural language processing.</p>
+            `,
+            'nn-lstm-gru': `
+                <h1>LSTM / GRU</h1>
+                <p>Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU) are advanced types of Recurrent Neural Networks designed to overcome the vanishing gradient problem, enabling them to learn long-term dependencies in sequential data more effectively.</p>
+            `,
+            'nn-autoencoders': `
+                <h1>Autoencoders</h1>
+                <p>Autoencoders are a type of artificial neural network used for unsupervised learning of efficient data codings (features). They aim to learn a representation (encoding) for a set of data, typically for dimensionality reduction or feature learning, by reconstructing its own input.</p>
+            `,
+            'nn-gans': `
+                <h1>GANs (Generative Adversarial Networks)</h1>
+                <p>Generative Adversarial Networks (GANs) are a class of AI algorithms used in unsupervised machine learning, implemented by a system of two neural networks contesting with each other in a zero-sum game framework. They are widely used for generating realistic data such as images.</p>
+            `,
+            'nn-transformers': `
+                <h1>Transformers (BERT, GPT, ViT)</h1>
+                <p>Transformers are a groundbreaking neural network architecture that has revolutionized natural language processing and is increasingly used in computer vision. Key models include BERT (Bidirectional Encoder Representations from Transformers), GPT (Generative Pre-trained Transformer), and ViT (Vision Transformer).</p>
+            `,
+            'nn-attention': `
+                <h1>Attention Mechanism</h1>
+                <p>The Attention Mechanism is a key component of modern neural network architectures, particularly Transformers. It allows the model to selectively focus on different parts of the input sequence when processing each element, significantly improving performance on sequence-to-sequence tasks.</p>
+            `,
+            'nn-embeddings': `
+                <h1>Embeddings (Word & Positional)</h1>
+                <p>Embeddings are dense vector representations of discrete variables, allowing neural networks to efficiently process categorical data. Word embeddings (like Word2Vec) represent words, while positional embeddings encode the position of elements in a sequence, crucial for models like Transformers.</p>
+            `,
+            'nlp-bow-tfidf': `
+                <h1>Bag-of-Words / TF-IDF</h1>
+                <p><strong>Bag-of-Words (BoW)</strong> and <strong>TF-IDF (Term Frequency-Inverse Document Frequency)</strong> are fundamental techniques for text representation in NLP. BoW represents text as a collection of words, while TF-IDF assigns weights to words based on their importance in a document relative to a corpus.</p>
+            `,
+            'nlp-word-embeddings': `
+                <h1>Word Embeddings: Word2Vec, GloVe</h1>
+                <p>Word embeddings are dense vector representations of words that capture semantic relationships. This section covers popular models like Word2Vec (continuous bag-of-words and skip-gram) and GloVe (Global Vectors for Word Representation).</p>
+            `,
+            'nlp-sequence-modeling': `
+                <h1>Sequence Modeling with RNN/LSTM</h1>
+                <p>Sequence modeling is a core task in NLP that involves processing and generating sequences of data. Recurrent Neural Networks (RNNs) and their advanced variants like LSTMs (Long Short-Term Memory) are foundational for these tasks, enabling models to understand context over time.</p>
+            `,
+            'nlp-transformer-models': `
+                <h1>Transformer-based Models: BERT, GPT</h1>
+                <p>Transformer-based models, such as BERT and GPT, represent a significant breakthrough in NLP. They leverage the attention mechanism to achieve state-of-the-art performance across a wide range of language understanding and generation tasks.</p>
+            `,
+            'nlp-ner': `
+                <h1>Named Entity Recognition (NER)</h1>
+                <p>Named Entity Recognition (NER) is an NLP task that aims to locate and classify named entities in text into predefined categories such as person names, organizations, locations, medical codes, time expressions, quantities, monetary values, percentages, etc.</p>
+            `,
+            'nlp-text-classification': `
+                <h1>Text Classification / Sentiment Analysis</h1>
+                <p>Text Classification involves categorizing text documents into predefined classes. Sentiment Analysis is a specialized form of text classification that determines the emotional tone behind a piece of text, categorizing it as positive, negative, or neutral.</p>
+            `,
+            'nlp-qa-summarization': `
+                <h1>Question Answering / Summarization</h1>
+                <p>Question Answering (QA) systems retrieve answers to questions posed in natural language, while Summarization aims to create a concise and coherent summary of a longer text document, preserving its core meaning.</p>
+            `,
+            'nlp-tokenization': `
+                <h1>Tokenization & Subword Techniques (BPE, WordPiece)</h1>
+                <p>Tokenization is the process of breaking down text into smaller units called tokens. Subword techniques like Byte-Pair Encoding (BPE) and WordPiece address challenges of out-of-vocabulary words and manage vocabulary size more efficiently.</p>
+            `,
+            'cv-image-classification': `
+                <h1>Image Classification (CNN)</h1>
+                <p>Image classification is the task of assigning a label to an image from a predefined set of categories. Convolutional Neural Networks (CNNs) are the dominant architecture for achieving high accuracy in image classification tasks.</p>
+            `,
+            'cv-object-detection': `
+                <h1>Object Detection (YOLO, Faster R-CNN)</h1>
+                <p>Object Detection involves identifying and localizing objects within an image or video frame, drawing bounding boxes around them. Popular algorithms include YOLO (You Only Look Once) and Faster R-CNN (Region-based Convolutional Neural Network).</p>
+            `,
+            'cv-semantic-segmentation': `
+                <h1>Semantic Segmentation (U-Net, DeepLab)</h1>
+                <p>Semantic Segmentation is a computer vision task that aims to classify each pixel in an image with a corresponding class label (e.g., road, car, pedestrian). Architectures like U-Net and DeepLab are commonly used for this pixel-level classification.</p>
+            `,
+            'cv-image-generation': `
+                <h1>Image Generation / Super-Resolution</h1>
+                <p>Image Generation involves creating new images from scratch or transforming existing ones. Super-Resolution is a technique that enhances the resolution of an image, producing a higher-resolution version from a low-resolution input, often using deep learning models.</p>
+            `,
+            'cv-image-embeddings': `
+                <h1>Image Embeddings for Retrieval (CLIP)</h1>
+                <p>Image embeddings are dense vector representations of images that capture their semantic content. Models like CLIP (Contrastive Language–Image Pre-training) learn to associate images with text descriptions, enabling advanced cross-modal search and retrieval.</p>
+            `,
+            'ts-moving-average': `
+                <h1>Moving Average, Exponential Smoothing</h1>
+                <p>Moving Average and Exponential Smoothing are classical time series forecasting techniques. Moving Average calculates the average of a specific number of past data points, while Exponential Smoothing assigns exponentially decreasing weights to older observations.</p>
+            `,
+            'ts-arima-sarima': `
+                <h1>ARIMA / SARIMA</h1>
+                <p>ARIMA (AutoRegressive Integrated Moving Average) and SARIMA (Seasonal ARIMA) are widely used statistical models for time series forecasting. They are designed to capture various patterns in time series data, including trends, seasonality, and autoregressive components.</p>
+            `,
+            'ts-lstm-gru': `
+                <h1>LSTM / GRU for Time Series</h1>
+                <p>LSTM (Long Short-Term Memory) and GRU (Gated Recurrent Unit) networks are powerful deep learning models that excel at handling sequential data, making them highly effective for complex time series forecasting tasks where long-term dependencies are critical.</p>
+            `,
+            'ts-prophet': `
+                <h1>Prophet (Facebook)</h1>
+                <p>Prophet is an open-source forecasting tool developed by Facebook that is optimized for business forecasting tasks. It handles seasonality, holidays, and missing data well, making it a robust choice for various time series applications.</p>
+            `,
+            'ts-anomaly-detection': `
+                <h1>Anomaly Detection in Time Series</h1>
+                <p>Anomaly detection in time series focuses on identifying unusual or unexpected data points that deviate significantly from the norm. This is crucial for monitoring systems, detecting fraudulent activities, or identifying critical events in sequential data.</p>
+            `,
+            'rl-mdp': `
+                <h1>Markov Decision Process (MDP) Basics</h1>
+                <p>The Markov Decision Process (MDP) is a mathematical framework for modeling decision making in situations where outcomes are partly random and partly under the control of a decision maker. It forms the foundational theory for many reinforcement learning algorithms.</p>
+            `,
+            'rl-q-learning': `
+                <h1>Q-Learning / Deep Q-Network (DQN)</h1>
+                <p>Q-Learning is a model-free reinforcement learning algorithm that helps an agent learn the value of actions in specific states. Deep Q-Networks (DQN) extend Q-Learning by using deep neural networks to approximate the Q-values, enabling it to handle complex environments.</p>
+            `,
+            'rl-policy-gradient': `
+                <h1>Policy Gradient, REINFORCE, PPO, A2C</h1>
+                <p>Policy Gradient methods in Reinforcement Learning directly optimize the policy function, which maps states to actions. This section covers key algorithms like REINFORCE, PPO (Proximal Policy Optimization), and A2C (Advantage Actor-Critic), which are widely used for training agents in complex environments.</p>
+            `,
+            'rs-collaborative-filtering': `
+                <h1>Collaborative Filtering (User-Item)</h1>
+                <p>Collaborative Filtering is a popular technique for recommendation systems that predicts user preferences based on the preferences of other users (user-based) or the characteristics of items (item-based). It assumes that users who agreed in the past will agree in the future.</p>
+            `,
+            'rs-content-based-filtering': `
+                <h1>Content-Based Filtering</h1>
+                <p>Content-Based Filtering recommends items to a user based on the description of the items and a profile of the user's preferences. It relies on analyzing the features of items that a user has previously liked.</p>
+            `,
+            'rs-hybrid-recommendation': `
+                <h1>Hybrid Recommendation</h1>
+                <p>Hybrid Recommendation Systems combine two or more recommendation techniques (e.g., collaborative filtering and content-based filtering) to leverage their strengths and overcome their weaknesses, often leading to more accurate and diverse recommendations.</p>
+            `,
+            'rs-embedding-based': `
+                <h1>Embedding-based Recommendation (Matrix Factorization / Neural CF)</h1>
+                <p>Embedding-based recommendation systems use techniques like Matrix Factorization or Neural Collaborative Filtering (Neural CF) to learn latent representations (embeddings) for users and items. These embeddings capture underlying preferences and characteristics, allowing for efficient and powerful recommendations.</p>
+            `,
+        };
+
+        function loadContent(pageId) {
+            contentDiv.innerHTML = content[pageId] || `<div class="home-page"><h1>Content Not Available</h1><p>The requested page could not be found. Please select a topic from the curriculum.</p></div>`;
+
+            // Remove 'active' class from all sidebar links and module headers
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            moduleHeaders.forEach(header => {
+                header.classList.remove('active-module');
+            });
+
+            // Add 'active' class to the clicked link
+            const activeLink = document.querySelector(`[onclick="loadContent('${pageId}')"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+                // Also mark the parent module header as active-module
+                const parentModuleHeader = activeLink.closest('.module').querySelector('.module-header');
+                if (parentModuleHeader) {
+                    parentModuleHeader.classList.add('active-module');
+                    // Ensure its list is expanded
+                    const moduleList = parentModuleHeader.nextElementSibling;
+                    if (moduleList && !moduleList.classList.contains('expanded')) {
+                        moduleList.classList.add('expanded');
+                        parentModuleHeader.classList.add('expanded');
+                    }
+                }
+            }
+
+            // Tell MathJax to typeset the new content
+            if (typeof MathJax !== 'undefined' && MathJax.Hub) {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub, contentDiv]);
+            }
+        }
+
+        moduleHeaders.forEach(header => {
+            header.addEventListener('click', function () {
+                // If the clicked header is the 'Home' header, navigate to index.html directly
+                if (header.id === 'header-home') {
+                    window.location.href = 'index.html'; 
+                    return;
+                }
+                const moduleList = header.nextElementSibling;
+                const isExpanded = moduleList.classList.contains('expanded');
+
+                // Close all other expanded modules except for the one being clicked to expand
+                document.querySelectorAll('.module-list.expanded').forEach(list => {
+                    if (list !== moduleList) { // Only collapse if it's not the current module list
+                        list.classList.remove('expanded');
+                        if (list.previousElementSibling) {
+                            list.previousElementSibling.classList.remove('expanded');
+                        }
+                    }
+                });
+
+                // Toggle the clicked module's expansion
+                if (!isExpanded) {
+                    moduleList.classList.add('expanded');
+                    header.classList.add('expanded');
+                } else {
+                    moduleList.classList.remove('expanded');
+                    header.classList.remove('expanded');
+                }
+            });
+        });
+
+        // Removed Sidebar toggle functionality
+
+        // Load the 'home' content initially for the curriculum page
+        loadContent('home');
+
+        // Initially open the first module for better user experience (Module 1: Core ML Algorithms)
+        const firstModuleHeader = document.querySelector('.module:nth-of-type(2) .module-header'); 
+        if (firstModuleHeader) {
+            firstModuleHeader.click(); // Simulate a click to expand it
+        }
+
+    </script>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                displayMath: [['$$','$$'], ['\\[','\\]']],
+                processEscapes: true
+            },
+            "HTML-CSS": { 
+                availableFonts: ["TeX"], 
+                preferredFont: "TeX",
+                webFont: "TeX"
+            }
+        });
+    </script>
+</body>
+
+</html>
