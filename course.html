@@ -2,21 +2,58 @@
 <html lang="en">
 
 <head>
+    <!-- Google Adsense - Consolidated to one script -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8446133991523587"
         crossorigin="anonymous"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8446133991523587"
-        crossorigin="anonymous"></script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Machine Learning & Deep Learning Curriculum</title>
-    <!-- FAVICON: Add these lines for your website icon -->
-    <!-- Standard favicon (most common) -->
-    <link rel="icon" type="image/png" href="https://placehold.co/32x32/48CAE4/ffffff?text=AH" sizes="32x32">
-    <!-- For Apple devices -->
-    <link rel="apple-touch-icon" href="https://placehold.co/180x180/48CAE4/ffffff?text=AH" sizes="180x180">
-    <!-- For older browsers -->
-    <link rel="icon" type="image/x-icon" href="https://placehold.co/16x16/48CAE4/ffffff?text=AH">
-    <!-- END FAVICON -->
+    <title>Anthony's Portfolio: ML & DL</title>
+    <!-- Your unique SVG favicon link -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    
+    <!-- Google Consent Management Platform (CMP) Integration -->
+    <!-- This snippet should be placed as high as possible in the <head> section -->
+    <script>
+        // Define dataLayer and the gtag function.
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        // Set default consent to 'denied' for all categories.
+        // This ensures a privacy-first approach before user interaction.
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'personalization_storage': 'denied',
+            'functionality_storage': 'denied',
+            'security_storage': 'denied',
+            'wait_for_update': 500 // Wait for CMP to update consent (in milliseconds)
+        });
+
+        // Load the Google Tag Manager/Global Site Tag script.
+        // Replace 'G-XXXXXXX' with your actual Google Analytics 4 Measurement ID
+        // or 'AW-XXXXXXX' for Google Ads Conversion ID if you use those.
+        // The Google Certified CMP will typically manage the loading of the consent dialog.
+        // For the full CMP script, you will generate it from your AdSense/Ad Manager/GA4 account.
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-XXXXXX'); // Replace GTM-XXXXXX with your GTM ID or appropriate Google tag ID
+    </script>
+    <!-- End Google CMP Integration -->
+
     <style>
         /* CSS Variables for easy theme customization */
         :root {
@@ -62,7 +99,6 @@
             overflow-y: auto;
             flex-shrink: 0;
             user-select: none;
-            /* Removed 'transform' transition as it's no longer hidden */
             transition: width 0.3s ease-in-out;
             /* Smooth transition for width only */
             position: relative;
@@ -481,7 +517,6 @@
     <div id="resizer"></div> <!-- Handle untuk resize -->
 
     <div id="content-wrapper">
-        <!-- Removed <button id="sidebar-toggle">Hide Sidebar</button> -->
         <main id="content">
             <!-- Content will be loaded here dynamically -->
         </main>
@@ -490,18 +525,15 @@
     <script>
         const sidebar = document.getElementById('sidebar');
         const contentDiv = document.getElementById('content');
-        // Removed sidebarToggle
         const sidebarLinks = document.querySelectorAll('.module-list li a');
         const moduleHeaders = document.querySelectorAll('.module-header');
         const resizer = document.getElementById('resizer'); // Dapatkan elemen resizer
         const body = document.body;
 
         let isResizing = false;
-        // Removed isSidebarHidden as sidebar is always visible
 
         // Menambahkan event listener untuk resizer
         resizer.addEventListener('mousedown', function (e) {
-            // No check for isSidebarHidden needed
             isResizing = true;
             body.style.cursor = 'ew-resize'; // Ubah kursor
             document.addEventListener('mousemove', resizeSidebar);
@@ -551,7 +583,7 @@
                 <p>Example implementation in PyTorch:</p>
                 <pre><code>
 import torch
-import torch.nn as nn 
+import torch.nn as nn
 import torch.optim as optim
 
 class Linear_Regression(nn.Module):
@@ -779,62 +811,15 @@ with torch.no_grad():
                         </a>
                     </p>
                 </div>
-                `,
+            `,
 
 
             'ml-decision-trees-random-forests': `
-<div class="ml-decision-trees-page">
-    <h1>Decision Trees & Random Forests</h1>
-
-    <p>
-        <strong>Decision Trees</strong> are intuitive, non-parametric supervised learning algorithms used for both <strong>classification</strong> and <strong>regression</strong> tasks. 
-        They work by recursively splitting the dataset into subsets based on feature values, forming a tree-like structure that models decisions and their possible outcomes.
-    </p>
-
-    <h2>Structure of a Decision Tree</h2>
-    <ul>
-        <li><strong>Root Node:</strong> Represents the entire dataset and is the starting point of the tree.</li>
-        <li><strong>Internal Nodes:</strong> Represent decision rules or tests based on feature values.</li>
-        <li><strong>Branches:</strong> Represent the outcomes of a decision rule leading to the next node.</li>
-        <li><strong>Leaf Nodes:</strong> Represent the final predictions or outcomes.</li>
-    </ul>
-
-    <h2>How Decision Trees Work</h2>
-    <p>
-        Decision trees aim to create subsets that are as homogeneous as possible with respect to the target variable. 
-        The algorithm chooses the best feature for splitting at each node using measures like <strong>information gain</strong> or <strong>Gini impurity</strong>, which quantify how well a feature separates the data.
-    </p>
-
-    <h2>Random Forests</h2>
-    <p>
-        <strong>Random Forests</strong> are an ensemble learning method that builds multiple decision trees and aggregates their predictions to improve accuracy and robustness. 
-        Each tree is trained on a random subset of the data (bootstrapping) and considers a random subset of features at each split. 
-        For classification, the final output is determined by majority vote among trees; for regression, it is the average of the tree predictions.
-    </p>
-
-    <h2>Advantages & Disadvantages</h2>
-    <ul>
-        <li><strong>Advantages:</strong> Easy to interpret, handles numerical and categorical data, flexible for classification and regression, and less prone to overfitting than single trees.</li>
-        <li><strong>Disadvantages:</strong> Decision trees can overfit on complex datasets, sensitive to small changes in data, and computationally intensive for large datasets, especially with Random Forests.</li>
-    </ul>
-
-    <h2>Visualizations</h2>
-    <p>
-        Decision trees provide a clear visual representation of decision logic. Random Forests, while more complex, benefit from aggregated tree structures.
-    </p>
-    <p>
-        <img src="https://cdn-images-1.medium.com/v2/resize:fit:1600/1*sYHMS3jOsxlmMvmxl7FAbw.gif" alt="Decision Tree Visualization" style="max-width:100%; height:auto; margin-bottom:15px; border:1px solid #ccc; border-radius:8px;">
-        <img src="https://cdn-images-1.medium.com/v2/resize:fit:1600/0*6sS7t3OgEZCr_GaA.gif" alt="Random Forest Visualization" style="max-width:100%; height:auto; border:1px solid #ccc; border-radius:8px;">
-    </p>
-
-    <h2>Learn More</h2>
-    <p>
-        For an in-depth tutorial on decision trees and random forests, visit: 
-        <a href="https://towardsdatascience.com/sklean-tutorial-module-5-b30e08a4c746" target="_blank" rel="noopener noreferrer">Decision Trees & Random Forests Tutorial</a>
-    </p>
-</div>
-`,
-
+                <h1>Decision Trees & Random Forests</h1>
+                <p><strong>Decision Trees</strong> are non-parametric supervised learning methods used for classification and regression. They partition the data into subsets based on feature values. <strong>Random Forests</strong> enhance this by building an ensemble of multiple decision trees and aggregating their predictions to improve accuracy and reduce overfitting.</p>
+                <p>For more details, refer to: <a href="https://medium.com/p/92b7b7814cbc/edit" target="_blank" rel="noopener noreferrer">Decision Trees & Random Forests</a></p>
+                <!-- NOTE: The link above appears to be an '/edit' URL. For a public website, please ensure this links to a publicly accessible article. -->
+            `,
             'ml-svm': `
                 <h1>Support Vector Machines (SVM)</h1>
                 <p>Support Vector Machines (SVMs) are powerful supervised learning models used for classification and regression tasks. They work by finding an optimal hyperplane that best separates data points of different classes in a high-dimensional space.</p>
@@ -1105,7 +1090,7 @@ with torch.no_grad():
             header.addEventListener('click', function () {
                 // If the clicked header is the 'Home' header, navigate to index.html directly
                 if (header.id === 'header-home') {
-                    window.location.href = 'index.html';
+                    window.location.href = 'index.html'; 
                     return;
                 }
                 const moduleList = header.nextElementSibling;
@@ -1132,13 +1117,11 @@ with torch.no_grad():
             });
         });
 
-        // Removed Sidebar toggle functionality
-
         // Load the 'home' content initially for the curriculum page
         loadContent('home');
 
         // Initially open the first module for better user experience (Module 1: Core ML Algorithms)
-        const firstModuleHeader = document.querySelector('.module:nth-of-type(2) .module-header');
+        const firstModuleHeader = document.querySelector('.module:nth-of-type(2) .module-header'); 
         if (firstModuleHeader) {
             firstModuleHeader.click(); // Simulate a click to expand it
         }
@@ -1146,7 +1129,7 @@ with torch.no_grad():
     </script>
     <script type="text/javascript" async
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-        </script>
+    </script>
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {
