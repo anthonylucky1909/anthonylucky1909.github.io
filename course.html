@@ -2,24 +2,10 @@
 <html lang="en">
 
 <head>
-    <head>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8446133991523587"
-     crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anthony</title>
-    <!-- FAVICON: Add these lines for your website icon -->
-    <!-- Standard favicon (most common) -->
-    <link rel="icon" type="image/png" href="https://placehold.co/32x32/48CAE4/ffffff?text=AH" sizes="32x32">
-    <!-- For Apple devices -->
-    <link rel="apple-touch-icon" href="https://placehold.co/180x180/48CAE4/ffffff?text=AH" sizes="180x180">
-    <!-- For older browsers -->
-    <link rel="icon" type="image/x-icon" href="https://placehold.co/16x16/48CAE4/ffffff?text=AH">
-    <!-- END FAVICON -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
+        crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8446133991523587"
+        crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Machine Learning & Deep Learning Curriculum</title>
@@ -34,39 +20,51 @@
     <style>
         /* CSS Variables for easy theme customization */
         :root {
-            --primary-blue: #004080; /* Navy Blue */
-            --accent-blue: #007bff; /* Bright Blue */
-            --hover-blue: #E6F0FF; /* Lighter AliceBlue */
-            --background-light: #F4F7F6; /* Slightly darker off-white */
+            --primary-blue: #004080;
+            /* Navy Blue */
+            --accent-blue: #007bff;
+            /* Bright Blue */
+            --hover-blue: #E6F0FF;
+            /* Lighter AliceBlue */
+            --background-light: #F4F7F6;
+            /* Slightly darker off-white */
             --background-white: #FFFFFF;
-            --text-dark: #333333; /* Dark gray for text */
-            --text-medium: #444444; /* Slightly lighter text for sub-items */
+            --text-dark: #333333;
+            /* Dark gray for text */
+            --text-medium: #444444;
+            /* Slightly lighter text for sub-items */
             --border-light: #E0E0E0;
             --border-lighter: #E9EDF0;
             --sidebar-width-default: 320px;
         }
 
         body {
-            font-family: 'Segoe UI', Arial, sans-serif; /* More modern font */
+            font-family: 'Segoe UI', Arial, sans-serif;
+            /* More modern font */
             margin: 0;
             padding: 0;
             background-color: var(--background-light);
             color: var(--text-dark);
             display: flex;
             height: 100vh;
-            overflow: hidden; /* Prevent body scroll, content will scroll */
+            overflow: hidden;
+            /* Prevent body scroll, content will scroll */
         }
 
         #sidebar {
-            width: var(--sidebar-width-default); /* Lebar awal sidebar */
+            width: var(--sidebar-width-default);
+            /* Lebar awal sidebar */
             background-color: var(--background-white);
-            padding: 20px 0; /* Adjusted padding */
-            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08); /* More subtle shadow */
+            padding: 20px 0;
+            /* Adjusted padding */
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08);
+            /* More subtle shadow */
             overflow-y: auto;
             flex-shrink: 0;
             user-select: none;
             /* Removed 'transform' transition as it's no longer hidden */
-            transition: width 0.3s ease-in-out; /* Smooth transition for width only */
+            transition: width 0.3s ease-in-out;
+            /* Smooth transition for width only */
             position: relative;
             z-index: 10;
         }
@@ -75,7 +73,8 @@
 
         #sidebar h2 {
             color: var(--primary-blue);
-            margin: 0 20px 20px 20px; /* Consistent margin */
+            margin: 0 20px 20px 20px;
+            /* Consistent margin */
             border-bottom: 2px solid var(--border-light);
             padding-bottom: 15px;
             font-size: 1.6em;
@@ -83,15 +82,19 @@
         }
 
         .module {
-            margin-bottom: 8px; /* Less space between modules */
+            margin-bottom: 8px;
+            /* Less space between modules */
         }
 
         .module-header {
             display: flex;
             align-items: center;
-            padding: 12px 20px; /* Adjusted padding */
-            background-color: #F8FCFF; /* Lighter background for headers */
-            border-left: 4px solid transparent; /* Subtle border for active state */
+            padding: 12px 20px;
+            /* Adjusted padding */
+            background-color: #F8FCFF;
+            /* Lighter background for headers */
+            border-left: 4px solid transparent;
+            /* Subtle border for active state */
             cursor: pointer;
             transition: background-color 0.2s, border-left-color 0.2s;
         }
@@ -99,11 +102,13 @@
         .module-header:hover {
             background-color: var(--hover-blue);
         }
-        
+
         /* Style for active module header (e.g., when one of its sub-items is active) */
-        .module-header.expanded, .module-header.active-module {
+        .module-header.expanded,
+        .module-header.active-module {
             background-color: var(--hover-blue);
-            border-left-color: var(--accent-blue); /* Highlight active module header */
+            border-left-color: var(--accent-blue);
+            /* Highlight active module header */
         }
 
         .module-header h3 {
@@ -115,7 +120,8 @@
         }
 
         .toggle-icon {
-            font-size: 1.2em; /* Smaller toggle icon */
+            font-size: 1.2em;
+            /* Smaller toggle icon */
             font-weight: bold;
             color: var(--accent-blue);
             transition: transform 0.3s;
@@ -130,23 +136,28 @@
             padding: 0;
             margin: 0;
             overflow: hidden;
-            max-height: 0; /* Hides the list by default */
-            transition: max-height 0.4s ease-out; /* Smoother transition */
+            max-height: 0;
+            /* Hides the list by default */
+            transition: max-height 0.4s ease-out;
+            /* Smoother transition */
             border: 1px solid var(--border-lighter);
             border-top: none;
             border-radius: 0 0 6px 6px;
             background-color: #FDFDFD;
         }
-        
+
         .module-list.expanded {
-            max-height: 500px; /* Shows the list */
-            transition: max-height 0.6s ease-in; /* Smoother transition */
+            max-height: 500px;
+            /* Shows the list */
+            transition: max-height 0.6s ease-in;
+            /* Smoother transition */
             border-top: 1px solid var(--border-lighter);
         }
 
         .module-list li a {
             display: block;
-            padding: 10px 25px; /* Adjusted padding */
+            padding: 10px 25px;
+            /* Adjusted padding */
             text-decoration: none;
             color: var(--text-medium);
             background-color: var(--background-white);
@@ -156,41 +167,56 @@
 
         .module-list li a:hover,
         .module-list li a.active {
-            background-color: #F0F8FF; /* Lighter hover background */
-            color: var(--primary-blue); /* Darker blue for active/hover */
-            font-weight: 600; /* Bolder for active */
-            border-left: 3px solid var(--accent-blue); /* Highlight active item */
-            padding-left: 22px; /* Adjust padding for border */
+            background-color: #F0F8FF;
+            /* Lighter hover background */
+            color: var(--primary-blue);
+            /* Darker blue for active/hover */
+            font-weight: 600;
+            /* Bolder for active */
+            border-left: 3px solid var(--accent-blue);
+            /* Highlight active item */
+            padding-left: 22px;
+            /* Adjust padding for border */
         }
 
         /* Styles for the resizer handle */
         #resizer {
-            width: 8px; /* Lebar handle */
-            cursor: ew-resize; /* Kursor untuk menunjukkan perubahan ukuran horizontal */
-            background-color: var(--border-light); /* Warna handle */
+            width: 8px;
+            /* Lebar handle */
+            cursor: ew-resize;
+            /* Kursor untuk menunjukkan perubahan ukuran horizontal */
+            background-color: var(--border-light);
+            /* Warna handle */
             flex-shrink: 0;
-            z-index: 15; /* Pastikan di atas sidebar */
+            z-index: 15;
+            /* Pastikan di atas sidebar */
             transition: background-color 0.2s;
         }
 
         #resizer:hover {
-            background-color: var(--accent-blue); /* Warna saat di-hover */
+            background-color: var(--accent-blue);
+            /* Warna saat di-hover */
         }
 
         #content-wrapper {
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            overflow: hidden; /* For its child #content */
-            position: relative; /* Remove for toggle button */
+            overflow: hidden;
+            /* For its child #content */
+            position: relative;
+            /* Remove for toggle button */
         }
 
         #content {
             flex-grow: 1;
-            padding: 30px 40px; /* Consistent padding */
-            overflow-y: auto; /* Allow content to scroll */
+            padding: 30px 40px;
+            /* Consistent padding */
+            overflow-y: auto;
+            /* Allow content to scroll */
             background-color: var(--background-white);
-            border-left: 1px solid var(--border-light); /* Separator from sidebar */
+            border-left: 1px solid var(--border-light);
+            /* Separator from sidebar */
         }
 
         #content h1 {
@@ -203,7 +229,8 @@
         }
 
         #content h2 {
-            color: var(--primary-blue); /* Used primary for h2 for more formality */
+            color: var(--primary-blue);
+            /* Used primary for h2 for more formality */
             margin-top: 35px;
             font-size: 1.5em;
             font-weight: 600;
@@ -214,7 +241,7 @@
             margin-bottom: 18px;
             font-size: 1em;
         }
-        
+
         #content ul {
             padding-left: 25px;
             margin-bottom: 18px;
@@ -229,7 +256,8 @@
         }
 
         .resource-list {
-            background-color: #F8FCFF; /* Lighter background */
+            background-color: #F8FCFF;
+            /* Lighter background */
             border: 1px solid var(--border-lighter);
             border-radius: 8px;
             padding: 25px;
@@ -254,18 +282,25 @@
         /* Removed responsive adjustments for sidebar-toggle */
         @media (max-width: 768px) {
             #sidebar {
-                position: relative; /* Changed to relative so it doesn't overlay */
-                height: auto; /* Allow content to determine height */
-                width: 100%; /* Take full width on small screens */
-                transform: translateX(0); /* Always visible */
-                box-shadow: none; /* No shadow needed if not fixed/overlay */
+                position: relative;
+                /* Changed to relative so it doesn't overlay */
+                height: auto;
+                /* Allow content to determine height */
+                width: 100%;
+                /* Take full width on small screens */
+                transform: translateX(0);
+                /* Always visible */
+                box-shadow: none;
+                /* No shadow needed if not fixed/overlay */
             }
+
             #content {
-                margin-left: 0; 
-                border-left: none; 
+                margin-left: 0;
+                border-left: none;
             }
+
             #content-wrapper {
-                padding-left: 0; 
+                padding-left: 0;
             }
         }
     </style>
@@ -278,7 +313,8 @@
 
         <div class="module">
             <div class="module-header" id="header-home">
-                <h3><a href="index.html" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">Home</a></h3>
+                <h3><a href="index.html" rel="noopener noreferrer"
+                        style="text-decoration: none; color: inherit;">Home</a></h3>
             </div>
         </div>
 
@@ -291,7 +327,8 @@
                 <li><a href="#" onclick="loadContent('ml-linear-regression')">Linear Regression</a></li>
                 <li><a href="#" onclick="loadContent('ml-logistic-regression')">Logistic Regression</a></li>
                 <li><a href="#" onclick="loadContent('ml-knn')">k-Nearest Neighbors (k-NN)</a></li>
-                <li><a href="#" onclick="loadContent('ml-decision-trees-random-forests')">Decision Trees & Random Forests</a></li>
+                <li><a href="#" onclick="loadContent('ml-decision-trees-random-forests')">Decision Trees & Random
+                        Forests</a></li>
                 <li><a href="#" onclick="loadContent('ml-svm')">Support Vector Machines (SVM)</a></li>
                 <li><a href="#" onclick="loadContent('ml-naive-bayes')">Naive Bayes</a></li>
                 <li><a href="#" onclick="loadContent('ml-k-means')">K-Means Clustering</a></li>
@@ -312,10 +349,13 @@
                 <li><a href="#" onclick="loadContent('mev-stratified-k-fold-cv')">Stratified k-Fold CV</a></li>
                 <li><a href="#" onclick="loadContent('mev-loocv')">Leave-One-Out CV (LOOCV)</a></li>
                 <li><a href="#" onclick="loadContent('mev-shuffle-split')">Shuffle Split / Randomized CV</a></li>
-                <li><a href="#" onclick="loadContent('mev-time-series-validation')">Time Series / Rolling Validation</a></li>
+                <li><a href="#" onclick="loadContent('mev-time-series-validation')">Time Series / Rolling Validation</a>
+                </li>
                 <li><a href="#" onclick="loadContent('mev-nested-cv')">Nested Cross-Validation</a></li>
-                <li><a href="#" onclick="loadContent('mev-evaluation-metrics-regression')">Evaluation Metrics: Regression</a></li>
-                <li><a href="#" onclick="loadContent('mev-evaluation-metrics-classification')">Evaluation Metrics: Classification</a></li>
+                <li><a href="#" onclick="loadContent('mev-evaluation-metrics-regression')">Evaluation Metrics:
+                        Regression</a></li>
+                <li><a href="#" onclick="loadContent('mev-evaluation-metrics-classification')">Evaluation Metrics:
+                        Classification</a></li>
             </ul>
         </div>
 
@@ -329,7 +369,8 @@
                 <li><a href="#" onclick="loadContent('fep-outlier-detection')">Outlier Detection & Removal</a></li>
                 <li><a href="#" onclick="loadContent('fep-scaling-normalization')">Scaling & Normalization</a></li>
                 <li><a href="#" onclick="loadContent('fep-encoding-categorical')">Encoding Categorical Features</a></li>
-                <li><a href="#" onclick="loadContent('fep-feature-selection')">Feature Selection & Dimensionality Reduction</a></li>
+                <li><a href="#" onclick="loadContent('fep-feature-selection')">Feature Selection & Dimensionality
+                        Reduction</a></li>
                 <li><a href="#" onclick="loadContent('fep-text-preprocessing')">Text Preprocessing</a></li>
                 <li><a href="#" onclick="loadContent('fep-image-preprocessing')">Image Preprocessing</a></li>
             </ul>
@@ -343,7 +384,8 @@
             <ul class="module-list">
                 <li><a href="#" onclick="loadContent('nn-feedforward')">Feedforward Neural Networks (MLP)</a></li>
                 <li><a href="#" onclick="loadContent('nn-cnn')">Convolutional Neural Networks (CNN)</a></li>
-                <li><a href="#" onclick="loadContent('nn-cnn-variants')">CNN Variants: ResNet, VGG, EfficientNet</a></li>
+                <li><a href="#" onclick="loadContent('nn-cnn-variants')">CNN Variants: ResNet, VGG, EfficientNet</a>
+                </li>
                 <li><a href="#" onclick="loadContent('nn-rnn')">Recurrent Neural Networks (RNN)</a></li>
                 <li><a href="#" onclick="loadContent('nn-lstm-gru')">LSTM / GRU</a></li>
                 <li><a href="#" onclick="loadContent('nn-autoencoders')">Autoencoders</a></li>
@@ -363,10 +405,13 @@
                 <li><a href="#" onclick="loadContent('nlp-bow-tfidf')">Bag-of-Words / TF-IDF</a></li>
                 <li><a href="#" onclick="loadContent('nlp-word-embeddings')">Word Embeddings: Word2Vec, GloVe</a></li>
                 <li><a href="#" onclick="loadContent('nlp-sequence-modeling')">Sequence Modeling with RNN/LSTM</a></li>
-                <li><a href="#" onclick="loadContent('nlp-transformer-models')">Transformer-based Models: BERT, GPT</a></li>
+                <li><a href="#" onclick="loadContent('nlp-transformer-models')">Transformer-based Models: BERT, GPT</a>
+                </li>
                 <li><a href="#" onclick="loadContent('nlp-ner')">Named Entity Recognition (NER)</a></li>
-                <li><a href="#" onclick="loadContent('nlp-text-classification')">Text Classification / Sentiment Analysis</a></li>
-                <li><a href="#" onclick="loadContent('nlp-qa-summarization')">Question Answering / Summarization</a></li>
+                <li><a href="#" onclick="loadContent('nlp-text-classification')">Text Classification / Sentiment
+                        Analysis</a></li>
+                <li><a href="#" onclick="loadContent('nlp-qa-summarization')">Question Answering / Summarization</a>
+                </li>
                 <li><a href="#" onclick="loadContent('nlp-tokenization')">Tokenization & Subword Techniques</a></li>
             </ul>
         </div>
@@ -378,10 +423,14 @@
             </div>
             <ul class="module-list">
                 <li><a href="#" onclick="loadContent('cv-image-classification')">Image Classification (CNN)</a></li>
-                <li><a href="#" onclick="loadContent('cv-object-detection')">Object Detection (YOLO, Faster R-CNN)</a></li>
-                <li><a href="#" onclick="loadContent('cv-semantic-segmentation')">Semantic Segmentation (U-Net, DeepLab)</a></li>
-                <li><a href="#" onclick="loadContent('cv-image-generation')">Image Generation / Super-Resolution</a></li>
-                <li><a href="#" onclick="loadContent('cv-image-embeddings')">Image Embeddings for Retrieval (CLIP)</a></li>
+                <li><a href="#" onclick="loadContent('cv-object-detection')">Object Detection (YOLO, Faster R-CNN)</a>
+                </li>
+                <li><a href="#" onclick="loadContent('cv-semantic-segmentation')">Semantic Segmentation (U-Net,
+                        DeepLab)</a></li>
+                <li><a href="#" onclick="loadContent('cv-image-generation')">Image Generation / Super-Resolution</a>
+                </li>
+                <li><a href="#" onclick="loadContent('cv-image-embeddings')">Image Embeddings for Retrieval (CLIP)</a>
+                </li>
             </ul>
         </div>
 
@@ -391,7 +440,8 @@
                 <span class="toggle-icon">&gt;</span>
             </div>
             <ul class="module-list">
-                <li><a href="#" onclick="loadContent('ts-moving-average')">Moving Average, Exponential Smoothing</a></li>
+                <li><a href="#" onclick="loadContent('ts-moving-average')">Moving Average, Exponential Smoothing</a>
+                </li>
                 <li><a href="#" onclick="loadContent('ts-arima-sarima')">ARIMA / SARIMA</a></li>
                 <li><a href="#" onclick="loadContent('ts-lstm-gru')">LSTM / GRU for Time Series</a></li>
                 <li><a href="#" onclick="loadContent('ts-prophet')">Prophet (Facebook)</a></li>
@@ -407,7 +457,8 @@
             <ul class="module-list">
                 <li><a href="#" onclick="loadContent('rl-mdp')">Markov Decision Process (MDP) Basics</a></li>
                 <li><a href="#" onclick="loadContent('rl-q-learning')">Q-Learning / Deep Q-Network (DQN)</a></li>
-                <li><a href="#" onclick="loadContent('rl-policy-gradient')">Policy Gradient, REINFORCE, PPO, A2C</a></li>
+                <li><a href="#" onclick="loadContent('rl-policy-gradient')">Policy Gradient, REINFORCE, PPO, A2C</a>
+                </li>
             </ul>
         </div>
 
@@ -417,7 +468,8 @@
                 <span class="toggle-icon">&gt;</span>
             </div>
             <ul class="module-list">
-                <li><a href="#" onclick="loadContent('rs-collaborative-filtering')">Collaborative Filtering (User-Item)</a></li>
+                <li><a href="#" onclick="loadContent('rs-collaborative-filtering')">Collaborative Filtering
+                        (User-Item)</a></li>
                 <li><a href="#" onclick="loadContent('rs-content-based-filtering')">Content-Based Filtering</a></li>
                 <li><a href="#" onclick="loadContent('rs-hybrid-recommendation')">Hybrid Recommendation</a></li>
                 <li><a href="#" onclick="loadContent('rs-embedding-based')">Embedding-based Recommendation</a></li>
@@ -448,7 +500,7 @@
         // Removed isSidebarHidden as sidebar is always visible
 
         // Menambahkan event listener untuk resizer
-        resizer.addEventListener('mousedown', function(e) {
+        resizer.addEventListener('mousedown', function (e) {
             // No check for isSidebarHidden needed
             isResizing = true;
             body.style.cursor = 'ew-resize'; // Ubah kursor
@@ -461,7 +513,7 @@
             const newWidth = e.clientX;
             // Batasi lebar sidebar minimum (150px) dan maksimum (lebar jendela dikurangi 200px)
             const minWidth = 150;
-            const maxWidth = window.innerWidth - 200; 
+            const maxWidth = window.innerWidth - 200;
             if (newWidth > minWidth && newWidth < maxWidth) {
                 sidebar.style.width = newWidth + 'px';
             }
@@ -499,29 +551,44 @@
                 <p>Example implementation in PyTorch:</p>
                 <pre><code>
 import torch
-import torch.nn as nn
+import torch.nn as nn 
 import torch.optim as optim
 
-# Sample dataset
-X = torch.tensor([[1.0], [2.0], [3.0], [4.0]])
-y = torch.tensor([[2.0], [4.0], [6.0], [8.0]])
+class Linear_Regression(nn.Module):
+    def __init__(self, input_dim, output_dim):
+        super(Linear_Regression,self).__init__()
+        self.linear = nn.Linear(in_features=input_dim,out_features=output_dim)
+    
+    def forward(self,x): # x is feature or we can said input 
+        return self.linear(x)
 
-# Define linear regression model
-model = nn.Linear(in_features=1, out_features=1)
+# Intilizing model  -> make a test case , intilize mode -> predict 
+x = torch.randn((5,1))
+y = 2 * x + 1 + 0.1 * torch.randn(x.size()) 
 
-# Define loss and optimizer
+input_dim = x.shape[1]
+model = Linear_Regression(input_dim=input_dim,output_dim=1)
+
+
+
+# Define loss and optimizer 
 criterion = nn.MSELoss()
-optimizer = optim.SGD(model.parameters(), lr=0.01)
+optimizer = optim.SGD(model.parameters(),lr=0.01,weight_decay=0.0) # weight decay is L2 regularization
 
-# Training loop
-for epoch in range(1000):
+epochs = 100
+
+for epoch in range(epochs):
+    model.train()
+
+    y_pred = model(x)
+    loss = criterion(y_pred,y)
+    # backward
     optimizer.zero_grad()
-    outputs = model(X)
-    loss = criterion(outputs, y)
     loss.backward()
     optimizer.step()
 
-print(f'Predicted outputs: {model(X).detach()}')
+    if (epoch +1) % 10 ==0:
+        print(f'Epoch {epoch +1} and loss: { loss.item() }')
                 </code></pre>
 
                 <p>For more details, refer to: <a href="https://medium.com/@anthonyhuang1909/understanding-linear-regression-in-machine-learning-e90d157ec1dd" target="_blank" rel="noopener noreferrer">Understanding Linear Regression in Machine Learning</a></p>
@@ -1038,7 +1105,7 @@ with torch.no_grad():
             header.addEventListener('click', function () {
                 // If the clicked header is the 'Home' header, navigate to index.html directly
                 if (header.id === 'header-home') {
-                    window.location.href = 'index.html'; 
+                    window.location.href = 'index.html';
                     return;
                 }
                 const moduleList = header.nextElementSibling;
@@ -1071,7 +1138,7 @@ with torch.no_grad():
         loadContent('home');
 
         // Initially open the first module for better user experience (Module 1: Core ML Algorithms)
-        const firstModuleHeader = document.querySelector('.module:nth-of-type(2) .module-header'); 
+        const firstModuleHeader = document.querySelector('.module:nth-of-type(2) .module-header');
         if (firstModuleHeader) {
             firstModuleHeader.click(); // Simulate a click to expand it
         }
@@ -1079,7 +1146,7 @@ with torch.no_grad():
     </script>
     <script type="text/javascript" async
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
+        </script>
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {
