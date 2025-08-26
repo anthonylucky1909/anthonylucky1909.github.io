@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8446133991523587"
+        crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthony Lucky's Project Portfolio</title>
+    <!-- Your unique SVG favicon link -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <!-- Google Consent Management Platform (CMP) Integration -->
+    <!-- This snippet should be placed as high as possible in the <head> section -->
+    <script>
+        // Define dataLayer and the gtag function.
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        // Set default consent to 'denied' for all categories.
+        // This ensures a privacy-first approach before user interaction.
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'personalization_storage': 'denied',
+            'functionality_storage': 'denied',
+            'security_storage': 'denied',
+            'wait_for_update': 500 // Wait for CMP to update consent (in milliseconds)
+        });
+
+        // Load the Google Tag Manager/Global Site Tag script.
+        // Replace 'G-XXXXXXX' with your actual Google Analytics 4 Measurement ID
+        // or 'AW-XXXXXXX' for Google Ads Conversion ID if you use those.
+        // The Google Certified CMP will typically manage the loading of the consent dialog.
+        // For the full CMP script, you will generate it from your AdSense/Ad Manager/GA4 account.
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-XXXXXX'); // REPLACE GTM-XXXXXX with your GTM ID
+    </script>
+    <!-- End Google CMP Integration -->
+
+    <!-- particles.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+
+    <style>
+        /* Base styles and variables */
+        :root {
+            --color-primary-dark: #002D62; /* Darker Navy Blue */
+            --color-primary-medium: #004080; /* Navy Blue */
+            --color-accent-light: #48CAE4; /* Sky Blue */
+            --color-accent-dark: #007bff; /* Bright Blue */
+            --color-white: #FFFFFF;
+            --color-off-white: #F8F8F8;
+            --color-light-gray: #E0E0E0;
+            --color-dark-text: #1A1A1A;
+            --color-medium-text: #333333;
+            --gradient-start: #e0f2f7;
+            --gradient-end: #cceeff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-off-white);
+            color: var(--color-dark-text);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Header Styling */
+        .header {
+            background-color: var(--color-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--color-primary-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo svg {
+            margin-right: 10px;
+        }
+
+        .header .nav-links a {
+            color: var(--color-primary-medium);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .header .nav-links a:hover {
+            color: var(--color-accent-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: var(--color-primary-dark);
+            padding: 80px 40px;
+            text-align: center;
+            overflow: hidden;
+            animation: gradientShift 10s ease infinite alternate; /* Background animation */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Particle.js container */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1; /* Behind content */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2; /* Above particles */
+            max-width: 900px;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            color: var(--color-primary-dark);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            color: var(--color-medium-text);
+        }
+
+        .hero .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            margin: 30px auto 40px auto; /* Centered with space */
+            display: block; /* Ensures centering with margin: auto */
+        }
+
+
+        .hero .cta-button {
+            display: inline-block;
+            background-color: var(--color-accent-dark);
+            color: var(--color-white);
+            padding: 15px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+            margin-top: 20px; /* Space above button */
+        }
+
+        .hero .cta-button:hover {
+            background-color: var(--color-primary-medium);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+        }
+
+        /* Project Section */
+        .projects-section {
+            padding: 60px 40px;
+            background-color: var(--color-white);
+            text-align: center;
+        }
+
+        .projects-section h2 {
+            font-size: 2.5em;
+            color: var(--color-primary-dark);
+            margin-bottom: 50px;
+            border-bottom: 2px solid var(--color-light-gray);
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background-color: var(--color-off-white);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 25px;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--color-light-gray);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card .project-gif {
+            max-width: 100%;
+            height: 180px; /* Fixed height for consistency */
+            object-fit: cover; /* Crop if needed, cover the area */
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .project-card h3 {
+            font-size: 1.5em;
+            color: var(--color-primary-medium);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .project-card .language {
+            font-weight: 600;
+            color: var(--color-accent-dark);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .project-card p {
+            font-size: 0.95em;
+            color: var(--color-medium-text);
+            margin-bottom: 15px;
+            flex-grow: 1; /* Allows description to take available space */
+        }
+
+        .project-card .topics-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 -5px 15px -5px; /* Adjust margin to align with tags */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .project-card .topic-tag {
+            background-color: var(--color-accent-light);
+            color: var(--color-primary-dark);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .project-card .view-button {
+            display: inline-block;
+            background-color: var(--color-primary-medium);
+            color: var(--color-white);
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 500;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+            align-self: flex-start; /* Aligns button to the left */
+        }
+
+        .project-card .view-button:hover {
+            background-color: var(--color-accent-dark);
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: var(--color-primary-dark);
+            color: var(--color-white);
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9em;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        .footer .social-links a {
+            color: var(--color-accent-light);
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+
+        .footer .social-links a:hover {
+            color: var(--color-white);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+
+            .header .logo {
+                margin-bottom: 15px;
+            }
+
+            .header .nav-links a {
+                margin: 0 10px;
+                font-size: 0.9em;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .projects-section {
+                padding: 40px 20px;
+            }
+
+            .projects-section h2 {
+                font-size: 2em;
+                margin-bottom: 30px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr; /* Single column on small screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">
+            <!-- Inline SVG for logo, scales nicely -->
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 4L2 14V18L16 28L30 18V14L16 4Z" fill="#007bff" stroke="#007bff" stroke-width="2"/>
+                <path d="M11 14L16 10L21 14M16 10V22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Anthony Lucky
+        </a>
+        <nav class="nav-links">
+            <a href="#projects-section">Projects</a>
+            <a href="https://anthonylucky1909.github.io/" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <!-- Add more navigation links here -->
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div id="particles-js"></div> <!-- Particle background container -->
+            <div class="hero-content">
+                <h1>Welcome to My Project Portfolio</h1>
+                
+                <p>A comprehensive showcase of my work in Machine Learning, Deep Learning, and Systems Engineering. Explore my journey through diverse projects, from scalable web services to advanced AI models.</p>
+                <a href="#projects-section" class="cta-button">Explore My Projects</a>
+            </div>
+        </section>
+
+        <section id="projects-section" class="projects-section">
+            <h2>My Projects</h2>
+            <div class="project-grid" id="project-list">
+                <!-- Projects will be dynamically loaded here -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Anthony Lucky. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://anthonylucky1909.github.io/" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <!-- Add other social links here (e.g., LinkedIn, Twitter) -->
+        </div>
+    </footer>
+
+    <script>
+        // Project Data
+        const projectsData = [
+            {
+                title: "odpipe",
+                language: "Python",
+                description: "A Python-based data orchestration pipeline designed for efficient data processing and transformation workflows.",
+                topics: ["python", "data-engineering", "etl", "orchestration"],
+                link: "#",
+                gifUrl: "https://www.klippa.com/wp-content/uploads/2022/11/PDF-JSON-convert.gif"
+            },
+            {
+                title: "Shortify",
+                language: "Python",
+                description: "Scalable, blazing-fast URL shortener with real-time analytics, built for high performance and user tracking.",
+                topics: ["python", "web-service", "analytics", "scaling", "microservices"],
+                link: "#",
+                gifUrl: "https://raw.githubusercontent.com/anthonylucky1909/Shortify/refs/heads/master/diagram/diagram.gif"
+            },
+            {
+                title: "LLM-Engine",
+                language: "Jupyter Notebook",
+                description: "A robust platform for building, training, and deploying Large Language Models tailored for chatbot applications.",
+                topics: ["jupyter-notebook", "llm", "chatbot", "deep-learning", "nlp", "ai"],
+                link: "#",
+                gifUrl: "https://raw.githubusercontent.com/anthonylucky1909/LLM-Engine/refs/heads/master/diagram/diagram.jpeg"
+            },
+            {
+                title: "DTWBoost",
+                language: "Python-Jupiter Notebook",
+                description: "A Dynamic Time Warping (DTW) Enhanced Support Vector Machine (SVM) Classifier for advanced time series data analysis.",
+                topics: ["time-series", "artificial-intelligence", "svm-classifier", "dtw-algorithm", "machine-learning"],
+                link: "#",
+                gifUrl: "https://upload.wikimedia.org/wikipedia/commons/9/97/Two_repetitions_of_a_walking_sequence_of_an_individual_recorded_using_a_motion-capture_system.gif"
+            },
+            {
+                title: "LiteDraw",
+                language: "Python",
+                description: "GeoVis is an advanced tool for visualizing and drawing geometric shapes and algorithms, designed for interactive exploration of computational geometry.",
+                topics: ["python", "computer-graphics", "qtcreator", "computational-geometry", "visualization"],
+                link: "#",
+                gifUrl: "https://images.squarespace-cdn.com/content/v1/592329b3e4fcb58e219ab6da/1546194728368-F1NUK01TJR4L7IC7RE0L/ipodscene_4.gif"
+            },
+            {
+                title: "LinguaIDEN",
+                language: "Jupyter Notebook",
+                description: "Transformer-based Neural Machine Translation system for highly accurate Indonesian ↔ English language translation.",
+                topics: ["jupyter-notebook", "nlp", "transformers", "machine-translation", "deep-learning", "language-models"],
+                link: "#",
+                gifUrl: "https://raw.githubusercontent.com/anthonylucky1909/LinguaIDEN/master/diagram/model.png"
+            },
+            {
+                title: "FPGA-Embedded-Systems",
+                language: "Verilog",
+                description: "Project focused on designing digital circuits and microprocessors using FPGA, covering Boolean logic, combinational circuits, state machines, and CPU design.",
+                topics: ["fpga", "stata", "verilog", "digital-design", "embedded-systems", "microprocessors"],
+                link: "#",
+                gifUrl: "https://miro.medium.com/v2/1*G2lZ3yggV-BvLBnCF-DjwQ.gif"
+            },
+            {
+                title: "Advanced-OS-Concepts",
+                language: "C",
+                description: "A graduate-level course exploration of key OS concepts like concurrency, thread synchronization, inter-process communication, and distributed systems.",
+                topics: ["c", "os", "concurrency", "distributed-systems", "system-programming"],
+                link: "#",
+                gifUrl: "https://i.pinimg.com/originals/06/60/ef/0660efe82fa3da42ed56eef013171835.gif"
+            },
+            {
+                title: "Phonemon-DB",
+                language: "SQL",
+                description: "Phonemon Monster Database project models data using E-R diagrams, focusing on Trainer and Battle relationships, utilizing SQL for efficient querying.",
+                topics: ["sql", "sql-server", "database-management", "database-schema", "data-modeling"],
+                link: "#",
+                gifUrl: "https://www.dbdesigner.net/wp-content/uploads/2025/02/MultiSelect-ezgif.com-video-to-gif-converter.gif"
+            },
+            {
+                title: "ESRGANX",
+                language: "Jupyter Notebook",
+                description: "ESRGAN-Plus: An enhanced image super-resolution model with custom training capabilities for superior image quality.",
+                topics: ["deep-learning", "super-resolution", "image-processing", "gan", "computer-vision"],
+                link: "#",
+                gifUrl: "https://user-images.githubusercontent.com/72028833/153545930-33d769cb-ef07-4ae2-8768-60bb41034b98.gif"
+            },
+            {
+                title: "SceneBoW",
+                language: "Python",
+                description: "Scene Recognition system utilizing Bag of Words and Tiny Image Representation techniques for robust image classification.",
+                topics: ["python", "computer-vision", "image-recognition", "feature-extraction"],
+                link: "#",
+                gifUrl: "https://miro.medium.com/v2/1*dZdu0BQutB9O-Lud7QJsaA.gif"
+            },
+            {
+                title: "LiteCDN",
+                language: "Python",
+                description: "LiteCDN: A lightweight caching layer designed for fast and efficient content delivery, optimizing web performance.",
+                topics: ["python", "cdn", "caching", "network-programming", "performance-optimization"],
+                link: "#",
+                gifUrl: "https://cdn.dribbble.com/userupload/21924997/file/original-a594a66b342dc39315e32ad4abf52bfc.gif"
+            },
+            {
+                title: "KeyMesh",
+                language: "C++",
+                description: "A high-performance distributed key-value database built in modern C++ with multithreaded TCP servers and data replication for reliability and speed.",
+                topics: ["c++", "distributed-systems", "key-value-store", "networking", "high-performance-computing"],
+                link: "#",
+                gifUrl: "https://substackcdn.com/image/fetch/$s_!9C-G!,w_520,h_272,c_fill,f_auto,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F236689d9-941f-4947-a58e-3e38359c61ae_1542x962.png"
+            },
+            {
+                title: "Photometric-Stereo",
+                language: "Python",
+                description: "A Python project related to Photometric Stereo, used for reconstructing 3D surface shape from multiple images under varying light sources.",
+                topics: ["python", "computer-vision", "3d-reconstruction", "image-analysis"],
+                link: "#",
+                gifUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjB5azdrMDJqNWUydjF2aW1rNDM4OGxvc2EwZ3A4ZGkyYjhvNG04MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3ornjSM8L0pL74bYqA/giphy.gif" /* Generic vision GIF */
+            },
+            {
+                title: "Panorama-Stitching-Pro",
+                language: "Jupyter Notebook",
+                description: "A Jupyter Notebook project demonstrating advanced panorama stitching techniques for creating seamless wide-angle images.",
+                topics: ["jupyter-notebook", "image-processing", "computer-vision", "image-stitching"],
+                link: "#",
+                gifUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2FhZDNjcGR1ZmNmbnczZGh5d3I0NXBwOTBvc2pxOXN5eDhvMTI5NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0HFkb9sM9n1h67iE/giphy.gif" /* Generic dev GIF */
+            },
+            {
+                title: "RetailDB",
+                language: "Python",
+                description: "Online retail application databases are some of the most well-known SQL practice projects as the importance of e-commerce continues to grow.",
+                topics: ["sql", "database-management", "e-commerce", "python", "data-modeling"],
+                link: "#",
+                gifUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFpZjBsczVzcnBweWZ3MDJ2YXU1NWN1am8xbTNvN3EzdjBmdmxieSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Zdg7x8J0sD4cQ/giphy.gif"
+            },
+            {
+                title: "ImageMosaic",
+                language: "Python",
+                description: "A project focused on image representation and recognition through mosaic generation and analysis.",
+                topics: ["python", "image-processing", "computer-vision", "image-synthesis"],
+                link: "#",
+                gifUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTBlNGQ0bHgzajI4N2Vtb2pud242Nzl2ajd0aHNzZ2M4ZzNlYXdxeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LmN8EsgoAUhFm/giphy.gif" /* Generic AI/ML GIF */
+            },
+            {
+                title: "EdgeSeg-Edge-Detection-and-Image-Segmentation",
+                language: "MATLAB",
+                description: "EdgeSeg: A project implementing robust edge detection and image segmentation techniques for image analysis.",
+                topics: ["computer-vision", "matlab", "edge-detection", "image-segmentation", "image-analysis"],
+                link: "#",
+                gifUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzRieW45eWRjN3Zzb2FqcG15dGg5NmNxMzc5OHd2cDBmY3I3c3RpbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0HFkb9sM9n1h67iE/giphy.gif" /* Generic dev GIF */
+            },
+            {
+                title: "HybridFilter",
+                language: "Jupyter Notebook",
+                description: "HybridFilter: A project exploring image filtering and hybrid image generation for visual effects.",
+                topics: ["jupyter-notebook", "image-processing", "computer-vision", "digital-photography"],
+                link: "#",
+                gifUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmQ0eXQ3bTN2cWhpdzM1NmV2bXczb3NqMDIzMHBvZXk2Nnd1a2J6bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LmN8EsgoAUhFm/giphy.gif" /* Generic AI/ML GIF */
+            },
+            {
+                title: "TriAttNet",
+                language: "Python",
+                description: "TriAttNet is an advanced image super-resolution model that utilizes a Triple Attention Mechanism to enhance image quality and detail.",
+                topics: ["deep-learning", "attention-model", "transformer", "super-resolution-image", "python", "computer-vision"],
+                link: "#",
+                gifUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTBlNGQ0bHgzajI4N2Vtb2pud242Nzl2ajd0aHNzZ2M4ZzNlYXdxeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LmN8EsgoAUhFm/giphy.gif" /* Generic AI/ML GIF */
+            },
+            {
+                title: "ICS-Lab",
+                language: "Assembly",
+                description: "Explores low-level programming and system vulnerabilities through Bomblab, Buflab, and Linklab experiments, focusing on buffer overflows.",
+                topics: ["cpp", "assembly-language", "system-security", "reverse-engineering", "low-level-programming"],
+                link: "#",
+                gifUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2R4dDh5a20yYmx0eG5kd295cW9iNG5iNzc3NnZ1eGRsNGRmY21iMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7bu3qD2cT831M1oA/giphy.gif" /* Generic programming gif */
+            },
+            {
+                title: "anthonylucky1909 (Personal Repository)",
+                language: "No language specified",
+                description: "My personal GitHub repository containing various experiments, utilities, and minor projects.",
+                topics: ["personal", "repository", "misc"],
+                link: "https://anthonylucky1909.github.io/",
+                gifUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmV2a3IzMXp2MmY5MTZ2bW8zaHh3ejB4bDhxeG1kNDN6YzExbmw0YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3ornjSM8L0pL74bYqA/giphy.gif" /* Generic tech gif */
+            },
+            {
+                title: "SCAttNet",
+                language: "Python",
+                description: "SCAttNet: An Attention-Enhanced Image Super-Resolution Engine designed for high-quality image upscaling.",
+                topics: ["python", "deep-learning", "super-resolution", "attention-mechanism", "computer-vision"],
+                link: "#",
+                gifUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTBlNGQ0bHgzajI4N2Vtb2pud242Nzl2ajd0aHNzZ2M4ZzNlYXdxeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LmN8EsgoAUhFm/giphy.gif" /* Generic AI/ML GIF */
+            },
+            {
+                title: "TaxiMind",
+                language: "Python",
+                description: "TaxiMind: An Intelligent Fare Prediction and Optimization Engine for ride-sharing services, using machine learning to predict optimal fares.",
+                topics: ["python", "machine-learning", "forecasting", "optimization", "data-science"],
+                link: "#",
+                gifUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3U3d3Y0aTRzN2YzbDZ5bTlyZ3RscW55OHp2a3AweXdwcHJmc3ZlYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0Hlxz8Bw5xJpXwUo/giphy.gif"
+            },
+            {
+                title: "TreSRNet",
+                language: "Python",
+                description: "TreSRNet: A Python-based project focusing on advanced techniques for super-resolution, enhancing image clarity and detail.",
+                topics: ["python", "super-resolution", "deep-learning"],
+                link: "#",
+                gifUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTBlNGQ0bHgzajI4N2Vtb2pud242Nzl2ajd0aHNzZ2M4ZzNlYXdxeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LmN8EsgoAUhFm/giphy.gif" /* Generic AI/ML GIF */
+            },
+            {
+                title: "TDGame-War-of-the-Towers",
+                language: "C++",
+                description: "TDGame is an engaging tower defense game where players strategically place and upgrade towers to stop waves of enemies from breaching their base.",
+                topics: ["cpp", "game-development", "qt5-gui", "tower-defense", "gamedev"],
+                link: "#",
+                gifUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2dpeWw2NGlqZnVkMmZkbWw4dWJ0ZnhoN3Y1ZWMwbm1jZnhoazJ4YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tXJ06L42kQ91N8lG4C/giphy.gif"
+            },
+            {
+                title: "Machine_Learning",
+                language: "Jupyter Notebook",
+                description: "A comprehensive study of how to build computer systems that learn from experience, intersecting with statistics, cognitive science, and information theory.",
+                topics: ["jupyter-notebook", "machine-learning", "artificial-intelligence", "statistics"],
+                link: "#",
+                gifUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTBlNGQ0bHgzajI4N2Vtb2pud242Nzl2ajd0aHNzZ2M4ZzNlYXdxeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LmN8EsgoAUhFm/giphy.gif" /* Generic AI/ML GIF */
+            },
+            {
+                title: "HSK6",
+                language: "No language specified",
+                description: "A personal project related to HSK 6 level Chinese language studies, likely involving data or tools for learning and cultural exploration.",
+                topics: ["language-learning", "hsk", "chinese", "education"],
+                link: "#",
+                gifUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnJ2bzhldWh5eWhsMzRvdW5kNGF3dDN1d3lsZm5oZWNlZ21sMWE2MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kgyf3Y0l7R4o/giphy.gif" /* Generic learning gif */
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectListContainer = document.getElementById('project-list');
+
+            projectsData.forEach(project => {
+                const card = document.createElement('div');
+                card.classList.add('project-card');
+
+                let topicsHtml = '';
+                if (project.topics && project.topics.length > 0) {
+                    topicsHtml = `<ul class="topics-list">` +
+                        project.topics.map(topic => `<li class="topic-tag">${topic}</li>`).join('') +
+                        `</ul>`;
+                }
+
+                card.innerHTML = `
+                    <img src="${project.gifUrl}" 
+                         alt="${project.title} GIF" 
+                         class="project-gif"
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x180/e0f2f7/004080?text=${project.title.substring(0,20)}';">
+                    <h3>${project.title}</h3>
+                    <span class="language">${project.language || 'N/A'}</span>
+                    <p>${project.description || 'No description provided.'}</p>
+                    ${topicsHtml}
+                    <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="view-button">View Project</a>
+                `;
+                projectListContainer.appendChild(card);
+            });
+
+            // Initialize particles.js
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#b3d9ff" /* Light blue particles */
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        },
+                        "image": {
+                            "src": "img/github.svg",
+                            "width": 100,
+                            "height": 100
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#cceeff", /* Slightly darker light blue lines */
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 3,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        });
+    </script>
+</body>
+
+</html>
