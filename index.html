@@ -5,7 +5,7 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anthony</title>
+    <title>Anthony - ML & DL Portfolio</title>
     <!-- FAVICON: Add these lines for your website icon -->
     <!-- Standard favicon (most common) -->
     <link rel="icon" type="image/png" href="https://placehold.co/32x32/48CAE4/ffffff?text=AH" sizes="32x32">
@@ -14,6 +14,7 @@
     <!-- For older browsers -->
     <link rel="icon" type="image/x-icon" href="https://placehold.co/16x16/48CAE4/ffffff?text=AH">
     <!-- END FAVICON -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         // Define dataLayer and the gtag function.
         window.dataLayer = window.dataLayer || [];
@@ -53,76 +54,333 @@
         })(window, document, 'script', 'dataLayer', 'GTM-XXXXXX'); // Replace GTM-XXXXXX with your GTM ID or appropriate Google tag ID
     </script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #F8F8F8; /* Light off-white */
-            color: #1A1A1A; /* Dark gray for text */
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #e6f0ff 0%, #c9e0ff 50%, #a5cfff 100%);
+            min-height: 100vh;
+            color: #1a3c6c;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Full viewport height */
-            overflow: hidden; /* No scroll */
-            text-align: center;
+            overflow-x: hidden;
+            position: relative;
         }
-
+        
         .container {
-            max-width: 700px;
+            max-width: 1000px;
+            width: 90%;
             padding: 40px;
-            background-color: #FFFFFF;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(26, 60, 108, 0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: containerFadeIn 1s ease-out;
+            border: 3px solid #1a3c6c;
         }
-
+        
+        @keyframes containerFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .header {
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .robot-icon {
+            font-size: 4rem;
+            color: #1a3c6c;
+            margin-bottom: 15px;
+            animation: bounce 4s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
         h1 {
-            color: #000080; /* Navy Blue */
-            margin-bottom: 20px;
-            font-size: 2.5em;
+            color: #1a3c6c;
+            margin-bottom: 15px;
+            font-size: 2.8rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
         }
-
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #4a90e2, #1a3c6c);
+            border-radius: 2px;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: #4a6fa5;
+            margin-top: 20px;
+        }
+        
         p {
-            font-size: 1.1em;
+            font-size: 1.2rem;
             line-height: 1.6;
             margin-bottom: 30px;
+            color: #2c3e50;
         }
-
+        
+        .highlight {
+            color: #1a3c6c;
+            font-weight: 600;
+            background: linear-gradient(transparent 70%, rgba(74, 144, 226, 0.3) 0%);
+        }
+        
         .button-group {
-            display: flex;
-            justify-content: center;
-            gap: 20px; /* Space between buttons */
-            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
         }
-
+        
         .button-link {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: #000080; /* Navy Blue */
-            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 25px 20px;
+            background: linear-gradient(145deg, #4a90e2, #1a3c6c);
+            color: white;
             text-decoration: none;
-            border-radius: 8px;
-            font-size: 1.1em;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(26, 60, 108, 0.25);
+            border: 2px solid #1a3c6c;
+            position: relative;
+            overflow: hidden;
+            min-height: 140px;
         }
-
+        
+        .button-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+        
         .button-link:hover {
-            background-color: #0000A0; /* Slightly lighter blue */
-            transform: translateY(-2px);
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 12px 25px rgba(26, 60, 108, 0.4);
+        }
+        
+        .button-link:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .button-link i {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .decoration {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.15;
+        }
+        
+        .decoration-1 {
+            top: -50px;
+            right: -30px;
+            font-size: 12rem;
+            transform: rotate(15deg);
+            color: #1a3c6c;
+        }
+        
+        .decoration-2 {
+            bottom: -60px;
+            left: -40px;
+            font-size: 10rem;
+            transform: rotate(-10deg);
+            color: #4a90e2;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                width: 95%;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            p {
+                font-size: 1.1rem;
+            }
+            
+            .button-group {
+                grid-template-columns: 1fr;
+            }
+            
+            .decoration {
+                display: none;
+            }
+        }
+        
+        .bubbles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border: 2px solid rgba(26, 60, 108, 0.2);
+            animation: rise 15s infinite ease-in;
+        }
+        
+        @keyframes rise {
+            0% {
+                bottom: -100px;
+                transform: translateX(0) scale(0.8);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateX(100px) scale(1.2);
+                opacity: 0.6;
+            }
+            100% {
+                bottom: 1080px;
+                transform: translateX(-200px) scale(0.8);
+                opacity: 0;
+            }
+        }
+        
+        .footer {
+            margin-top: 40px;
+            color: #4a6fa5;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
+    <div class="bubbles" id="bubbles"></div>
+    <i class="fas fa-robot decoration decoration-1"></i>
+    <i class="fas fa-brain decoration decoration-2"></i>
+    
     <div class="container">
-        <h1>Anthony's Portfolio: Machine Learning & Deep Learning</h1>
-        <p>This platform presents a curated collection of studies and explorations in the fields of Machine Learning and Deep Learning. It functions as a structured curriculum, offering comprehensive content across key modules.</p>
-        <p>I invite you to explore the detailed courses to gain insights into foundational and advanced concepts, or to learn more about my professional background.</p>
+        <div class="header">
+            <div class="robot-icon">
+                <i class="fas fa-robot"></i>
+            </div>
+            <h1 class="floating">Anthony's ML Portfolio</h1>
+            <p class="subtitle">Machine Learning & Deep Learning Adventures</p>
+        </div>
+        
+        <p>Welcome to my <span class="highlight">Machine Learning & Deep Learning</span> portfolio. This platform showcases my journey and expertise in AI, featuring comprehensive studies and practical applications.</p>
+        <p>Explore my profile to learn about my background, dive into ML/DL courses for structured learning, follow the roadmap for skill development, or check out my projects to see applied knowledge in action.</p>
+        
         <div class="button-group">
-            <a href="portofolio.html" class="button-link">My Profile</a>
-            <a href="course.html" class="button-link">ML & DL Learning</a>
-            <a href="roadmap.html" class="button-link">ML RoadMap</a>
-            <a href="project.html" class="button-link">My Project</a>
+            <a href="portofolio.html" class="button-link">
+                <i class="fas fa-user-tie"></i>
+                My Profile
+            </a>
+            <a href="course.html" class="button-link">
+                <i class="fas fa-brain"></i>
+                ML & DL Learning
+            </a>
+            <a href="roadmap.html" class="button-link">
+                <i class="fas fa-map-marked-alt"></i>
+                ML RoadMap
+            </a>
+            <a href="project.html" class="button-link">
+                <i class="fas fa-laptop-code"></i>
+                My Projects
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 Anthony's Portfolio | Exploring the Future of AI</p>
         </div>
     </div>
+
+    <script>
+        // Create background bubbles
+        document.addEventListener('DOMContentLoaded', function() {
+            const bubblesContainer = document.getElementById('bubbles');
+            const numberOfBubbles = 20;
+            
+            for (let i = 0; i < numberOfBubbles; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                
+                // Random properties for each bubble
+                const size = Math.random() * 60 + 20;
+                const posX = Math.random() * 100;
+                const delay = Math.random() * 15;
+                const duration = Math.random() * 10 + 15;
+                
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${posX}vw`;
+                bubble.style.animationDelay = `${delay}s`;
+                bubble.style.animationDuration = `${duration}s`;
+                
+                bubblesContainer.appendChild(bubble);
+            }
+            
+            // Add interactive button effects
+            const buttons = document.querySelectorAll('.button-link');
+            buttons.forEach(button => {
+                button.addEventListener('mousemove', function(e) {
+                    const x = e.offsetX;
+                    const y = e.offsetY;
+                    
+                    this.style.background = `linear-gradient(145deg, #4a90e2, #1a3c6c), radial-gradient(circle at ${x}px ${y}px, rgba(255, 255, 255, 0.3) 0%, transparent 80%)`;
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.background = 'linear-gradient(145deg, #4a90e2, #1a3c6c)';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
