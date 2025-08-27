@@ -1,43 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google AdSense and Analytics Setup -->
+    <!-- The following script tags are from your original code. You should replace the placeholder IDs with your own. -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8446133991523587"
      crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anthony - ML & DL Portfolio</title>
-    <!-- FAVICON: Add these lines for your website icon -->
-    <!-- Standard favicon (most common) -->
-    <link rel="icon" type="image/png" href="https://placehold.co/32x32/48CAE4/ffffff?text=AH" sizes="32x32">
-    <!-- For Apple devices -->
-    <link rel="apple-touch-icon" href="https://placehold.co/180x180/48CAE4/ffffff?text=AH" sizes="180x180">
-    <!-- For older browsers -->
-    <link rel="icon" type="image/x-icon" href="https://placehold.co/16x16/48CAE4/ffffff?text=AH">
-    <!-- END FAVICON -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
-        // Define dataLayer and the gtag function.
         window.dataLayer = window.dataLayer || [];
         function gtag() {
             dataLayer.push(arguments);
         }
-
-        // Set default consent to 'denied' for all categories.
-        // This ensures a privacy-first approach before user interaction.
         gtag('consent', 'default', {
             'ad_storage': 'denied',
             'analytics_storage': 'denied',
             'personalization_storage': 'denied',
             'functionality_storage': 'denied',
             'security_storage': 'denied',
-            'wait_for_update': 500 // Wait for CMP to update consent (in milliseconds)
+            'wait_for_update': 500
         });
-
-        // Load the Google Tag Manager/Global Site Tag script.
-        // Replace 'G-XXXXXXX' with your actual Google Analytics 4 Measurement ID
-        // or 'AW-XXXXXXX' for Google Ads Conversion ID if you use those.
-        // The Google Certified CMP will typically manage the loading of the consent dialog.
-        // For the full CMP script, you will generate it from your AdSense/Ad Manager/GA4 account.
         (function (w, d, s, l, i) {
             w[l] = w[l] || [];
             w[l].push({
@@ -51,337 +31,146 @@
             j.src =
                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
             f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-XXXXXX'); // Replace GTM-XXXXXX with your GTM ID or appropriate Google tag ID
+        })(window, document, 'script', 'dataLayer', 'GTM-XXXXXX');
     </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthony's AI Portfolio</title>
+    <link rel="icon" type="image/png" href="https://placehold.co/32x32/145DA0/ffffff?text=AH" sizes="32x32">
+    <link rel="apple-touch-icon" href="https://placehold.co/180x180/145DA0/ffffff?text=AH" sizes="180x180">
+    <link rel="icon" type="image/x-icon" href="https://placehold.co/16x16/145DA0/ffffff?text=AH">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #e6f0ff 0%, #c9e0ff 50%, #a5cfff 100%);
-            min-height: 100vh;
-            color: #1a3c6c;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow-x: hidden;
-            position: relative;
-        }
-        
-        .container {
-            max-width: 1000px;
-            width: 90%;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.92);
-            border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(26, 60, 108, 0.2);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            animation: containerFadeIn 1s ease-out;
-            border: 3px solid #1a3c6c;
-        }
-        
-        @keyframes containerFadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .header {
-            margin-bottom: 30px;
-            position: relative;
-        }
-        
-        .robot-icon {
-            font-size: 4rem;
-            color: #1a3c6c;
-            margin-bottom: 15px;
-            animation: bounce 4s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-        
-        h1 {
-            color: #1a3c6c;
-            margin-bottom: 15px;
-            font-size: 2.8rem;
-            font-weight: 700;
-            position: relative;
-            display: inline-block;
-        }
-        
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, #4a90e2, #1a3c6c);
-            border-radius: 2px;
-        }
-        
-        .subtitle {
-            font-size: 1.3rem;
-            color: #4a6fa5;
-            margin-top: 20px;
-        }
-        
-        p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            color: #2c3e50;
-        }
-        
-        .highlight {
-            color: #1a3c6c;
-            font-weight: 600;
-            background: linear-gradient(transparent 70%, rgba(74, 144, 226, 0.3) 0%);
-        }
-        
-        .button-group {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-        
-        .button-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 25px 20px;
-            background: linear-gradient(145deg, #4a90e2, #1a3c6c);
-            color: white;
-            text-decoration: none;
-            border-radius: 16px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(26, 60, 108, 0.25);
-            border: 2px solid #1a3c6c;
-            position: relative;
-            overflow: hidden;
-            min-height: 140px;
-        }
-        
-        .button-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.6s;
-        }
-        
-        .button-link:hover {
-            transform: translateY(-8px) scale(1.03);
-            box-shadow: 0 12px 25px rgba(26, 60, 108, 0.4);
-        }
-        
-        .button-link:hover::before {
-            transform: translateX(100%);
-        }
-        
-        .button-link i {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-            color: white;
-        }
-        
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-        
         @keyframes float {
-            0% { transform: translateY(0px); }
+            0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-8px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        .decoration {
-            position: absolute;
-            z-index: -1;
-            opacity: 0.15;
-        }
-        
-        .decoration-1 {
-            top: -50px;
-            right: -30px;
-            font-size: 12rem;
-            transform: rotate(15deg);
-            color: #1a3c6c;
-        }
-        
-        .decoration-2 {
-            bottom: -60px;
-            left: -40px;
-            font-size: 10rem;
-            transform: rotate(-10deg);
-            color: #4a90e2;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 30px 20px;
-                width: 95%;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            p {
-                font-size: 1.1rem;
-            }
-            
-            .button-group {
-                grid-template-columns: 1fr;
-            }
-            
-            .decoration {
-                display: none;
-            }
-        }
-        
-        .bubbles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            overflow: hidden;
-        }
-        
-        .bubble {
-            position: absolute;
-            bottom: -100px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border: 2px solid rgba(26, 60, 108, 0.2);
-            animation: rise 15s infinite ease-in;
         }
         
         @keyframes rise {
-            0% {
-                bottom: -100px;
-                transform: translateX(0) scale(0.8);
-                opacity: 0.8;
-            }
-            50% {
-                transform: translateX(100px) scale(1.2);
-                opacity: 0.6;
-            }
-            100% {
-                bottom: 1080px;
-                transform: translateX(-200px) scale(0.8);
-                opacity: 0;
-            }
-        }
-        
-        .footer {
-            margin-top: 40px;
-            color: #4a6fa5;
-            font-size: 0.9rem;
+            0% { bottom: -100px; transform: translateX(0) scale(0.8); opacity: 0.8; }
+            50% { transform: translateX(100px) scale(1.2); opacity: 0.6; }
+            100% { bottom: 1080px; transform: translateX(-200px) scale(0.8); opacity: 0; }
         }
     </style>
 </head>
-<body>
-    <div class="bubbles" id="bubbles"></div>
-    <i class="fas fa-robot decoration decoration-1"></i>
-    <i class="fas fa-brain decoration decoration-2"></i>
-    
-    <div class="container">
-        <div class="header">
-            <div class="robot-icon">
-                <i class="fas fa-robot"></i>
+<!-- Removed 'overflow-hidden' and flex-related classes from body to allow scrolling -->
+<body class="font-sans bg-gradient-to-br from-blue-50 to-blue-200 min-h-screen relative text-gray-800">
+
+    <!-- Background Bubbles Animation -->
+    <!-- Removed overflow-hidden from here to allow the body to scroll -->
+    <div class="bubbles absolute w-full h-full top-0 left-0 z-0"></div>
+
+    <!-- Main Container -->
+    <!-- Added mx-auto to center the container horizontally and py-12 for vertical spacing -->
+    <div class="relative z-10 w-11/12 max-w-5xl my-12 mx-auto p-8 md:p-12 bg-white bg-opacity-90 rounded-3xl shadow-2xl backdrop-blur-md border border-gray-200">
+        
+        <!-- Header Section -->
+        <header class="text-center mb-10">
+            <i class="fas fa-robot text-6xl text-blue-600 mb-4 animate-[float_6s_ease-in-out_infinite]"></i>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-blue-900 mb-2">Anthony's AI Portfolio</h1>
+            <p class="text-xl md:text-2xl text-blue-700 font-light">Machine Learning & Deep Learning Adventures</p>
+            <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-900 mx-auto mt-4 rounded-full"></div>
+        </header>
+        
+        <!-- About Section -->
+        <section class="text-center mb-12">
+            <p class="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
+                Welcome to my <span class="font-semibold text-blue-800">Machine Learning & Deep Learning</span> portfolio. This platform showcases my journey and expertise in AI, featuring comprehensive studies and practical applications.
+            </p>
+            <p class="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mt-4">
+                Explore my profile to learn about my background, dive into ML/DL courses for structured learning, follow the roadmap for skill development, or check out my projects to see applied knowledge in action.
+            </p>
+        </section>
+
+        <!-- Google Ads Placement -->
+        <aside class="mb-12">
+            <div id="ad-container-1" class="w-full h-40 bg-gray-100 flex items-center justify-center rounded-lg border-dashed border-2 border-gray-300 text-gray-500 text-center p-4">
+                <!-- IMPORTANT: Place your Google AdSense code here. -->
+                <!-- The ad unit will be served in this container. -->
+                Ad Unit 1
             </div>
-            <h1 class="floating">Anthony's ML Portfolio</h1>
-            <p class="subtitle">Machine Learning & Deep Learning Adventures</p>
-        </div>
-        
-        <p>Welcome to my <span class="highlight">Machine Learning & Deep Learning</span> portfolio. This platform showcases my journey and expertise in AI, featuring comprehensive studies and practical applications.</p>
-        <p>Explore my profile to learn about my background, dive into ML/DL courses for structured learning, follow the roadmap for skill development, or check out my projects to see applied knowledge in action.</p>
-        
-        <div class="button-group">
-            <a href="portofolio.html" class="button-link">
-                <i class="fas fa-user-tie"></i>
-                My Profile
-            </a>
-            <a href="course.html" class="button-link">
-                <i class="fas fa-brain"></i>
-                ML & DL Learning
-            </a>
-            <a href="roadmap.html" class="button-link">
-                <i class="fas fa-map-marked-alt"></i>
-                ML RoadMap
-            </a>
-            <!-- <a href="project.html" class="button-link">
-                <i class="fas fa-laptop-code"></i>
-                My Projects
-            </a> -->
-            <a href="game.html" class="button-link">
-                <i class="fas fa-laptop-code"></i>
-                Mini Game
-            </a>
-        </div>
-        
-        <div class="footer">
+        </aside>
+
+        <!-- Button Group -->
+        <nav>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="portofolio.html" class="group flex flex-col items-center justify-center p-6 bg-gradient-to-br from-blue-600 to-blue-900 text-white rounded-2xl shadow-lg transition-transform hover:scale-105 hover:shadow-2xl duration-300">
+                    <i class="fas fa-user-tie text-3xl mb-3"></i>
+                    <span class="text-xl font-semibold">My Profile</span>
+                </a>
+                <a href="course.html" class="group flex flex-col items-center justify-center p-6 bg-gradient-to-br from-blue-600 to-blue-900 text-white rounded-2xl shadow-lg transition-transform hover:scale-105 hover:shadow-2xl duration-300">
+                    <i class="fas fa-brain text-3xl mb-3"></i>
+                    <span class="text-xl font-semibold">ML & DL Learning</span>
+                </a>
+                <a href="roadmap.html" class="group flex flex-col items-center justify-center p-6 bg-gradient-to-br from-blue-600 to-blue-900 text-white rounded-2xl shadow-lg transition-transform hover:scale-105 hover:shadow-2xl duration-300">
+                    <i class="fas fa-map-marked-alt text-3xl mb-3"></i>
+                    <span class="text-xl font-semibold">ML Roadmap</span>
+                </a>
+                <a href="game.html" class="group flex flex-col items-center justify-center p-6 bg-gradient-to-br from-blue-600 to-blue-900 text-white rounded-2xl shadow-lg transition-transform hover:scale-105 hover:shadow-2xl duration-300">
+                    <i class="fas fa-laptop-code text-3xl mb-3"></i>
+                    <span class="text-xl font-semibold">Mini Game</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Google Ads Placement -->
+        <aside class="mt-12">
+            <div id="ad-container-2" class="w-full h-40 bg-gray-100 flex items-center justify-center rounded-lg border-dashed border-2 border-gray-300 text-gray-500 text-center p-4">
+                <!-- IMPORTANT: Place your Google AdSense code here. -->
+                <!-- The ad unit will be served in this container. -->
+                Ad Unit 2
+            </div>
+        </aside>
+
+        <!-- Footer -->
+        <footer class="mt-12 text-center text-gray-600 text-sm">
             <p>© 2023 Anthony's Portfolio | Exploring the Future of AI</p>
-        </div>
+        </footer>
     </div>
 
+    <!-- JavaScript for Dynamic Effects -->
     <script>
-        // Create background bubbles
         document.addEventListener('DOMContentLoaded', function() {
+            // Create and animate background bubbles
             const bubblesContainer = document.getElementById('bubbles');
-            const numberOfBubbles = 20;
-            
-            for (let i = 0; i < numberOfBubbles; i++) {
-                const bubble = document.createElement('div');
-                bubble.classList.add('bubble');
+            // Check if the bubblesContainer element exists before trying to use it
+            if (bubblesContainer) {
+                const numberOfBubbles = 20;
                 
-                // Random properties for each bubble
-                const size = Math.random() * 60 + 20;
-                const posX = Math.random() * 100;
-                const delay = Math.random() * 15;
-                const duration = Math.random() * 10 + 15;
-                
-                bubble.style.width = `${size}px`;
-                bubble.style.height = `${size}px`;
-                bubble.style.left = `${posX}vw`;
-                bubble.style.animationDelay = `${delay}s`;
-                bubble.style.animationDuration = `${duration}s`;
-                
-                bubblesContainer.appendChild(bubble);
+                for (let i = 0; i < numberOfBubbles; i++) {
+                    const bubble = document.createElement('div');
+                    bubble.classList.add('bubble', 'absolute', 'rounded-full', 'border-2', 'border-opacity-30', 'bg-white', 'bg-opacity-30', 'border-blue-900', 'animate-[rise_15s_ease-in_infinite]');
+                    
+                    const size = Math.random() * 60 + 20;
+                    const posX = Math.random() * 100;
+                    const delay = Math.random() * 15;
+                    const duration = Math.random() * 10 + 15;
+                    
+                    bubble.style.width = `${size}px`;
+                    bubble.style.height = `${size}px`;
+                    bubble.style.left = `${posX}vw`;
+                    bubble.style.animationDelay = `${delay}s`;
+                    bubble.style.animationDuration = `${duration}s`;
+                    
+                    bubblesContainer.appendChild(bubble);
+                }
             }
-            
-            // Add interactive button effects
-            const buttons = document.querySelectorAll('.button-link');
+
+            // Button hover effect with radial gradient
+            const buttons = document.querySelectorAll('a.group');
             buttons.forEach(button => {
                 button.addEventListener('mousemove', function(e) {
-                    const x = e.offsetX;
-                    const y = e.offsetY;
-                    
-                    this.style.background = `linear-gradient(145deg, #4a90e2, #1a3c6c), radial-gradient(circle at ${x}px ${y}px, rgba(255, 255, 255, 0.3) 0%, transparent 80%)`;
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    this.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255, 255, 255, 0.3) 0%, transparent 60%), linear-gradient(145deg, #2563EB, #1E3A8A)`;
                 });
                 
                 button.addEventListener('mouseleave', function() {
-                    this.style.background = 'linear-gradient(145deg, #4a90e2, #1a3c6c)';
+                    this.style.background = 'linear-gradient(145deg, #2563EB, #1E3A8A)';
                 });
             });
         });
