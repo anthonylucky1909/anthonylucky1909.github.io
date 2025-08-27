@@ -56,16 +56,13 @@
         }
     </style>
 </head>
-<!-- Removed 'overflow-hidden' and flex-related classes from body to allow scrolling -->
-<body class="font-sans bg-gradient-to-br from-blue-50 to-blue-200 min-h-screen relative text-gray-800">
+<body class="font-sans bg-gradient-to-br from-blue-50 to-blue-200 min-h-screen flex items-center justify-center relative overflow-hidden text-gray-800">
 
     <!-- Background Bubbles Animation -->
-    <!-- Removed overflow-hidden from here to allow the body to scroll -->
-    <div class="bubbles absolute w-full h-full top-0 left-0 z-0"></div>
+    <div class="bubbles absolute w-full h-full top-0 left-0 z-0 overflow-hidden" id="bubbles"></div>
 
     <!-- Main Container -->
-    <!-- Added mx-auto to center the container horizontally and py-12 for vertical spacing -->
-    <div class="relative z-10 w-11/12 max-w-5xl my-12 mx-auto p-8 md:p-12 bg-white bg-opacity-90 rounded-3xl shadow-2xl backdrop-blur-md border border-gray-200">
+    <div class="relative z-10 w-11/12 max-w-5xl p-8 md:p-12 bg-white bg-opacity-90 rounded-3xl shadow-2xl backdrop-blur-md border border-gray-200">
         
         <!-- Header Section -->
         <header class="text-center mb-10">
@@ -86,13 +83,7 @@
         </section>
 
         <!-- Google Ads Placement -->
-        <aside class="mb-12">
-            <div id="ad-container-1" class="w-full h-40 bg-gray-100 flex items-center justify-center rounded-lg border-dashed border-2 border-gray-300 text-gray-500 text-center p-4">
-                <!-- IMPORTANT: Place your Google AdSense code here. -->
-                <!-- The ad unit will be served in this container. -->
-                Ad Unit 1
-            </div>
-        </aside>
+       
 
         <!-- Button Group -->
         <nav>
@@ -117,14 +108,7 @@
         </nav>
 
         <!-- Google Ads Placement -->
-        <aside class="mt-12">
-            <div id="ad-container-2" class="w-full h-40 bg-gray-100 flex items-center justify-center rounded-lg border-dashed border-2 border-gray-300 text-gray-500 text-center p-4">
-                <!-- IMPORTANT: Place your Google AdSense code here. -->
-                <!-- The ad unit will be served in this container. -->
-                Ad Unit 2
-            </div>
-        </aside>
-
+       
         <!-- Footer -->
         <footer class="mt-12 text-center text-gray-600 text-sm">
             <p>© 2023 Anthony's Portfolio | Exploring the Future of AI</p>
@@ -136,27 +120,24 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Create and animate background bubbles
             const bubblesContainer = document.getElementById('bubbles');
-            // Check if the bubblesContainer element exists before trying to use it
-            if (bubblesContainer) {
-                const numberOfBubbles = 20;
+            const numberOfBubbles = 20;
+            
+            for (let i = 0; i < numberOfBubbles; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble', 'absolute', 'rounded-full', 'border-2', 'border-opacity-30', 'bg-white', 'bg-opacity-30', 'border-blue-900', 'animate-[rise_15s_ease-in_infinite]');
                 
-                for (let i = 0; i < numberOfBubbles; i++) {
-                    const bubble = document.createElement('div');
-                    bubble.classList.add('bubble', 'absolute', 'rounded-full', 'border-2', 'border-opacity-30', 'bg-white', 'bg-opacity-30', 'border-blue-900', 'animate-[rise_15s_ease-in_infinite]');
-                    
-                    const size = Math.random() * 60 + 20;
-                    const posX = Math.random() * 100;
-                    const delay = Math.random() * 15;
-                    const duration = Math.random() * 10 + 15;
-                    
-                    bubble.style.width = `${size}px`;
-                    bubble.style.height = `${size}px`;
-                    bubble.style.left = `${posX}vw`;
-                    bubble.style.animationDelay = `${delay}s`;
-                    bubble.style.animationDuration = `${duration}s`;
-                    
-                    bubblesContainer.appendChild(bubble);
-                }
+                const size = Math.random() * 60 + 20;
+                const posX = Math.random() * 100;
+                const delay = Math.random() * 15;
+                const duration = Math.random() * 10 + 15;
+                
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${posX}vw`;
+                bubble.style.animationDelay = `${delay}s`;
+                bubble.style.animationDuration = `${duration}s`;
+                
+                bubblesContainer.appendChild(bubble);
             }
 
             // Button hover effect with radial gradient
