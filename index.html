@@ -35,6 +35,7 @@
     </script>
 
     <meta charset="UTF-8">
+    <!-- This meta tag is critical for making the site responsive on all devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anthony's AI Portfolio</title>
     <link rel="icon" type="image/png" href="https://placehold.co/32x32/145DA0/ffffff?text=AH" sizes="32x32">
@@ -56,13 +57,14 @@
         }
     </style>
 </head>
-<body class="font-sans bg-gradient-to-br from-blue-50 to-blue-200 min-h-screen flex items-center justify-center relative overflow-hidden text-gray-800">
+<body class="font-sans bg-gradient-to-br from-blue-50 to-blue-200 min-h-screen relative text-gray-800">
 
     <!-- Background Bubbles Animation -->
-    <div class="bubbles absolute w-full h-full top-0 left-0 z-0 overflow-hidden" id="bubbles"></div>
+    <div class="bubbles absolute w-full h-full top-0 left-0 z-0"></div>
 
     <!-- Main Container -->
-    <div class="relative z-10 w-11/12 max-w-5xl p-8 md:p-12 bg-white bg-opacity-90 rounded-3xl shadow-2xl backdrop-blur-md border border-gray-200">
+    <!-- The `mx-auto` class centers the content horizontally on large screens -->
+    <div class="relative z-10 w-11/12 max-w-5xl my-12 mx-auto p-8 md:p-12 bg-white bg-opacity-90 rounded-3xl shadow-2xl backdrop-blur-md border border-gray-200">
         
         <!-- Header Section -->
         <header class="text-center mb-10">
@@ -82,10 +84,9 @@
             </p>
         </section>
 
-        <!-- Google Ads Placement -->
        
-
         <!-- Button Group -->
+        <!-- The `grid` and `md:grid-cols-2 lg:grid-cols-4` classes ensure a responsive layout -->
         <nav>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <a href="portofolio.html" class="group flex flex-col items-center justify-center p-6 bg-gradient-to-br from-blue-600 to-blue-900 text-white rounded-2xl shadow-lg transition-transform hover:scale-105 hover:shadow-2xl duration-300">
@@ -107,8 +108,6 @@
             </div>
         </nav>
 
-        <!-- Google Ads Placement -->
-       
         <!-- Footer -->
         <footer class="mt-12 text-center text-gray-600 text-sm">
             <p>© 2023 Anthony's Portfolio | Exploring the Future of AI</p>
@@ -120,24 +119,27 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Create and animate background bubbles
             const bubblesContainer = document.getElementById('bubbles');
-            const numberOfBubbles = 20;
-            
-            for (let i = 0; i < numberOfBubbles; i++) {
-                const bubble = document.createElement('div');
-                bubble.classList.add('bubble', 'absolute', 'rounded-full', 'border-2', 'border-opacity-30', 'bg-white', 'bg-opacity-30', 'border-blue-900', 'animate-[rise_15s_ease-in_infinite]');
+            // Check if the bubblesContainer element exists before trying to use it
+            if (bubblesContainer) {
+                const numberOfBubbles = 20;
                 
-                const size = Math.random() * 60 + 20;
-                const posX = Math.random() * 100;
-                const delay = Math.random() * 15;
-                const duration = Math.random() * 10 + 15;
-                
-                bubble.style.width = `${size}px`;
-                bubble.style.height = `${size}px`;
-                bubble.style.left = `${posX}vw`;
-                bubble.style.animationDelay = `${delay}s`;
-                bubble.style.animationDuration = `${duration}s`;
-                
-                bubblesContainer.appendChild(bubble);
+                for (let i = 0; i < numberOfBubbles; i++) {
+                    const bubble = document.createElement('div');
+                    bubble.classList.add('bubble', 'absolute', 'rounded-full', 'border-2', 'border-opacity-30', 'bg-white', 'bg-opacity-30', 'border-blue-900', 'animate-[rise_15s_ease-in_infinite]');
+                    
+                    const size = Math.random() * 60 + 20;
+                    const posX = Math.random() * 100;
+                    const delay = Math.random() * 15;
+                    const duration = Math.random() * 10 + 15;
+                    
+                    bubble.style.width = `${size}px`;
+                    bubble.style.height = `${size}px`;
+                    bubble.style.left = `${posX}vw`;
+                    bubble.style.animationDelay = `${delay}s`;
+                    bubble.style.animationDuration = `${duration}s`;
+                    
+                    bubblesContainer.appendChild(bubble);
+                }
             }
 
             // Button hover effect with radial gradient
@@ -151,7 +153,7 @@
                 });
                 
                 button.addEventListener('mouseleave', function() {
-                    this.style.background = 'linear-gradient(145deg, #2563EB, #1E3A8A)';
+                    this.style.background = 'linear-gradient(145deg, #2563EB, #1E3A8A)`;
                 });
             });
         });
