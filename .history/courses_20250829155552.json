@@ -7,11 +7,7 @@
     
   },
   "Deep Learning": {
-    "RNN": "courses/deep-learning/rnn.md",
-    "GRU": "courses/deep-learning/gru.md",
-    "LSTM": "courses/deep-learning/lstm.md",
-    "Transformer": "courses/deep-learning/transformer.md"
-
+    "Transfor": "deep-learning/transformer.md"
   },
   "System Design": {
     
