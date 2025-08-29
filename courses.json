@@ -12,8 +12,5 @@
     "LSTM": "courses/deep-learning/lstm.md",
     "Transformer": "courses/deep-learning/transformer.md"
 
-  },
-  "System Design": {
-    
   }
 }
