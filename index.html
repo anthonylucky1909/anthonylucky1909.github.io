@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8446133991523587"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthony Huang</title>
+    <!-- Tailwind CSS CDN for easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- FAVICON: Add these lines for your website icon -->
+    <!-- Standard favicon (most common) -->
+    <link rel="icon" type="image/png" href="https://placehold.co/32x32/48CAE4/ffffff?text=AH" sizes="32x32">
+    <!-- For Apple devices -->
+    <link rel="apple-touch-icon" href="https://placehold.co/180x180/48CAE4/ffffff?text=AH" sizes="180x180">
+    <!-- For older browsers -->
+    <link rel="icon" type="image/x-icon" href="https://placehold.co/16x16/48CAE4/ffffff?text=AH">
+    
+    <!-- END FAVICON -->
+    <script>
+        // Define dataLayer and the gtag function.
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        // Set default consent to 'denied' for all categories.
+        // This ensures a privacy-first approach before user interaction.
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'personalization_storage': 'denied',
+            'functionality_storage': 'denied',
+            'security_storage': 'denied',
+            'wait_for_update': 500 // Wait for CMP to update consent (in milliseconds)
+        });
+
+        // Load the Google Tag Manager/Global Site Tag script.
+        // Replace 'G-XXXXXXX' with your actual Google Analytics 4 Measurement ID
+        // or 'AW-XXXXXXX' for Google Ads Conversion ID if you use those.
+        // The Google Certified CMP will typically manage the loading of the consent dialog.
+        // For the full CMP script, you will generate it from your AdSense/Ad Manager/GA4 account.
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-XXXXXX'); // Replace GTM-XXXXXX with your GTM ID or appropriate Google tag ID
+    </script>
+    <style>
+        /* Custom font import for "Inter" */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Custom styling for list items within sections for better readability */
+        section ul.list-section>li:not(:last-child) {
+            margin-bottom: 0.75rem;
+            /* Add some space between main list items */
+        }
+
+        section ul.list-section ul li {
+            margin-bottom: 0.25rem;
+            /* Less space for nested list items */
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthony Huang Portfolio & Courses</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Marked.js -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- KaTeX CSS & JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body);"></script>
+    <!-- Prism.js CSS & JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+    <style>
+        /* ---------- General Styles ---------- */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background-color: #fafafa;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .section-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 8px 0;
+            font-weight: 500;
+            color: #64748b;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #3b82f6;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3b82f6;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        @media (max-width:768px) {
+            .container-custom {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+        }
+
+        /* ---------- Sidebar & Layout ---------- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #sidebar {
+            width: 260px;
+            min-width: 60px;
+            max-width: 500px;
+            background: #fff;
+            border-right: 1px solid #eee;
+            overflow: hidden;
+            transition: width 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.04);
+        }
+
+        #sidebar.collapsed {
+            width: 60px;
+        }
+
+        #toggle-btn,
+        #profile-btn {
+            border: none;
+            background: none;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            text-align: left;
+            transition: background 0.2s;
+        }
+
+        #toggle-btn:hover,
+        #profile-btn:hover {
+            background: #fafafa;
+        }
+
+        #course-list {
+            flex: 1;
+            overflow-y: auto;
+            padding-bottom: 20px;
+            transition: opacity 0.3s;
+        }
+
+        #sidebar.collapsed #course-list {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #course-list h4 {
+            margin: 0;
+            padding: 12px 15px;
+            border-bottom: 1px solid #f2f2f2;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        #course-list h4:hover {
+            background: #fafafa;
+        }
+
+        .arrow {
+            font-size: 11px;
+            transition: transform 0.2s;
+        }
+
+        .chapter-links {
+            display: none;
+            margin: 0;
+            padding: 6px 0 8px 10px;
+            border-left: 2px solid #f2f2f2;
+        }
+
+        .chapter-links a {
+            display: block;
+            padding: 6px 14px;
+            text-decoration: none;
+            color: #333;
+            font-size: 13px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .chapter-links a:hover {
+            background: #f7f7f7;
+        }
+
+        .chapter-links a.active {
+            font-weight: 600;
+            color: #000;
+            background: #f9f9f9;
+        }
+
+        #resizer {
+            width: 5px;
+            cursor: ew-resize;
+            background: #f2f2f2;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            transition: background 0.2s;
+        }
+
+        #resizer:hover {
+            background: #e5e5e5;
+        }
+
+        #sidebar.collapsed #resizer {
+            display: none;
+        }
+
+        #content {
+            flex: 1;
+            padding: 30px 40px;
+            overflow-y: auto;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* ---------- Markdown Content ---------- */
+        #content h1,
+        #content h2,
+        #content h3 {
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        #content p {
+            margin: 10px 0;
+        }
+
+        #content img {
+            max-width: 100%;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        #content pre {
+            background: #1e1e2f;
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+
+        #content code {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+        }
+
+        /* ---------- Animations ---------- */
+        .animate-fadeIn {
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+        }
+
+        .animate-slideIn {
+            animation: slideIn 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-pulse-slow {
+            animation: pulseSlow 6s ease-in-out infinite;
+        }
+
+        @keyframes pulseSlow {
+
+            0%,
+            100% {
+                opacity: 0.2;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <button id="toggle-btn">☰</button>
+        <button id="profile-btn">Profile</button>
+        <div id="course-list"></div>
+        <div id="resizer"></div>
+    </div>
+
+    <!-- Content Area -->
+    <div id="content">
+        <section
+            class="relative w-full h-screen flex flex-col justify-center items-center bg-gradient-to-br from-slate-50 to-slate-200 text-center px-4 overflow-hidden">
+            <h1 class="text-5xl md:text-6xl font-bold text-slate-900 mb-12 animate-fadeIn">
+                Welcome to My Computer Science Portal
+            </h1>
+            <div class="text-left text-lg md:text-xl text-slate-700 max-w-3xl space-y-6">
+                <p class="note animate-slideIn" style="animation-delay: 0.3s">• <span
+                        class="font-semibold text-indigo-600">Notes & Tutorials:</span> Clear explanations of concepts.
+                </p>
+                <p class="note animate-slideIn" style="animation-delay: 0.6s">• <span
+                        class="font-semibold text-indigo-600">AI & Deep Learning:</span> Theory and hands-on projects.
+                </p>
+                <p class="note animate-slideIn" style="animation-delay: 0.9s">• <span
+                        class="font-semibold text-indigo-600">Backend Systems & Databases:</span> Practical
+                    implementations and guides.</p>
+                <p class="note animate-slideIn" style="animation-delay: 1.2s">• <span
+                        class="font-semibold text-indigo-600">System Design:</span> Scalable architecture examples.</p>
+                <p class="note animate-slideIn" style="animation-delay: 1.5s">• <span
+                        class="font-semibold text-indigo-600">Projects:</span> Apply theory in real-world scenarios.</p>
+                <p class="note animate-slideIn" style="animation-delay: 1.8s">• <span
+                        class="font-semibold text-indigo-600">Learning Journey:</span> Track progress and insights in AI
+                    & CS.</p>
+            </div>
+            <div class="absolute inset-0">
+                <div
+                    class="bg-gradient-to-r from-indigo-200 via-purple-200 to-indigo-200 opacity-20 animate-pulse-slow w-full h-full">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // ---------- Load courses.json ----------
+        fetch("courses.json")
+            .then(res => res.json())
+            .then(courses => {
+                const courseList = document.getElementById("course-list");
+                for (let category in courses) {
+                    let catHeader = document.createElement("h4");
+                    let arrow = document.createElement("span");
+                    arrow.textContent = "▶"; arrow.className = "arrow";
+                    catHeader.textContent = category; catHeader.appendChild(arrow);
+                    courseList.appendChild(catHeader);
+
+                    let linksContainer = document.createElement("div");
+                    linksContainer.className = "chapter-links";
+
+                    for (let title in courses[category]) {
+                        let link = document.createElement("a");
+                        link.textContent = title; link.href = "#";
+                        link.onclick = () => { setActiveLink(link); loadCourse(courses[category][title]); };
+                        linksContainer.appendChild(link);
+                    }
+                    courseList.appendChild(linksContainer);
+
+                    catHeader.onclick = () => {
+                        let isOpen = linksContainer.style.display === "block";
+                        linksContainer.style.display = isOpen ? "none" : "block";
+                        arrow.style.transform = isOpen ? "rotate(0deg)" : "rotate(90deg)";
+                    };
+                }
+            });
+
+        // Load Markdown course with math and code highlighting
+        async function loadCourse(path) {
+            try {
+                const res = await fetch(path);
+                if (!res.ok) throw new Error("Cannot load " + path);
+                const md = await res.text();
+                document.getElementById("content").innerHTML = marked.parse(md);
+
+                // Render math formulas
+                renderMathInElement(document.getElementById("content"), {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false }
+                    ]
+                });
+
+                // Highlight code blocks
+                Prism.highlightAll();
+            } catch (err) {
+                document.getElementById("content").innerHTML = "<p style='color:red;'>" + err.message + "</p>";
+            }
+        }
+
+        // Load profile.html dynamically
+        document.getElementById("profile-btn").onclick = async () => {
+            try {
+                const res = await fetch("profile.html");
+                if (!res.ok) throw new Error("Cannot load profile.html");
+                const html = await res.text();
+                document.getElementById("content").innerHTML = html;
+            } catch (err) {
+                document.getElementById("content").innerHTML = "<p style='color:red;'>" + err.message + "</p>";
+            }
+            document.querySelectorAll(".chapter-links a").forEach(link => link.classList.remove("active"));
+        };
+
+        // Sidebar toggle
+        document.getElementById("toggle-btn").onclick = () => {
+            document.getElementById("sidebar").classList.toggle("collapsed");
+        };
+
+        // Active link
+        function setActiveLink(selected) {
+            document.querySelectorAll(".chapter-links a").forEach(link => link.classList.remove("active"));
+            selected.classList.add("active");
+        }
+
+        // Sidebar resizer
+        const sidebar = document.getElementById("sidebar");
+        const resizer = document.getElementById("resizer");
+        let isResizing = false;
+        resizer.addEventListener("mousedown", () => { isResizing = true; document.body.style.cursor = "ew-resize"; });
+        document.addEventListener("mousemove", e => { if (!isResizing) return; let newWidth = e.clientX; if (newWidth > 150 && newWidth < 500) sidebar.style.width = newWidth + "px"; });
+        document.addEventListener("mouseup", () => { isResizing = false; document.body.style.cursor = "default"; });
+    </script>
+
+</body>
+
+</html>
