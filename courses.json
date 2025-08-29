@@ -1,4 +1,7 @@
 {
+  "Algorihtm": {
+  
+  },
   "Machine Learning": {
     "Linear Regression": "courses/machine-learning/linear-regression.md",
     "Logistic Regression": "courses/machine-learning/logistic-regression.md",
@@ -12,5 +15,7 @@
     "LSTM": "courses/deep-learning/lstm.md",
     "Transformer": "courses/deep-learning/transformer.md"
 
+  },
+  "System Design": {
   }
 }
