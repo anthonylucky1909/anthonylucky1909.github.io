@@ -1,6 +1,6 @@
 {
   "Algorihtm": {
-  
+   "Dynamic Programming": "courses/algorithms/dynamic-programming.md"
   },
   "Machine Learning": {
     "Linear Regression": "courses/machine-learning/linear-regression.md",
