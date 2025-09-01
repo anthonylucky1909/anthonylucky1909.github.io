@@ -20,8 +20,7 @@
   },
   "Papers":
   {
-    "Lora":"courses/Papers/Lora.md",
-    "QLora":"courses/Papers/QLoRA.md",
+    ""
     "Understanding CLIP": "courses/Papers/ Understanding CLIP.md",
     "Language Models are Realistic Tabular Data Generators": "courses/Papers/Language Models are Realistic Tabular Data Generators.md"
   }

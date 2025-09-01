@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,15 +11,13 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://placehold.co/32x32/48CAE4/ffffff?text=AH" sizes="32x32">
     <link rel="apple-touch-icon" href="https://placehold.co/180x180/48CAE4/ffffff?text=AH" sizes="180x180">
     <link rel="icon" type="image/x-icon" href="https://placehold.co/16x16/48CAE4/ffffff?text=AH">
-
+    
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -28,28 +25,23 @@
             -moz-osx-font-smoothing: grayscale;
             background-color: #fafafa;
         }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
+        
+        h1, h2, h3, h4, h5, h6 {
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
-
+        
         .section-card {
             background: white;
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
+        
         .section-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
         }
-
+        
         .skill-badge {
             display: inline-block;
             background: #f1f5f9;
@@ -60,12 +52,12 @@
             margin: 4px;
             transition: all 0.2s ease;
         }
-
+        
         .skill-badge:hover {
             background: #e0e7ff;
             color: #3730a3;
         }
-
+        
         .nav-link {
             position: relative;
             padding: 8px 0;
@@ -73,11 +65,11 @@
             color: #64748b;
             transition: color 0.3s ease;
         }
-
+        
         .nav-link:hover {
             color: #3b82f6;
         }
-
+        
         .nav-link::after {
             content: '';
             position: absolute;
@@ -88,27 +80,27 @@
             background: #3b82f6;
             transition: width 0.3s ease;
         }
-
+        
         .nav-link:hover::after {
             width: 100%;
         }
-
+        
         .project-image {
             border-radius: 12px;
             overflow: hidden;
             transition: transform 0.3s ease;
         }
-
+        
         .project-image:hover {
             transform: scale(1.02);
         }
-
+        
         .timeline-item {
             position: relative;
             padding-left: 28px;
             margin-bottom: 24px;
         }
-
+        
         .timeline-item::before {
             content: '';
             position: absolute;
@@ -119,7 +111,7 @@
             border-radius: 50%;
             background: #3b82f6;
         }
-
+        
         .timeline-item::after {
             content: '';
             position: absolute;
@@ -129,11 +121,11 @@
             width: 2px;
             background: #e2e8f0;
         }
-
+        
         .timeline-item:last-child::after {
             display: none;
         }
-
+        
         .social-icon {
             display: inline-flex;
             align-items: center;
@@ -145,13 +137,13 @@
             color: #64748b;
             transition: all 0.3s ease;
         }
-
+        
         .social-icon:hover {
             background: #3b82f6;
             color: white;
             transform: translateY(-3px);
         }
-
+        
         @media (max-width: 768px) {
             .container-custom {
                 padding-left: 16px;
@@ -159,7 +151,7 @@
             }
         }
     </style>
-
+    
     <script>
         tailwind.config = {
             theme: {
@@ -200,7 +192,7 @@
                 </div>
             </div>
         </div>
-
+        
         <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100">
             <div class="px-4 py-4 space-y-4">
@@ -220,16 +212,11 @@
             <div class="max-w-3xl mx-auto">
                 <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Anthony Huang</h1>
                 <p class="text-xl md:text-2xl text-slate-600 mb-8">AI Engineer & Software Developer</p>
-                <p class="text-lg text-slate-500 mb-10 max-w-2xl mx-auto">Master's student in AI at UNSW with expertise
-                    in machine learning, backend engineering, and distributed systems.</p>
-
+                <p class="text-lg text-slate-500 mb-10 max-w-2xl mx-auto">Master's student in AI at UNSW with expertise in machine learning, backend engineering, and distributed systems.</p>
+                
                 <div class="flex justify-center space-x-4">
-                    <a href="#contact"
-                        class="px-6 py-3 border border-slate-300 text-slate-700 rounded-lg font-medium hover:bg-slate-50 transition-colors">Contact
-                        Me</a>
-                    <a href="#projects"
-                        class="px-6 py-3 border border-slate-300 text-slate-700 rounded-lg font-medium hover:bg-slate-50 transition-colors">View
-                        Projects</a>
+                    <a href="#contact" class="px-6 py-3 border border-slate-300 text-slate-700 rounded-lg font-medium hover:bg-slate-50 transition-colors">Contact Me</a>
+                    <a href="#projects" class="px-6 py-3 border border-slate-300 text-slate-700 rounded-lg font-medium hover:bg-slate-50 transition-colors">View Projects</a>
                 </div>
             </div>
         </div>
@@ -243,13 +230,10 @@
                 <h2 class="text-3xl font-bold text-slate-900 mb-6">About Me</h2>
                 <div class="prose prose-slate max-w-none">
                     <p class="text-lg text-slate-600 leading-relaxed">
-                        Master's student in AI at UNSW with a strong Computer Science foundation from Nanjing
-                        University.
+                        Master's student in AI at UNSW with a strong Computer Science foundation from Nanjing University.
                         Internship experience at Alibaba, Meituan, JP Morgan, and ZJU in backend engineering and machine
-                        learning. Proficient in Python, C/C++ and Go with expertise in PyTorch, FastAPI, Docker,
-                        Kubernetes, and
-                        distributed systems. Skilled in deep learning (transformers, generative models, computer vision)
-                        and ML
+                        learning. Proficient in Python, C/C++ and Go with expertise in PyTorch, FastAPI, Docker, Kubernetes, and
+                        distributed systems. Skilled in deep learning (transformers, generative models, computer vision) and ML
                         model deployment. Strong communication, leadership, and cross-cultural collaboration skills from
                         academic and industry experience.
                     </p>
@@ -260,7 +244,7 @@
         <!-- Experience Section -->
         <section id="experience" class="mb-16">
             <h2 class="text-3xl font-bold text-slate-900 mb-8">Professional Experience</h2>
-
+            
             <div class="space-y-6">
                 <div class="section-card p-8">
                     <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
@@ -268,36 +252,28 @@
                         <p class="text-primary-600 font-medium">Meituan, Beijing, China | Oct. 2023 – Nov. 2023</p>
                     </div>
                     <ul class="list-disc list-inside text-slate-600 space-y-2">
-                        <li>Integrated ChatGLM APIs into Flask backend, reducing response latency by 35% and enabling
-                            real-time processing of 10k+ daily Waimai procurement requests for business intelligence.
-                        </li>
+                        <li>Integrated ChatGLM APIs into Flask backend, reducing response latency by 35% and enabling real-time processing of 10k+ daily Waimai procurement requests for business intelligence.</li>
                     </ul>
                 </div>
-
+                
                 <div class="section-card p-8">
                     <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                        <h3 class="text-xl font-semibold text-slate-800">Software Engineering Intern Intelligence
-                            Connectivity</h3>
-                        <p class="text-primary-600 font-medium">Alibaba Group, Hangzhou, China | Aug. 2023 – Sept. 2023
-                        </p>
+                        <h3 class="text-xl font-semibold text-slate-800">Software Engineering Intern Intelligence Connectivity</h3>
+                        <p class="text-primary-600 font-medium">Alibaba Group, Hangzhou, China | Aug. 2023 – Sept. 2023</p>
                     </div>
                     <ul class="list-disc list-inside text-slate-600 space-y-2">
-                        <li>Implemented Python/SQL data pipelines, cutting IoT processing time by 60% and boosting
-                            overall pipeline efficiency.</li>
-                        <li>Constructed data visualizations with Matplotlib/Seaborn and applied LLM prompt engineering
-                            to parse test results, enhancing data quality and reducing manual validation.</li>
+                        <li>Implemented Python/SQL data pipelines, cutting IoT processing time by 60% and boosting overall pipeline efficiency.</li>
+                        <li>Constructed data visualizations with Matplotlib/Seaborn and applied LLM prompt engineering to parse test results, enhancing data quality and reducing manual validation.</li>
                     </ul>
                 </div>
-
+                
                 <div class="section-card p-8">
                     <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                         <h3 class="text-xl font-semibold text-slate-800">Software Engineering Intern</h3>
-                        <p class="text-primary-600 font-medium">JP Morgan Chase & Co., Shanghai, China | Jul. 2020 –
-                            Sept. 2020</p>
+                        <p class="text-primary-600 font-medium">JP Morgan Chase & Co., Shanghai, China | Jul. 2020 – Sept. 2020</p>
                     </div>
                     <ul class="list-disc list-inside text-slate-600 space-y-2">
-                        <li>Designed high-performance financial pipeline with Python and Perspective.js, capable of
-                            processing 1M+ live transactions daily.</li>
+                        <li>Designed high-performance financial pipeline with Python and Perspective.js, capable of processing 1M+ live transactions daily.</li>
                     </ul>
                 </div>
             </div>
@@ -306,37 +282,37 @@
         <!-- Projects Section -->
         <section id="projects" class="mb-16">
             <h2 class="text-3xl font-bold text-slate-900 mb-8">Selected Projects</h2>
-
+            
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Project 1 -->
                 <div class="section-card p-6 group">
                     <div class="project-image mb-4">
-                        <img src="https://raw.githubusercontent.com/anthonylucky1909/LinguaIDEN/refs/heads/master/diagram/model.png"
-                            alt="LinguaIDEN Translation Model" class="w-full h-48 object-cover"
-                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Unavailable';">
+                        <img src="https://raw.githubusercontent.com/anthonylucky1909/LinguaIDEN/refs/heads/master/diagram/model.png" 
+                             alt="LinguaIDEN Translation Model" 
+                             class="w-full h-48 object-cover"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Unavailable';">
                     </div>
                     <h3 class="text-xl font-semibold text-slate-800 mb-2">LinguaIDEN: Transformer-based NMT</h3>
                     <p class="text-slate-600 mb-4">Jul. 2025</p>
-                    <p class="text-slate-600 mb-4">Built a Transformer-based Neural Machine Translation system for
-                        Indonesian ↔ English translation using OPUS datasets.</p>
+                    <p class="text-slate-600 mb-4">Built a Transformer-based Neural Machine Translation system for Indonesian ↔ English translation using OPUS datasets.</p>
                     <div class="flex flex-wrap">
                         <span class="skill-badge">Python</span>
                         <span class="skill-badge">PyTorch</span>
                         <span class="skill-badge">NLP</span>
                     </div>
                 </div>
-
+                
                 <!-- Project 2 -->
                 <div class="section-card p-6 group">
                     <div class="project-image mb-4">
-                        <img src="https://raw.githubusercontent.com/anthonylucky1909/LLM-Engine/refs/heads/master/diagram/diagram.jpeg"
-                            alt="GPT-2 Chatbot Architecture" class="w-full h-48 object-cover"
-                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Unavailable';">
+                        <img src="https://raw.githubusercontent.com/anthonylucky1909/LLM-Engine/refs/heads/master/diagram/diagram.jpeg" 
+                             alt="GPT-2 Chatbot Architecture" 
+                             class="w-full h-48 object-cover"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Unavailable';">
                     </div>
                     <h3 class="text-xl font-semibold text-slate-800 mb-2">GPT-2 Chatbot with Web Deployment</h3>
                     <p class="text-slate-600 mb-4">May 2025</p>
-                    <p class="text-slate-600 mb-4">Trained GPT-2 for language generation and delivered a web-based
-                        chatbot with FastAPI and Docker.</p>
+                    <p class="text-slate-600 mb-4">Trained GPT-2 for language generation and delivered a web-based chatbot with FastAPI and Docker.</p>
                     <div class="flex flex-wrap">
                         <span class="skill-badge">Python</span>
                         <span class="skill-badge">GPT-2</span>
@@ -344,36 +320,36 @@
                         <span class="skill-badge">Docker</span>
                     </div>
                 </div>
-
+                
                 <!-- Project 3 -->
                 <div class="section-card p-6 group">
                     <div class="project-image mb-4">
-                        <img src="https://raw.githubusercontent.com/anthonylucky1909/SCAttNet/refs/heads/master/model.png"
-                            alt="SCAttNet Architecture" class="w-full h-48 object-cover"
-                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Unavailable';">
+                        <img src="https://raw.githubusercontent.com/anthonylucky1909/SCAttNet/refs/heads/master/model.png" 
+                             alt="SCAttNet Architecture" 
+                             class="w-full h-48 object-cover"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Unavailable';">
                     </div>
                     <h3 class="text-xl font-semibold text-slate-800 mb-2">High-Resolution Image Enhancement</h3>
                     <p class="text-slate-600 mb-4">Mar. 2025</p>
-                    <p class="text-slate-600 mb-4">Constructed dual-attention Super Resolution network in PyTorch,
-                        achieving 4x image resolution without performance loss.</p>
+                    <p class="text-slate-600 mb-4">Constructed dual-attention Super Resolution network in PyTorch, achieving 4x image resolution without performance loss.</p>
                     <div class="flex flex-wrap">
                         <span class="skill-badge">Python</span>
                         <span class="skill-badge">PyTorch</span>
                         <span class="skill-badge">Computer Vision</span>
                     </div>
                 </div>
-
+                
                 <!-- Project 4 -->
                 <div class="section-card p-6 group">
                     <div class="project-image mb-4">
-                        <img src="https://raw.githubusercontent.com/anthonylucky1909/Shortify/refs/heads/master/diagram/diagram.gif"
-                            alt="URL Shortener Architecture" class="w-full h-48 object-cover"
-                            onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Unavailable';">
+                        <img src="https://raw.githubusercontent.com/anthonylucky1909/Shortify/refs/heads/master/diagram/diagram.gif" 
+                             alt="URL Shortener Architecture" 
+                             class="w-full h-48 object-cover"
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+Unavailable';">
                     </div>
                     <h3 class="text-xl font-semibold text-slate-800 mb-2">High-Performance Golang URL Shortener</h3>
                     <p class="text-slate-600 mb-4">Dec. 2024</p>
-                    <p class="text-slate-600 mb-4">Developed distributed URL shortener with Redis caching and MongoDB
-                        storage, scaling to 10k+ requests with analytics.</p>
+                    <p class="text-slate-600 mb-4">Developed distributed URL shortener with Redis caching and MongoDB storage, scaling to 10k+ requests with analytics.</p>
                     <div class="flex flex-wrap">
                         <span class="skill-badge">Go</span>
                         <span class="skill-badge">Redis</span>
@@ -387,7 +363,7 @@
         <!-- Skills Section -->
         <section id="skills" class="mb-16">
             <h2 class="text-3xl font-bold text-slate-900 mb-8">Technical Skills</h2>
-
+            
             <div class="section-card p-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
@@ -404,7 +380,7 @@
                             <span class="skill-badge">HTML/CSS</span>
                         </div>
                     </div>
-
+                    
                     <div>
                         <h3 class="text-xl font-semibold text-slate-800 mb-4">ML Frameworks & Libraries</h3>
                         <div class="flex flex-wrap">
@@ -415,7 +391,7 @@
                             <span class="skill-badge">REST APIs</span>
                         </div>
                     </div>
-
+                    
                     <div>
                         <h3 class="text-xl font-semibold text-slate-800 mb-4">Tools & Platforms</h3>
                         <div class="flex flex-wrap">
@@ -430,7 +406,7 @@
                             <span class="skill-badge">Bash</span>
                         </div>
                     </div>
-
+                    
                     <div>
                         <h3 class="text-xl font-semibold text-slate-800 mb-4">Areas of Expertise</h3>
                         <div class="flex flex-wrap">
@@ -448,14 +424,14 @@
         <!-- Education Section -->
         <section id="education" class="mb-16">
             <h2 class="text-3xl font-bold text-slate-900 mb-8">Education</h2>
-
+            
             <div class="section-card p-8">
                 <div class="timeline-item">
                     <h3 class="text-xl font-semibold text-slate-800">MEng. Information Technology in AI</h3>
                     <p class="text-primary-600 font-medium mb-2">University of New South Wales, Sydney, Australia</p>
                     <p class="text-slate-600">Expected Jun. 2027</p>
                 </div>
-
+                
                 <div class="timeline-item">
                     <h3 class="text-xl font-semibold text-slate-800">BSc. Computer Science and Technology</h3>
                     <p class="text-primary-600 font-medium mb-2">Nanjing University, Nanjing, China</p>
@@ -467,12 +443,11 @@
         <!-- Contact Section -->
         <section id="contact" class="mb-16">
             <h2 class="text-3xl font-bold text-slate-900 mb-8">Get In Touch</h2>
-
+            
             <div class="section-card p-8">
                 <div class="flex flex-col md:flex-row items-center justify-between">
                     <div class="mb-6 md:mb-0">
-                        <p class="text-lg text-slate-600 mb-4">Feel free to reach out for collaboration or just to say
-                            hello!</p>
+                        <p class="text-lg text-slate-600 mb-4">Feel free to reach out for collaboration or just to say hello!</p>
                         <div class="flex space-x-4">
                             <a href="mailto:huangjunxiang19@gmail.com" class="social-icon">
                                 <i class="fas fa-envelope"></i>
@@ -485,10 +460,9 @@
                             </a>
                         </div>
                     </div>
-
+                    
                     <div class="text-center md:text-right">
-                        <a href="mailto:huangjunxiang19@gmail.com"
-                            class="inline-block px-6 py-3 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors">
+                        <a href="mailto:huangjunxiang19@gmail.com" class="inline-block px-6 py-3 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors">
                             Send Email
                         </a>
                     </div>
@@ -508,25 +482,25 @@
 
     <!-- JavaScript for mobile menu toggle -->
     <script>
-        document.getElementById('menu-toggle').addEventListener('click', function () {
+        document.getElementById('menu-toggle').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
-
+        
         // Close mobile menu when clicking on a link
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 document.getElementById('mobile-menu').classList.add('hidden');
             });
         });
-
+        
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-
+                
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-
+                
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
@@ -538,6 +512,5 @@
         });
     </script>
 </body>
-
 </html>
 <!-- update -->
