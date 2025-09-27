@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <!-- update -->
 <head>
@@ -916,4 +916,369 @@
 </body>
 
 </html>
-<!-- updatee -->
+<!-- updatee --> -->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthony Huang | AI & Software Engineer</title>
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for Inter Font -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary-text': '#1f2937', // Dark Gray
+                        'secondary-text': '#4b5563', // Medium Gray
+                        'light-bg': '#ffffff', // White
+                        'border-light': '#e5e7eb', // Light Gray border
+                        'accent-hover': '#f9fafb', // Very subtle off-white hover
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Ensuring smooth scrolling for navigation links */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-primary-text antialiased">
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm border-b border-border-light">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#hero" class="text-xl font-bold tracking-tight text-primary-text">Anthony Huang</a>
+                <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                    <a href="#about" class="inline-flex items-center px-1 pt-1 text-sm font-medium text-secondary-text hover:text-primary-text">About</a>
+                    <a href="#experience" class="inline-flex items-center px-1 pt-1 text-sm font-medium text-secondary-text hover:text-primary-text">Experience</a>
+                    <a href="#projects" class="inline-flex items-center px-1 pt-1 text-sm font-medium text-secondary-text hover:text-primary-text">Projects</a>
+                    <a href="#contact" class="inline-flex items-center px-1 pt-1 text-sm font-medium text-secondary-text hover:text-primary-text">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- 1. Hero Section -->
+        <section id="hero" class="pt-12 pb-24 text-center">
+            <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight mb-4">Anthony Huang</h1>
+            <h2 class="text-2xl sm:text-3xl font-light text-secondary-text max-w-3xl mx-auto">
+                Master’s student in AI at UNSW specializing in **scalable backend systems, distributed architectures,** and **deep learning** solutions.
+            </h2>
+            
+            <div class="mt-10 flex justify-center space-x-4">
+                <a href="#projects" class="group relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-primary-text rounded-lg border border-gray-300 hover:bg-gray-50 transition duration-150 ease-in-out px-6 py-3">
+                    View Technical Work
+                </a>
+                <a href="mailto:huangjunxiang19@gmail.com" class="group relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-white bg-primary-text rounded-lg hover:bg-gray-700 transition duration-150 ease-in-out px-6 py-3 shadow-lg">
+                    Get in Touch
+                </a>
+            </div>
+
+            <!-- Contact Links -->
+            <div class="flex justify-center space-x-6 mt-8 text-secondary-text">
+                <a href="mailto:huangjunxiang19@gmail.com" class="hover:text-primary-text transition duration-150 ease-in-out" aria-label="Email">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-2 4v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7"></path></svg>
+                </a>
+                <a href="https://linkedin.com/in/anthonyhuang" target="_blank" class="hover:text-primary-text transition duration-150 ease-in-out" aria-label="LinkedIn">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.5 2.5s-2.5-1.119-2.5-2.5c0-1.381 1.11-2.5 2.5-2.5s2.5 1.119 2.5 2.5zm-2.49 4h-1v16h1v-16zm-1-1v-2c-2.761 0-5 2.239-5 5v13h1v-13c0-2.209 1.791-4 4-4zm6.096-2h-1v16h1v-16zm-1-1v-2c-2.761 0-5 2.239-5 5v13h1v-13c0-2.209 1.791-4 4-4zm11.404 0h-1v16h1v-16zm-1-1v-2c-2.761 0-5 2.239-5 5v13h1v-13c0-2.209 1.791-4 4-4zm-13-13h-1v16h1v-16z"/></svg>
+                </a>
+                <a href="https://github.com/anthonyhuang" target="_blank" class="hover:text-primary-text transition duration-150 ease-in-out" aria-label="GitHub">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.11.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.043-1.61-4.043-1.61-.546-1.385-1.332-1.755-1.332-1.755-1.09-.745.083-.73.083-.73 1.205.085 1.838 1.238 1.838 1.238 1.07 1.838 2.809 1.306 3.492.996.108-.775.419-1.306.762-1.606-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.236-3.22-.124-.302-.535-1.52.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.398 3.003-.404 1.02.006 2.046.138 3.003.404 2.293-1.552 3.301-1.23 3.301-1.23.652 1.656.241 2.874.117 3.176.772.84 1.236 1.91 1.236 3.22 0 4.61-2.805 5.625-5.478 5.922.43.37.817 1.127.817 2.275 0 1.643-.015 2.96-.015 3.364 0 .317.21.69.825.577C20.562 21.8 24 17.302 24 12c0-6.627-5.373-12-12-12z" clip-rule="evenodd"/></svg>
+                </a>
+            </div>
+        </section>
+
+        <div class="border-t border-border-light my-12"></div>
+
+        <!-- 2. Technical Skills Section -->
+        <section id="about" class="py-12">
+            <h3 class="text-3xl font-bold mb-8 text-center">Technical Skills</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Column 1: Core Engineering -->
+                <div class="border border-border-light rounded-xl p-6 shadow-sm">
+                    <h4 class="text-xl font-semibold mb-3 text-primary-text">Core & Backend Engineering</h4>
+                    <p class="text-secondary-text mb-4">Focus on robust architecture and high-performance system design.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Python</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">C/C++</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Go</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">FastAPI</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Flask</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Java</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">SQL</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Distributed Systems</span>
+                    </div>
+                </div>
+
+                <!-- Column 2: Data, AI & MLOps -->
+                <div class="border border-border-light rounded-xl p-6 shadow-sm">
+                    <h4 class="text-xl font-semibold mb-3 text-primary-text">AI, Deep Learning & Frameworks</h4>
+                    <p class="text-secondary-text mb-4">Expertise in generative models and efficient ML deployment.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">PyTorch</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">TensorFlow</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Transformers</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Computer Vision</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">NLP</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Generative Models</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">REST APIs</span>
+                    </div>
+                </div>
+                
+                <!-- Column 3: DevOps & Data Stores -->
+                <div class="border border-border-light rounded-xl p-6 shadow-sm">
+                    <h4 class="text-xl font-semibold mb-3 text-primary-text">DevOps & Data Stores</h4>
+                    <p class="text-secondary-text mb-4">Proficiency in deployment, scaling, and data management.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Docker</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Kubernetes</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">AWS</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Git/GitHub Actions</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Redis</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">MongoDB</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">PostgreSQL/MySQL</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Linux/Bash</span>
+                    </div>
+                </div>
+
+                <!-- Column 4: Certifications & Concepts -->
+                <div class="border border-border-light rounded-xl p-6 shadow-sm">
+                    <h4 class="text-xl font-semibold mb-3 text-primary-text">Certifications & Fundamentals</h4>
+                    <p class="text-secondary-text mb-4">Formal knowledge in foundational computer science and emerging AI trends.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Fundamentals of LLMs (Hugging Face)</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Generative AI (Databricks)</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">OOP</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Algorithms</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">System Design</span>
+                        <span class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Microservices</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="border-t border-border-light my-12"></div>
+
+        <!-- 3. Experience Section -->
+        <section id="experience" class="py-12">
+            <h3 class="text-3xl font-bold mb-10 text-center">Professional & Research Experience</h3>
+
+            <!-- Research Assistant -->
+            <div class="mb-10 p-6 border border-border-light rounded-xl shadow-sm hover:shadow-md transition duration-200">
+                <div class="flex justify-between items-start mb-2">
+                    <h4 class="text-xl font-semibold text-primary-text">Research Assistant - CAD Lab</h4>
+                    <span class="text-sm font-medium text-secondary-text">Sep 2024 – Jul 2025</span>
+                </div>
+                <p class="text-md text-secondary-text mb-4">Zhejiang University</p>
+                <ul class="list-disc list-inside space-y-2 text-primary-text/90">
+                    <li>Designed and implemented super-resolution models using **Diffusion Transformers** and U-Net in PyTorch, improving system efficiency by **50%** and enabling edge deployment.</li>
+                    <li>Conducted architecture comparisons to optimize model performance and scalability across multiple datasets.</li>
+                </ul>
+            </div>
+
+            <!-- Meituan -->
+            <div class="mb-10 p-6 border border-border-light rounded-xl shadow-sm hover:shadow-md transition duration-200">
+                <div class="flex justify-between items-start mb-2">
+                    <h4 class="text-xl font-semibold text-primary-text">Software Engineering Intern - Data Center</h4>
+                    <span class="text-sm font-medium text-secondary-text">Oct 2023 – Nov 2023</span>
+                </div>
+                <p class="text-md text-secondary-text mb-4">Meituan</p>
+                <ul class="list-disc list-inside space-y-2 text-primary-text/90">
+                    <li>Integrated **ChatGLM APIs** into Flask backend, reducing response latency by **35%** and supporting 10,000+ daily requests.</li>
+                    <li>Optimized API endpoints under peak traffic, improving throughput by **40%** and reliability for 50k+ concurrent users.</li>
+                    <li>Applied object-oriented programming and engineering principles to design maintainable backend services.</li>
+                </ul>
+            </div>
+
+            <!-- Alibaba Group -->
+            <div class="mb-10 p-6 border border-border-light rounded-xl shadow-sm hover:shadow-md transition duration-200">
+                <div class="flex justify-between items-start mb-2">
+                    <h4 class="text-xl font-semibold text-primary-text">Software Engineering Intern - Intelligence Connectivity</h4>
+                    <span class="text-sm font-medium text-secondary-text">Aug 2023 – Sep 2023</span>
+                </div>
+                <p class="text-md text-secondary-text mb-4">Alibaba Group</p>
+                <ul class="list-disc list-inside space-y-2 text-primary-text/90">
+                    <li>Engineered Python/SQL IoT pipelines, reducing processing latency by **60%** across 1,000+ devices.</li>
+                    <li>Automated test result analysis using **LLM prompt engineering**, reducing manual review time by **75%** and increasing accuracy by **20%**.</li>
+                    <li>Collaborated with cross-functional teams to ensure scalable, production-ready systems.</li>
+                </ul>
+            </div>
+
+            <!-- J.P. Morgan Chase & Co. -->
+            <div class="mb-10 p-6 border border-border-light rounded-xl shadow-sm hover:shadow-md transition duration-200">
+                <div class="flex justify-between items-start mb-2">
+                    <h4 class="text-xl font-semibold text-primary-text">Software Engineering Intern</h4>
+                    <span class="text-sm font-medium text-secondary-text">Jul 2020 – Sep 2020</span>
+                </div>
+                <p class="text-md text-secondary-text mb-4">JP Morgan Chase & Co.</p>
+                <ul class="list-disc list-inside space-y-2 text-primary-text/90">
+                    <li>Developed Python/Perspective.js pipeline processing **1M+ daily transactions**, reducing latency by **30%**.</li>
+                    <li>Built real-time dashboards, enabling **25% faster monitoring** and **15% more efficient decision-making**.</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <div class="border-t border-border-light my-12"></div>
+
+        <!-- 4. Projects Section -->
+        <section id="projects" class="py-12">
+            <h3 class="text-3xl font-bold mb-10 text-center">Technical Projects</h3>
+            
+            <div class="grid grid-cols-1 gap-8">
+                
+                <!-- Video-to-MP3 Microservices Platform -->
+                <div class="p-6 border border-border-light rounded-xl shadow-sm hover:shadow-lg transition duration-200">
+                    <h4 class="text-xl font-semibold mb-2 text-primary-text">Video-to-MP3 Microservices Platform</h4>
+                    <p class="text-sm text-secondary-text mb-3 font-mono">Flask, FFmpeg, Docker, Kubernetes, MongoDB, MySQL</p>
+                    <ul class="list-disc list-inside space-y-2 text-primary-text/90">
+                        <li>Built asynchronous microservices, accelerating video-to-MP3 conversion **4×** and improving uptime by **20%** for 100k+ daily users.</li>
+                        <li>Applied object-oriented principles and distributed system design for scalable deployment.</li>
+                    </ul>
+                </div>
+
+                <!-- High-Performance Golang URL Shortener -->
+                <div class="p-6 border border-border-light rounded-xl shadow-sm hover:shadow-lg transition duration-200">
+                    <h4 class="text-xl font-semibold mb-2 text-primary-text">High-Performance Golang URL Shortener</h4>
+                    <p class="text-sm text-secondary-text mb-3 font-mono">Golang, Redis, MongoDB, Bash</p>
+                    <ul class="list-disc list-inside space-y-2 text-primary-text/90">
+                        <li>Developed distributed URL shortener with real-time analytics, scaling to **10k+ requests/sec**.</li>
+                        <li>Optimized algorithms for efficient URL generation and retrieval under high concurrency.</li>
+                    </ul>
+                </div>
+
+                <!-- Distributed C++ Key-Value Store -->
+                <div class="p-6 border border-border-light rounded-xl shadow-sm hover:shadow-lg transition duration-200">
+                    <h4 class="text-xl font-semibold mb-2 text-primary-text">Distributed C++ Key-Value Store</h4>
+                    <p class="text-sm text-secondary-text mb-3 font-mono">C++, TCP, Multithreading</p>
+                    <ul class="list-disc list-inside space-y-2 text-primary-text/90">
+                        <li>Implemented multithreaded TCP key-value store using object-oriented design and asynchronous replication, achieving **3× higher throughput** and **99.9% fault tolerance**.</li>
+                    </ul>
+                </div>
+                
+                <!-- GPT-2 Chatbot with Web Deployment -->
+                <div class="p-6 border border-border-light rounded-xl shadow-sm hover:shadow-lg transition duration-200">
+                    <h4 class="text-xl font-semibold mb-2 text-primary-text">GPT-2 Chatbot with Web Deployment</h4>
+                    <p class="text-sm text-secondary-text mb-3 font-mono">PyTorch, FastAPI, Docker, Transformers</p>
+                    <ul class="list-disc list-inside space-y-2 text-primary-text/90">
+                        <li>Fine-tuned GPT-2 and deployed web chatbot handling **95% of user queries autonomously**, improving response consistency by **30%**.</li>
+                    </ul>
+                </div>
+
+                <!-- High-Resolution Image Enhancement -->
+                <div class="p-6 border border-border-light rounded-xl shadow-sm hover:shadow-lg transition duration-200">
+                    <h4 class="text-xl font-semibold mb-2 text-primary-text">High-Resolution Image Enhancement Model</h4>
+                    <p class="text-sm text-secondary-text mb-3 font-mono">PyTorch, FastAPI, Docker, HTML/CSS/JS</p>
+                    <ul class="list-disc list-inside space-y-2 text-primary-text/90">
+                        <li>Built advanced deep learning model for high-resolution images, enhancing images by **4×** resolution and reducing latency by **30%**.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="border-t border-border-light my-12"></div>
+
+        <!-- 5. Education, Awards, and Activities Section -->
+        <section id="education" class="py-12">
+            <h3 class="text-3xl font-bold mb-10 text-center">Education & Recognition</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Education -->
+                <div class="p-6 border border-border-light rounded-xl shadow-sm">
+                    <h4 class="text-xl font-semibold mb-4 text-primary-text">Academic Background</h4>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="font-medium">University of New South Wales</p>
+                            <p class="text-sm text-secondary-text">Master of Engineering in IT (Artificial Intelligence)</p>
+                            <p class="text-xs text-secondary-text">Expected Jun 2027, Sydney, Australia</p>
+                        </div>
+                        <div>
+                            <p class="font-medium">Nanjing University</p>
+                            <p class="text-sm text-secondary-text">Bachelor of Science in Computer Science and Technology</p>
+                            <p class="text-xs text-secondary-text">Jun 2024, Nanjing, China</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Awards & Activities -->
+                <div class="p-6 border border-border-light rounded-xl shadow-sm">
+                    <h4 class="text-xl font-semibold mb-4 text-primary-text">Awards & Activities</h4>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="font-medium">Awards</p>
+                            <ul class="list-disc list-inside text-sm text-secondary-text ml-4 space-y-1">
+                                <li>International Student Award Scholarship, UNSW (2025)</li>
+                                <li>Nanjing Municipal Government Scholarship, Nanjing University (2020)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="font-medium">Extracurricular Activities</p>
+                            <ul class="list-disc list-inside text-sm text-secondary-text ml-4 space-y-1">
+                                <li>International Student Union (ISU) - Organized events for 500+ students.</li>
+                                <li>China Society of Image and Graphics (CSIG) - Conference Participant.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <div class="border-t border-border-light my-12"></div>
+
+        <!-- 6. Contact Footer Section -->
+        <section id="contact" class="py-12 text-center">
+            <h3 class="text-3xl font-bold mb-4">Let's Connect</h3>
+            <p class="text-secondary-text max-w-xl mx-auto mb-8">
+                I am always open to discussing new engineering challenges, AI research, and collaboration opportunities.
+            </p>
+            
+            <div class="mt-8 flex justify-center space-x-6 text-primary-text">
+                <a href="mailto:huangjunxiang19@gmail.com" class="text-lg font-medium hover:underline">huangjunxiang19@gmail.com</a>
+                <span class="text-secondary-text">|</span>
+                <a href="tel:+61493556311" class="text-lg font-medium hover:underline">+61 493556311</a>
+            </div>
+
+            <!-- Social Links (repeated for convenience) -->
+            <div class="flex justify-center space-x-6 mt-6 text-secondary-text">
+                <a href="https://linkedin.com/in/anthonyhuang" target="_blank" class="hover:text-primary-text transition duration-150 ease-in-out" aria-label="LinkedIn">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.5 2.5s-2.5-1.119-2.5-2.5c0-1.381 1.11-2.5 2.5-2.5s2.5 1.119 2.5 2.5zm-2.49 4h-1v16h1v-16zm-1-1v-2c-2.761 0-5 2.239-5 5v13h1v-13c0-2.209 1.791-4 4-4zm6.096-2h-1v16h1v-16zm-1-1v-2c-2.761 0-5 2.239-5 5v13h1v-13c0-2.209 1.791-4 4-4zm11.404 0h-1v16h1v-16zm-1-1v-2c-2.761 0-5 2.239-5 5v13h1v-13c0-2.209 1.791-4 4-4zm-13-13h-1v16h1v-16z"/></svg>
+                </a>
+                <a href="https://github.com/anthonyhuang" target="_blank" class="hover:text-primary-text transition duration-150 ease-in-out" aria-label="GitHub">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.11.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.043-1.61-4.043-1.61-.546-1.385-1.332-1.755-1.332-1.755-1.09-.745.083-.73.083-.73 1.205.085 1.838 1.238 1.838 1.238 1.07 1.838 2.809 1.306 3.492.996.108-.775.419-1.306.762-1.606-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.236-3.22-.124-.302-.535-1.52.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.398 3.003-.404 1.02.006 2.046.138 3.003.404 2.293-1.552 3.301-1.23 3.301-1.23.652 1.656.241 2.874.117 3.176.772.84 1.236 1.91 1.236 3.22 0 4.61-2.805 5.625-5.478 5.922.43.37.817 1.127.817 2.275 0 1.643-.015 2.96-.015 3.364 0 .317.21.69.825.577C20.562 21.8 24 17.302 24 12c0-6.627-5.373-12-12-12z" clip-rule="evenodd"/></svg>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 border-t border-border-light mt-12 py-6">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-secondary-text">
+            &copy; 2025 Anthony Huang. All rights reserved. Built with Tailwind CSS.
+        </div>
+    </footer>
+
+</body>
+</html>
+
